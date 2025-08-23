@@ -40,7 +40,7 @@ portfolio/
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/Ahmed-Hesham07/portfolio.git
+    git clone https://github.com/Ahmed-Seddik07/portfolio.git
     ```
 2. Navigate to the project directory:
     ```sh
@@ -55,4 +55,4 @@ portfolio/
 
 ## License
 
-© 2024 Ahmed Hesham. All rights reserved.
+© 2024 Ahmed Seddik. All rights reserved.

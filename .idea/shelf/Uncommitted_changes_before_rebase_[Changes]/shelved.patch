@@ -1,7 +1,7 @@
 Index: views/index.html
 IDEA additional info:
 Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
-<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Ahmed Hesham - Portfolio</title>\r\n    <link rel=\"stylesheet\" href=\"/Public/css/style.css\">\r\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\r\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css\">\r\n\r\n</head>\r\n<body>\r\n\r\n\r\n\r\n<!-- Cover Section with Background Video -->\r\n<div class=\"cover\">\r\n    <video autoplay muted loop id=\"background-video\">\r\n        <source src=\"/Media/cover-bg-loop.mp4\" type=\"video/mp4\">\r\n    </video>\r\n    <div class=\"cover-content\">\r\n        <div class=\"text-and-image\">\r\n            <img class=\"profile-img\" src=\"/Media/Ahmed Hesham Ismail.jpeg\" alt=\"Ahmed Hesham\">\r\n            <div class=\"text\">\r\n                <h1>Ahmed Hesham</h1>\r\n                <h2>Software Engineer | Computer Engineering Student</h2>\r\n                <p>I'm a second-year Computer Engineering student at the Arab Academy for Science, Technology & Maritime Transport, with a passion for developing efficient, scalable software solutions and solving complex programming challenges.\r\n                </p>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n<footer>\r\n    <ul class=\"social-links\">\r\n        <li><i class=\"fas fa-envelope\"<a href=\"mailto:ahmed.hesham0762@gmail.com\"></a></i></li>\r\n        <li><a href=\"https://github.com/ahmed-hesham07\" target=\"_blank\"><i class=\"fab fa-github\"></i> GitHub</a></li>\r\n        <li><a href=\"https://www.linkedin.com/in/ahmedhesham612006\" target=\"_blank\"><i class=\"fab fa-linkedin\"></i> LinkedIn</a></li>\r\n    </ul>\r\n    <p>© 2024 Ahmed Hesham | All Rights Reserved</p>\r\n</footer>\r\n\r\n<script src=\"/Public/js/script.js\"></script>\r\n</body>\r\n</html>\r\n
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Ahmed Seddik - Portfolio</title>\r\n    <link rel=\"stylesheet\" href=\"/Public/css/style.css\">\r\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\r\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css\">\r\n\r\n</head>\r\n<body>\r\n\r\n\r\n\r\n<!-- Cover Section with Background Video -->\r\n<div class=\"cover\">\r\n    <video autoplay muted loop id=\"background-video\">\r\n        <source src=\"/Media/cover-bg-loop.mp4\" type=\"video/mp4\">\r\n    </video>\r\n    <div class=\"cover-content\">\r\n        <div class=\"text-and-image\">\r\n            <img class=\"profile-img\" src=\"/Media/Ahmed Seddik Ismail.jpeg\" alt=\"Ahmed Seddik\">\r\n            <div class=\"text\">\r\n                <h1>Ahmed Seddik</h1>\r\n                <h2>Software Engineer | Computer Engineering Student</h2>\r\n                <p>I'm a second-year Computer Engineering student at the Arab Academy for Science, Technology & Maritime Transport, with a passion for developing efficient, scalable software solutions and solving complex programming challenges.\r\n                </p>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n<footer>\r\n    <ul class=\"social-links\">\r\n        <li><i class=\"fas fa-envelope\"<a href=\"mailto:ahmed.Seddik0762@gmail.com\"></a></i></li>\r\n        <li><a href=\"https://github.com/ahmed-Seddik07\" target=\"_blank\"><i class=\"fab fa-github\"></i> GitHub</a></li>\r\n        <li><a href=\"https://www.linkedin.com/in/ahmedSeddik612006\" target=\"_blank\"><i class=\"fab fa-linkedin\"></i> LinkedIn</a></li>\r\n    </ul>\r\n    <p>© 2024 Ahmed Seddik | All Rights Reserved</p>\r\n</footer>\r\n\r\n<script src=\"/Public/js/script.js\"></script>\r\n</body>\r\n</html>\r\n
 ===================================================================
 diff --git a/views/index.html b/views/index.html
 --- a/views/index.html	(revision df9af5e394d442c7f19795bcd4361ee38e9a7176)
@@ -25,23 +25,23 @@ diff --git a/views/index.html b/views/index.html
  
  <footer>
      <ul class="social-links">
--        <li><i class="fas fa-envelope"<a href="mailto:ahmed.hesham0762@gmail.com"></a></i></li>
--        <li><a href="https://github.com/ahmed-hesham07" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
--        <li><a href="https://www.linkedin.com/in/ahmedhesham612006" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-+        <li><a href="mailto:ahmed.hesham0762@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a></li>
-+        <li><a href="https://github.com/ahmed-hesham07" target="_blank"><i class="fab fa-github"></i></a></li>
-+        <li><a href="https://www.linkedin.com/in/ahmedhesham612006" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+-        <li><i class="fas fa-envelope"<a href="mailto:ahmed.Seddik0762@gmail.com"></a></i></li>
+-        <li><a href="https://github.com/ahmed-Seddik07" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+-        <li><a href="https://www.linkedin.com/in/ahmedSeddik612006" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
++        <li><a href="mailto:ahmed.Seddik0762@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a></li>
++        <li><a href="https://github.com/ahmed-Seddik07" target="_blank"><i class="fab fa-github"></i></a></li>
++        <li><a href="https://www.linkedin.com/in/ahmedSeddik612006" target="_blank"><i class="fab fa-linkedin"></i></a></li>
      </ul>
-     <p>© 2024 Ahmed Hesham | All Rights Reserved</p>
+     <p>© 2024 Ahmed Seddik | All Rights Reserved</p>
  </footer>
-Index: .idea/Ahmed-Hesham.github.io.iml
+Index: .idea/Ahmed-Seddik.github.io.iml
 IDEA additional info:
 Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
 <+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"WEB_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\">\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <excludeFolder url=\"file://$MODULE_DIR$/.tmp\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/temp\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/tmp\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n</module>
 ===================================================================
-diff --git a/.idea/Ahmed-Hesham.github.io.iml b/.idea/Ahmed-Hesham.github.io.iml
---- a/.idea/Ahmed-Hesham.github.io.iml	(revision df9af5e394d442c7f19795bcd4361ee38e9a7176)
-+++ b/.idea/Ahmed-Hesham.github.io.iml	(date 1727538269344)
+diff --git a/.idea/Ahmed-Seddik.github.io.iml b/.idea/Ahmed-Seddik.github.io.iml
+--- a/.idea/Ahmed-Seddik.github.io.iml	(revision df9af5e394d442c7f19795bcd4361ee38e9a7176)
++++ b/.idea/Ahmed-Seddik.github.io.iml	(date 1727538269344)
 @@ -8,5 +8,7 @@
      </content>
      <orderEntry type="inheritedJdk" />
