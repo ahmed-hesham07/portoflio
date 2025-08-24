@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Custom Fonts */
+@font-face {
+  font-family: 'Autography';
+  src: url('/fonts/Autography.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #0a0a0a;
   --foreground: #fafafa;
@@ -78,6 +87,11 @@ body {
 
 .animate-slide-in {
   animation: slideIn 0.6s ease-out;
+}
+
+/* Custom font classes */
+.font-autography {
+  font-family: 'Autography', cursive, sans-serif;
 }
 
 /* Gradient text */

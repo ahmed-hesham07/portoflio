@@ -23,11 +23,8 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-500 text-white font-bold">
-            {personalInfo.shortName.split(' ').map(n => n[0]).join('')}
-          </div>
-          <span className="font-semibold text-white">
+        <Link href="/" className="flex items-center">
+          <span className="font-autography text-2xl text-white tracking-wide">
             {personalInfo.shortName}
           </span>
         </Link>

@@ -11,7 +11,7 @@ const Hero = () => {
     <section className="relative px-6 py-24 sm:py-32 lg:px-8">
       <div className="mx-auto max-w-4xl text-center">
         <div className="animate-fade-in">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
+          <h1 className="text-4xl font-autography tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
             <span className="block">{personalInfo.name.split(' ')[0]} {personalInfo.name.split(' ')[3]}</span>
           </h1>
           
