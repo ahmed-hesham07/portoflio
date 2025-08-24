@@ -39,7 +39,10 @@
     "sitemap": "next-sitemap",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "deploy:prepare": "npm run type-check && npm run build",
+    "deploy:windows": "powershell -ExecutionPolicy Bypass -File deploy.ps1",
+    "deploy:unix": "chmod +x deploy.sh && ./deploy.sh"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
