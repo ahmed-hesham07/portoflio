@@ -20,11 +20,29 @@ export function ContactForm() {
     setSubmitStatus('idle');
 
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        
+        // If there's a fallback mailto (for demo purposes), you could optionally use it
+        if (data.fallbackMailto) {
+          console.log('Fallback mailto URL:', data.fallbackMailto);
+        }
+      } else {
+        throw new Error(data.error || 'Failed to send message');
+      }
     } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -39,18 +57,21 @@ export function ContactForm() {
   };
 
   return (
-    <Card>
+    <Card className="bg-slate-800 border-slate-700">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Mail className="h-5 w-5" />
-          Send Message
+        <CardTitle className="flex items-center gap-2 text-white">
+          <Mail className="h-5 w-5 text-sky-400" />
+          Send Me a Message
         </CardTitle>
+        <p className="text-slate-400 text-sm">
+          Fill out the form below and I'll get back to you within 24 hours.
+        </p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name */}
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+            <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
               Name
             </label>
             <div className="relative">
@@ -62,7 +83,7 @@ export function ContactForm() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full pl-10 pr-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-slate-600 rounded-lg bg-slate-900 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-colors"
                 placeholder="Your name"
               />
             </div>
@@ -70,7 +91,7 @@ export function ContactForm() {
 
           {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
               Email
             </label>
             <div className="relative">
@@ -82,7 +103,7 @@ export function ContactForm() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full pl-10 pr-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-slate-600 rounded-lg bg-slate-900 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-colors"
                 placeholder="your.email@example.com"
               />
             </div>
@@ -90,7 +111,7 @@ export function ContactForm() {
 
           {/* Message */}
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+            <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
               Message
             </label>
             <div className="relative">
@@ -129,13 +150,30 @@ export function ContactForm() {
 
           {/* Status Messages */}
           {submitStatus === 'success' && (
-            <div className="p-4 rounded-lg bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300">
-              Message sent successfully! I'll get back to you soon.
+            <div className="p-4 rounded-lg bg-green-900/20 border border-green-500/20 text-green-300">
+              <div className="flex items-center gap-2">
+                <span className="text-green-400">✓</span>
+                <div>
+                  <div className="font-medium">Message sent successfully!</div>
+                  <div className="text-sm text-green-400/80">I'll get back to you within 24 hours at Hello@ahmedseddik.tech</div>
+                </div>
+              </div>
             </div>
           )}
           {submitStatus === 'error' && (
-            <div className="p-4 rounded-lg bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300">
-              Failed to send message. Please try again or email me directly.
+            <div className="p-4 rounded-lg bg-red-900/20 border border-red-500/20 text-red-300">
+              <div className="flex items-center gap-2">
+                <span className="text-red-400">⚠</span>
+                <div>
+                  <div className="font-medium">Failed to send message</div>
+                  <div className="text-sm text-red-400/80">
+                    Please try again or email me directly at{' '}
+                    <a href="mailto:Hello@ahmedseddik.tech" className="underline hover:text-red-300">
+                      Hello@ahmedseddik.tech
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
         </form>
