@@ -77,14 +77,14 @@ NEXT_PUBLIC_WEB3_ENABLED = false
 ### Current Setup:
 - **SMTP Server**: shadowbyte1998@gmail.com (your Gmail credentials for sending)
 - **FROM**: Ahmed Seddik Portfolio <shadowbyte1998@gmail.com>
-- **TO**: Hello@ahmedseddik.tech (your primary email - where you receive messages)
+- **TO**: ahmed.hesham0762@gmail.com (your primary email - where you receive messages)
 - **REPLY-TO**: visitor's email (so you can reply directly)
 
 ### How It Works:
 1. Visitor fills out contact form on your website
 2. API uses your Gmail credentials (shadowbyte1998@gmail.com) as SMTP server
-3. Email is sent FROM your Gmail TO your primary email (Hello@ahmedseddik.tech)
-4. You receive the message in your Hello@ahmedseddik.tech inbox
+3. Email is sent FROM your Gmail TO your primary email (ahmed.hesham0762@gmail.com)
+4. You receive the message in your ahmed.hesham0762@gmail.com inbox
 5. Reply-to is set to visitor's email for easy responses
 
 ### Email Flow Diagram:
@@ -122,7 +122,7 @@ Monitor console output for email send confirmations:
 Contact form email sent successfully: {
   from: "visitor@example.com",
   name: "Visitor Name", 
-  to: "Hello@ahmedseddik.tech",
+  to: "ahmed.hesham0762@gmail.com",
   timestamp: "2025-01-01T12:00:00.000Z"
 }
 ```
@@ -141,7 +141,7 @@ Contact form email sent successfully: {
 
 3. **"Email not received"**
    - Check spam folder
-   - Verify `Hello@ahmedseddik.tech` is correct
+   - Verify `ahmed.hesham0762@gmail.com` is correct
    - Look at console logs for errors
 
 4. **"Module not found"**

@@ -235,7 +235,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   <span className="text-neon-purple">🔗</span>
                 </motion.a>
                 <motion.a
-                  href="mailto:ahmed.hesham.ds@gmail.com"
+                  href="mailto:ahmed.hesham0762@gmail.com"
                   className="p-2 rounded-xl bg-cyber-light border border-neon-green/30 hover:border-neon-green hover:shadow-neon-green transition-all duration-300"
                   whileHover={{ scale: 1.1, rotateZ: 5 }}
                   whileTap={{ scale: 0.9 }}

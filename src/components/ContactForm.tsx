@@ -155,7 +155,7 @@ export function ContactForm() {
                 <span className="text-green-400">✓</span>
                 <div>
                   <div className="font-medium">Message sent successfully!</div>
-                  <div className="text-sm text-green-400/80">I'll get back to you within 24 hours at Hello@ahmedseddik.tech</div>
+                  <div className="text-sm text-green-400/80">I'll get back to you within 24 hours at ahmed.hesham0762@gmail.com</div>
                 </div>
               </div>
             </div>
@@ -168,9 +168,9 @@ export function ContactForm() {
                   <div className="font-medium">Failed to send message</div>
                   <div className="text-sm text-red-400/80">
                     Please try again or email me directly at{' '}
-                    <a href="mailto:Hello@ahmedseddik.tech" className="underline hover:text-red-300">
-                      Hello@ahmedseddik.tech
-                    </a>
+                                    <a href="mailto:ahmed.hesham0762@gmail.com" className="underline hover:text-red-300">
+                  ahmed.hesham0762@gmail.com
+                </a>
                   </div>
                 </div>
               </div>

@@ -21,7 +21,7 @@ Simple, developer-friendly email API with excellent Next.js support.
    
    await resend.emails.send({
      from: 'contact@yourdomain.com',
-     to: 'Hello@ahmedseddik.tech',
+     to: 'ahmed.hesham0762@gmail.com',
      subject: emailSubject,
      text: emailBody,
    });

@@ -60,7 +60,7 @@ Your portfolio will be available at:
 ## 🧪 Test Your Deployment
 
 - [ ] **Homepage** loads
-- [ ] **Contact form** sends emails to `Hello@ahmedseddik.tech`
+- [ ] **Contact form** sends emails to `ahmed.hesham0762@gmail.com`
 - [ ] **Mobile responsive**
 - [ ] **Fast loading** (Lighthouse score ≥95)
 

@@ -2,6 +2,8 @@ import { Download, Target, Lightbulb, Heart } from 'lucide-react';
 import { getPersonalInfo, getCVData } from '@/utils/data';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function AboutPage() {
   const personalInfo = getPersonalInfo();
@@ -237,6 +239,8 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+      <Analytics />
+      <SpeedInsights />
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Skills from "../../components/Skills";
 import PageWrapper from "../../components/PageWrapper";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Skills | Ahmed Hesham - Technical Matrix",
@@ -30,6 +32,8 @@ export default function SkillsPage() {
   return (
     <PageWrapper>
       <Skills />
+      <Analytics />
+      <SpeedInsights />
     </PageWrapper>
   );
 }

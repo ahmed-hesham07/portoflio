@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import { Search, Filter } from 'lucide-react';
 import { getProjects } from '@/utils/data';
 import { ProjectCard } from '@/components/ProjectCard';
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function ProjectsPage() {
   const projects = getProjects();
@@ -149,6 +151,8 @@ export default function ProjectsPage() {
           </div>
         )}
       </div>
+      <Analytics />
+      <SpeedInsights />
     </div>
   );
 }

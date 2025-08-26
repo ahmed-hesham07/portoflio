@@ -254,7 +254,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ## 📞 Contact
 
-- **Email**: ahmed.hesham.ds@gmail.com
+- **Email**: ahmed.hesham0762@gmail.com
 - **LinkedIn**: [ahmed-hesham07](https://linkedin.com/in/ahmed-hesham07)
 - **GitHub**: [ahmed-hesham07](https://github.com/ahmed-hesham07)
 - **Website**: [ahmed-hesham.dev](https://ahmed-hesham.dev)

@@ -136,7 +136,7 @@ In Vercel Dashboard → Settings → Environment Variables:
 ### Verify Email Integration
 
 1. Submit contact form
-2. Check email arrives at `Hello@ahmedseddik.tech`
+2. Check email arrives at `ahmed.hesham0762@gmail.com`
 3. Verify reply-to works
 
 ### Performance Check

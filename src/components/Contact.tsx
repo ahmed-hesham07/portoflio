@@ -32,8 +32,8 @@ const Contact = () => {
   const contactMethods: ContactMethod[] = [
     {
       name: 'Email',
-      value: 'ahmed.hesham.ds@gmail.com',
-      link: 'mailto:ahmed.hesham.ds@gmail.com',
+      value: 'ahmed.hesham0762@gmail.com',
+      link: 'mailto:ahmed.hesham0762@gmail.com',
       icon: '📧',
       color: 'blue',
       description: 'Best for detailed discussions and project inquiries'

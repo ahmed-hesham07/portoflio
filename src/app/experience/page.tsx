@@ -2,6 +2,8 @@ import { Trophy, GraduationCap, Briefcase } from 'lucide-react';
 import { getExperience, getEducation, getAchievements } from '@/utils/data';
 import { Timeline } from '@/components/Timeline';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function ExperiencePage() {
   const experience = getExperience();
@@ -119,6 +121,8 @@ export default function ExperiencePage() {
           </div>
         </div>
       </div>
+      <Analytics />
+      <SpeedInsights />
     </div>
   );
 }

@@ -6,6 +6,8 @@ import { getProjectBySlug, getProjects } from '@/utils/data';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 interface ProjectPageProps {
   params: {
@@ -225,6 +227,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </div>
       </div>
+      <Analytics />
+      <SpeedInsights />
     </div>
   );
 }

@@ -73,12 +73,38 @@ export const PROJECT_CATEGORIES = [
   { id: 'desktop', name: 'Desktop Apps', icon: '💻' },
 ] as const;
 
+export const PERSONAL_INFO = {
+  name: 'Ahmed Hesham Ismail Seddik',
+  shortName: 'Ahmed Seddik',
+  title: 'Software Engineer & Data Scientist',
+  tagline: 'Building intelligent engineering software at the intersection of AI, cloud, and industry standards.',
+  location: 'Alexandria, Egypt',
+  email: 'ahmed.hesham0762@gmail.com',
+  domain: 'ahmedseddik.tech',
+  social: {
+    github: 'https://github.com/ahmed-hesham07',
+    linkedin: 'https://www.linkedin.com/in/ahmedhesham612006'
+  }
+} as const;
+
+export const CONTACT_INFO = {
+  name: 'Ahmed Hesham Ismail Seddik',
+  title: 'Software Engineer & Data Scientist',
+  location: 'Alexandria, Egypt',
+  email: 'ahmed.hesham0762@gmail.com',
+  phone: '+20 (xxx) xxx-xxxx',
+  social: {
+    github: 'https://github.com/ahmed-hesham07',
+    linkedin: 'https://www.linkedin.com/in/ahmedhesham612006'
+  }
+} as const;
+
 // Contact Methods
 export const CONTACT_METHODS = [
   {
     name: 'Email',
-    value: 'ahmed.hesham.ds@gmail.com',
-    link: 'mailto:ahmed.hesham.ds@gmail.com',
+    value: 'ahmed.hesham0762@gmail.com',
+    link: 'mailto:ahmed.hesham0762@gmail.com',
     icon: '📧',
     color: 'blue',
     description: 'Best for detailed discussions and project inquiries',
