@@ -39,8 +39,8 @@ git push -u origin main
 5. **Add Environment Variables:**
    ```
    GMAIL_USER=shadowbyte1998@gmail.com
-   GMAIL_PASS=3fMYvHQdj9NvtxiWkk4zscMLs*DKA4KEY*VqBW3*yrMzHXhvRL
-   NEXT_PUBLIC_WEB3_ENABLED=false
+GMAIL_PASS=3fMYvHQdj9NvtxiWkk4zscMLs*DKA4KEY*VqBW3*yrMzHXhvRL
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
    ```
 
 6. **Click "Deploy"** 🚀
@@ -95,14 +95,14 @@ In Vercel Dashboard → Settings → Environment Variables:
 |----------|-------|-------------|
 | `GMAIL_USER` | `shadowbyte1998@gmail.com` | Production |
 | `GMAIL_PASS` | `3fMYvHQdj9NvtxiWkk4zscMLs*DKA4KEY*VqBW3*yrMzHXhvRL` | Production |
-| `NEXT_PUBLIC_WEB3_ENABLED` | `false` | All |
+| `NEXT_PUBLIC_GA_ID` | `G-XXXXXXXXXX` | All |
 
 ### Optional Variables
 
 | Variable | Value | Purpose |
 |----------|-------|---------|
 | `NEXT_PUBLIC_GA_ID` | `G-XXXXXXXXXX` | Google Analytics |
-| `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` | `your_project_id` | Web3 (if enabled) |
+| `NEXT_PUBLIC_GA_ID` | `G-XXXXXXXXXX` | Google Analytics |
 
 ## 🔄 Automatic Deployments
 

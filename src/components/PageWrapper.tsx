@@ -1,6 +1,5 @@
 "use client";
 import React from 'react';
-import Layout from './Layout';
 
 interface PageWrapperProps {
   children: React.ReactNode;
@@ -8,9 +7,7 @@ interface PageWrapperProps {
 
 const PageWrapper: React.FC<PageWrapperProps> = ({ children }) => {
   return (
-    <Layout>
-      <main className="pt-16">{children}</main>
-    </Layout>
+    <main className="pt-16">{children}</main>
   );
 };
 

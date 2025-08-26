@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { getPersonalInfo } from '@/utils/data';
-import { WalletConnectButton } from './WalletConnectButton';
 import { cn } from '@/utils/cn';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -13,14 +13,12 @@ const navigation = [
   { name: 'Experience', href: '/experience' },
   { name: 'Skills', href: '/skills' },
   { name: 'About', href: '/about' },
-  { name: 'Web3', href: '/web3' },
   { name: 'Contact', href: '/contact' },
 ];
 
 export function Header() {
   const pathname = usePathname();
   const personalInfo = getPersonalInfo();
-  const isWeb3Enabled = process.env.NEXT_PUBLIC_WEB3_ENABLED === 'true';
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -53,71 +51,67 @@ export function Header() {
 
         {/* Actions */}
         <div className="flex items-center space-x-3">
-          {isWeb3Enabled && <WalletConnectButton />}
-          
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-slate-800 hover:bg-slate-700 transition-colors"
+            className="md:hidden p-2 text-slate-300 hover:text-sky-500 transition-colors"
             aria-label="Toggle mobile menu"
           >
-            <div className="w-6 h-6 flex flex-col justify-center items-center">
-              <span
-                className={cn(
-                  'w-5 h-0.5 bg-white transition-all duration-300 ease-in-out',
-                  mobileMenuOpen ? 'rotate-45 translate-y-1.5' : 'mb-1'
-                )}
-              />
-              <span
-                className={cn(
-                  'w-5 h-0.5 bg-white transition-all duration-300 ease-in-out',
-                  mobileMenuOpen ? 'opacity-0' : 'mb-1'
-                )}
-              />
-              <span
-                className={cn(
-                  'w-5 h-0.5 bg-white transition-all duration-300 ease-in-out',
-                  mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''
-                )}
-              />
-            </div>
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              {mobileMenuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && (
-        <>
-          {/* Backdrop */}
-          <div 
-            className="fixed inset-0 bg-black/50 z-40 md:hidden"
-            onClick={() => setMobileMenuOpen(false)}
-          />
-          
-          {/* Mobile Menu Panel */}
-          <div className="fixed top-16 left-0 right-0 bg-slate-950/95 backdrop-blur-sm border-b border-slate-800 z-50 md:hidden">
-            <nav className="container mx-auto px-4 py-6">
-              <div className="flex flex-col space-y-4">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={cn(
-                      'text-lg font-medium transition-colors hover:text-sky-500 py-2 px-4 rounded-lg',
-                      pathname === item.href
-                        ? 'text-sky-500 bg-sky-500/10'
-                        : 'text-slate-300 hover:bg-slate-800'
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
+      {/* Mobile Navigation */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden border-t border-slate-800 bg-slate-950/95 backdrop-blur-sm"
+          >
+            <nav className="container mx-auto px-4 py-4 space-y-2">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={cn(
+                    'block px-3 py-2 rounded-lg text-sm font-medium transition-colors',
+                    pathname === item.href
+                      ? 'text-sky-500 bg-sky-500/10'
+                      : 'text-slate-300 hover:text-sky-500 hover:bg-slate-800/50'
+                  )}
+                >
+                  {item.name}
+                </Link>
+              ))}
             </nav>
-          </div>
-        </>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

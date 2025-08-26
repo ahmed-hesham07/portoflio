@@ -26,7 +26,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, Tailwind 
 - **Skills Visualization**: Animated skill bars with tooltips
 - **Experience Timeline**: Interactive experience cards with detailed views
 - **Contact Form**: Validated contact form with real-time feedback
-- **Web3 Integration**: Mock wallet connection for exclusive content
+- **Modern UI**: Responsive design with smooth animations
 
 ### 📱 Modern Features
 - **Progressive Web App**: Installable PWA capabilities
@@ -100,11 +100,12 @@ portfolio/
 │   │   ├── About.tsx      # About section
 │   │   ├── Contact.tsx    # Contact form
 │   │   ├── Experience.tsx # Experience timeline
+│   │   ├── Footer.tsx     # Modern footer component
 │   │   ├── Hero.tsx       # Hero section
-│   │   ├── Layout.tsx     # Layout wrapper
+│   │   ├── PageWrapper.tsx # Page wrapper component
 │   │   ├── Projects.tsx   # Projects showcase
 │   │   ├── Skills.tsx     # Skills visualization
-│   │   └── Web3Section.tsx # Web3 integration
+│   │   └── ContactForm.tsx # Contact form component
 │   ├── hooks/             # Custom React hooks
 │   │   ├── useIntersectionObserver.ts
 │   │   ├── useLocalStorage.ts

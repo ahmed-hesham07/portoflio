@@ -9,14 +9,16 @@
   },
   "keywords": [
     "portfolio",
-    "nextjs",
+    "software-engineer",
+    "data-scientist",
+    "ai-engineer",
+    "machine-learning",
+    "python",
     "react",
-    "typescript",
-    "tailwindcss",
-    "framer-motion",
-    "web3",
-    "data-science",
-    "engineering"
+    "nextjs",
+    "engineering-software",
+    "alexandria",
+    "egypt"
   ],
   "homepage": "https://ahmed-hesham.dev",
   "repository": {
@@ -52,9 +54,6 @@
     "@types/nodemailer": "^7.0.1",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "@wagmi/connectors": "^5.9.4",
-    "@wagmi/core": "^2.19.0",
-    "@web3modal/wagmi": "^5.1.11",
     "autoprefixer": "^10.4.21",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.12",

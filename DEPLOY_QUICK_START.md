@@ -37,8 +37,8 @@ git push origin main
 3. **Add Environment Variables:**
    ```
    GMAIL_USER=shadowbyte1998@gmail.com
-   GMAIL_PASS=3fMYvHQdj9NvtxiWkk4zscMLs*DKA4KEY*VqBW3*yrMzHXhvRL
-   NEXT_PUBLIC_WEB3_ENABLED=false
+GMAIL_PASS=3fMYvHQdj9NvtxiWkk4zscMLs*DKA4KEY*VqBW3*yrMzHXhvRL
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
    ```
 4. **Deploy!** 🎉
 

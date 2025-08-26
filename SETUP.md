@@ -22,9 +22,8 @@
 Create a `.env.local` file in the root directory:
 
 ```bash
-# Web3 Integration (optional)
-NEXT_PUBLIC_WEB3_ENABLED=false
-NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id_here
+# Analytics Integration (optional)
+NEXT_PUBLIC_GA_ID=your_google_analytics_id
 
 # Form Handling (optional)
 FORM_ENDPOINT=your_form_endpoint_here
@@ -33,13 +32,13 @@ FORM_ENDPOINT=your_form_endpoint_here
 NEXT_PUBLIC_GA_ID=your_google_analytics_id
 ```
 
-## 🌐 Web3 Integration
+## 📊 Analytics Integration
 
-To enable Web3 wallet connection:
+To enable Google Analytics:
 
-1. Set `NEXT_PUBLIC_WEB3_ENABLED=true` in your environment
-2. Get a project ID from [Reown Cloud](https://cloud.reown.com)
-3. Set `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id`
+1. Set `NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX` in your environment
+2. Get your tracking ID from [Google Analytics](https://analytics.google.com)
+3. Configure tracking events and goals
 
 ## 📝 Content Updates
 

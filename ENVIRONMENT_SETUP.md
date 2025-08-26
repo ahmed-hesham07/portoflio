@@ -26,8 +26,8 @@ Create `.env.local` in your project root with:
 GMAIL_USER=shadowbyte1998@gmail.com
 GMAIL_PASS=3fMYvHQdj9NvtxiWkk4zscMLs*DKA4KEY*VqBW3*yrMzHXhvRL
 
-# Web3 Configuration (Optional)
-NEXT_PUBLIC_WEB3_ENABLED=false
+# Analytics Configuration (Optional)
+NEXT_PUBLIC_GA_ID=
 
 # Analytics (Optional)
 NEXT_PUBLIC_GA_ID=
@@ -57,8 +57,8 @@ portoflio/
 
 ```
 GMAIL_USER = shadowbyte1998@gmail.com
-GMAIL_PASS = 3fMYvHQdj9NvtxiWkk4zscMLs*DKA4KEY*VqBW3*yrMzHXhvRL
-NEXT_PUBLIC_WEB3_ENABLED = false
+GMAIL_PASS = 3fMYvHQdj9NvtxiWkk4zscNLs*DKA4KEY*VqBW3*yrMzHXhvRL
+NEXT_PUBLIC_GA_ID = G-XXXXXXXXXX
 ```
 
 ### For Other Platforms:
@@ -159,7 +159,7 @@ DEBUG_EMAILS=true
 |----------|----------|-------------|
 | `GMAIL_USER` | Yes | Gmail account for sending emails |
 | `GMAIL_PASS` | Yes | Gmail App Password |
-| `NEXT_PUBLIC_WEB3_ENABLED` | No | Enable/disable Web3 features |
+| `NEXT_PUBLIC_GA_ID` | No | Google Analytics tracking ID |
 | `DEBUG_EMAILS` | No | Enable detailed email logging |
 | `SKIP_EMAIL_SEND` | No | Skip actual email sending (dev only) |
 

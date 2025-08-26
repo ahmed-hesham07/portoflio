@@ -1,4 +1,4 @@
-import { Mail, Github, Linkedin, MapPin, Clock, Wallet, Send, MessageCircle, Phone } from 'lucide-react';
+import { Mail, Github, Linkedin, MapPin, Clock, Send, MessageCircle, Phone } from 'lucide-react';
 import { getPersonalInfo } from '@/utils/data';
 import { ContactForm } from '@/components/ContactForm';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
@@ -8,7 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function ContactPage() {
   const personalInfo = getPersonalInfo();
-  const isWeb3Enabled = process.env.NEXT_PUBLIC_WEB3_ENABLED === 'true';
+
 
   const contactMethods = [
     {
@@ -176,26 +176,7 @@ export default function ContactPage() {
               </CardContent>
             </Card>
 
-            {/* Web3 Section */}
-            {isWeb3Enabled && (
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Wallet className="h-5 w-5" />
-                    Web3 Integration
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-slate-600 dark:text-slate-300 mb-4">
-                    Connect your wallet to unlock exclusive project case studies and detailed technical documentation.
-                  </p>
-                  <Button variant="secondary" className="w-full">
-                    <Wallet className="mr-2 h-4 w-4" />
-                    Connect Wallet
-                  </Button>
-                </CardContent>
-              </Card>
-            )}
+
 
             {/* Project Types */}
             <Card className="bg-slate-800 border-slate-700">

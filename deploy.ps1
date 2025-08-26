@@ -72,7 +72,7 @@ Write-Host "   2. Import your GitHub repository" -ForegroundColor White
 Write-Host "   3. Add environment variables:" -ForegroundColor White
 Write-Host "      - GMAIL_USER=shadowbyte1998@gmail.com" -ForegroundColor Gray
 Write-Host "      - GMAIL_PASS=3fMYvHQdj9NvtxiWkk4zscMLs*DKA4KEY*VqBW3*yrMzHXhvRL" -ForegroundColor Gray
-Write-Host "      - NEXT_PUBLIC_WEB3_ENABLED=false" -ForegroundColor Gray
+Write-Host "      - NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX" -ForegroundColor Gray
 Write-Host "   4. Deploy!" -ForegroundColor White
 Write-Host ""
 Write-Host "📖 For detailed instructions, see: DEPLOYMENT.md" -ForegroundColor Cyan

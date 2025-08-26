@@ -17,7 +17,7 @@ const highlights = [
     icon: Trophy,
     value: '3',
     label: 'Key Domains',
-    description: 'AI/ML, Engineering, Web3'
+    description: 'AI/ML, Engineering, Software'
   }
 ];
 
