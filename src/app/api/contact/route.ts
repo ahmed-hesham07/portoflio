@@ -25,18 +25,39 @@ export async function POST(request: NextRequest) {
 
     const personalInfo = getPersonalInfo();
 
-    // Create Gmail transporter using YOUR Gmail credentials as SMTP server
-    // This will send emails FROM your Gmail TO your primary email
-    const gmailUser = process.env.GMAIL_USER || 'shadowbyte1998@gmail.com';
-    const gmailPass = process.env.GMAIL_PASS || '3fMYvHQdj9NvtxiWkk4zscMLs*DKA4KEY*VqBW3*yrMzHXhvRL';
-    
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: gmailUser,
-        pass: gmailPass
-      }
-    });
+    // Email transport configuration (supports SMTP_* or GMAIL_*)
+    const skipSend = process.env.SKIP_EMAIL_SEND === 'true';
+    const debugEmails = process.env.DEBUG_EMAILS === 'true';
+
+    const smtpHost = process.env.SMTP_HOST;
+    const smtpPort = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : undefined;
+    const smtpSecure = process.env.SMTP_SECURE ? process.env.SMTP_SECURE === 'true' : undefined;
+    const smtpUser = process.env.SMTP_USER;
+    const smtpPass = process.env.SMTP_PASS;
+
+    const gmailUser = process.env.GMAIL_USER;
+    const gmailPass = process.env.GMAIL_PASS;
+
+    let transporter: nodemailer.Transporter;
+    let fromAddress = '';
+
+    if (smtpHost && smtpUser && smtpPass) {
+      transporter = nodemailer.createTransport({
+        host: smtpHost,
+        port: smtpPort ?? 587,
+        secure: smtpSecure ?? false,
+        auth: { user: smtpUser, pass: smtpPass }
+      });
+      fromAddress = smtpUser;
+    } else if (gmailUser && gmailPass) {
+      transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: { user: gmailUser, pass: gmailPass }
+      });
+      fromAddress = gmailUser;
+    } else {
+      throw new Error('Email credentials are not configured. Set SMTP_* or GMAIL_* environment variables.');
+    }
 
     // Create email content
     const emailSubject = `Portfolio Contact: ${name}`;
@@ -87,7 +108,7 @@ Time: ${new Date().toLocaleString()}
     // Send email FROM your Gmail TO your primary email
     // The visitor's email is set as replyTo for easy responses
     const mailOptions = {
-      from: `"${personalInfo.shortName} Portfolio" <${gmailUser}>`,
+      from: `"${personalInfo.shortName} Portfolio" <${fromAddress}>`,
       to: personalInfo.emailPrimary, // This sends TO: Hello@ahmedseddik.tech
       replyTo: email, // This allows you to reply directly to the visitor
       subject: emailSubject,
@@ -95,12 +116,23 @@ Time: ${new Date().toLocaleString()}
       html: emailHtml
     };
 
-    await transporter.sendMail(mailOptions);
+    if (skipSend) {
+      if (debugEmails) {
+        console.log('SKIP_EMAIL_SEND=true - Email not sent. Preview:', {
+          to: mailOptions.to,
+          from: mailOptions.from,
+          replyTo: mailOptions.replyTo,
+          subject: mailOptions.subject
+        });
+      }
+    } else {
+      await transporter.sendMail(mailOptions);
+    }
 
     console.log('Contact form email sent successfully:', {
       visitorEmail: email,
       visitorName: name,
-      sentFrom: gmailUser,
+      sentFrom: fromAddress,
       sentTo: personalInfo.emailPrimary,
       subject: emailSubject,
       timestamp: new Date().toISOString()
