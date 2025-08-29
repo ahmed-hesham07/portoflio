@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getPersonalInfo } from '@/utils/data';
 
 interface FormData {
   name: string;
@@ -29,11 +30,13 @@ const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errors, setErrors] = useState<Partial<FormData>>({});
 
+  const personalInfo = getPersonalInfo();
+
   const contactMethods: ContactMethod[] = [
     {
       name: 'Email',
-      value: 'ahmed.hesham0762@gmail.com',
-      link: 'mailto:ahmed.hesham0762@gmail.com',
+      value: personalInfo.emailPrimary,
+      link: `mailto:${personalInfo.emailPrimary}`,
       icon: '📧',
       color: 'blue',
       description: 'Best for detailed discussions and project inquiries'

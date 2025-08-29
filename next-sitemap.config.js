@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://ahmed-hesham.dev',
+  siteUrl: process.env.SITE_URL || 'https://ahmedseddik.dev',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   exclude: ['/api/*'],
@@ -12,7 +12,7 @@ module.exports = {
       },
     ],
     additionalSitemaps: [
-      'https://ahmed-hesham.dev/sitemap.xml',
+      'https://ahmedseddik.dev/sitemap.xml',
     ],
   },
   transform: async (config, path) => {

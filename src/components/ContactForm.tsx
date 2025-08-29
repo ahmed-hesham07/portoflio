@@ -4,8 +4,10 @@ import { useState } from 'react';
 import { Send, Mail, User, MessageSquare, Loader2 } from 'lucide-react';
 import { Button } from './ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/Card';
+import { getPersonalInfo } from '@/utils/data';
 
 export function ContactForm() {
+  const personalInfo = getPersonalInfo();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -155,7 +157,7 @@ export function ContactForm() {
                 <span className="text-green-400">✓</span>
                 <div>
                   <div className="font-medium">Message sent successfully!</div>
-                  <div className="text-sm text-green-400/80">I'll get back to you within 24 hours at ahmed.hesham0762@gmail.com</div>
+                  <div className="text-sm text-green-400/80">I'll get back to you within 24 hours at {personalInfo.emailPrimary}</div>
                 </div>
               </div>
             </div>
@@ -168,8 +170,8 @@ export function ContactForm() {
                   <div className="font-medium">Failed to send message</div>
                   <div className="text-sm text-red-400/80">
                     Please try again or email me directly at{' '}
-                                    <a href="mailto:ahmed.hesham0762@gmail.com" className="underline hover:text-red-300">
-                  ahmed.hesham0762@gmail.com
+                                    <a href={`mailto:${personalInfo.emailPrimary}`} className="underline hover:text-red-300">
+                  {personalInfo.emailPrimary}
                 </a>
                   </div>
                 </div>

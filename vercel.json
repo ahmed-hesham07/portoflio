@@ -35,7 +35,7 @@
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://ahmedseddik.tech"
+          "value": "https://ahmedseddik.dev"
         },
         {
           "key": "Access-Control-Allow-Methods",
