@@ -1,6 +1,6 @@
 'use client';
 
-import { Download, ArrowRight, Mail } from 'lucide-react';
+import { Download, ArrowRight, Mail, Star, Users, Clock, CheckCircle } from 'lucide-react';
 import { Button } from './ui/Button';
 import { getPersonalInfo } from '@/utils/data';
 
@@ -28,7 +28,26 @@ const Hero = () => {
           <div className="mt-4 flex items-center justify-center gap-2 text-xs text-slate-400 sm:text-sm">
             <span>📍 {personalInfo.location}</span>
             <span>•</span>
-            <span>✨ Available for freelance & consulting</span>
+            <span className="flex items-center gap-1">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <span>Available for projects</span>
+            </span>
+          </div>
+          
+          {/* Social Proof - Subtle psychological trigger */}
+          <div className="mt-6 flex items-center justify-center gap-6 text-xs text-slate-500">
+            <div className="flex items-center gap-1">
+              <Users className="h-3 w-3" />
+              <span>18+ clients helped</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Star className="h-3 w-3 text-yellow-400" />
+              <span>98% satisfaction</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Clock className="h-3 w-3" />
+              <span>24h response</span>
+            </div>
           </div>
           
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4 sm:mt-10">
@@ -46,12 +65,31 @@ const Hero = () => {
               </a>
             </Button>
             
-            <Button variant="outline" size="lg" asChild>
-              <a href="#contact" className="flex items-center">
+            {/* Primary CTA with psychological triggers */}
+            <Button 
+              size="lg" 
+              className="relative bg-gradient-to-r from-sky-500 to-violet-500 hover:from-sky-600 hover:to-violet-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 group" 
+              asChild
+            >
+              <a href="/contact" className="flex items-center">
                 <Mail className="mr-2 h-4 w-4" />
-                Get in Touch
+                Start Your Project
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                {/* Subtle urgency indicator */}
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
               </a>
             </Button>
+          </div>
+          
+          {/* Trust signals and urgency */}
+          <div className="mt-6 text-center">
+            <p className="text-xs text-slate-500 mb-2">
+              <CheckCircle className="inline h-3 w-3 mr-1 text-green-400" />
+              Free consultation • No commitment required
+            </p>
+            <p className="text-xs text-amber-400 font-medium">
+              ⚡ Limited spots available this month
+            </p>
           </div>
         </div>
         

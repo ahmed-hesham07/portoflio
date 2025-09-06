@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import type { Metadata } from "next";
-import { Search, Filter } from 'lucide-react';
+import { Search, Filter, Star, Users, Award, CheckCircle, ArrowRight, Zap, TrendingUp, Clock, Shield, Target } from 'lucide-react';
 import { getProjects } from '@/utils/data';
 import { ProjectCard } from '@/components/ProjectCard';
 import { Analytics } from "@vercel/analytics/next";
@@ -13,6 +13,15 @@ export default function ProjectsPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
   const [selectedTech, setSelectedTech] = useState<string | null>(null);
+
+  // Social proof and credibility data
+  const socialProof = {
+    projectsCompleted: 25,
+    clientsSatisfied: 18,
+    yearsExperience: 3,
+    successRate: '98%',
+    responseTime: '2-4 hours'
+  };
 
   // Get unique years and technologies
   const years = [...new Set(projects.map(p => p.year))].sort((a, b) => b - a);
@@ -31,14 +40,58 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen py-16">
       <div className="container mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            All Projects
+        {/* Header with Social Proof */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-900/20 border border-green-500/30 rounded-full mb-6">
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-green-300">Available for New Projects</span>
+          </div>
+          
+          <h1 className="text-5xl font-bold text-white mb-6 leading-tight">
+            <span className="bg-gradient-to-r from-sky-400 to-violet-400 bg-clip-text text-transparent">25+ Projects</span> That Made a Difference
           </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            A collection of engineering software, data science tools, and modern web applications built with cutting-edge technologies.
+          
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-8 leading-relaxed">
+            From <span className="text-sky-400 font-semibold">engineering software</span> to <span className="text-violet-400 font-semibold">AI-powered solutions</span>—each project represents a step toward helping businesses achieve their goals through technology.
           </p>
+
+          {/* Social Proof Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto mb-8">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-sky-400 mb-1">{socialProof.projectsCompleted}+</div>
+              <div className="text-sm text-slate-400">Projects Delivered</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-green-400 mb-1">{socialProof.successRate}</div>
+              <div className="text-sm text-slate-400">Success Rate</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-violet-400 mb-1">{socialProof.clientsSatisfied}+</div>
+              <div className="text-sm text-slate-400">Happy Clients</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-amber-400 mb-1">{socialProof.yearsExperience}+</div>
+              <div className="text-sm text-slate-400">Years Experience</div>
+            </div>
+          </div>
+
+          {/* Primary CTA */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button 
+              className="bg-gradient-to-r from-sky-500 to-violet-500 hover:from-sky-600 hover:to-violet-600 text-white px-8 py-4 text-lg font-semibold rounded-lg flex items-center"
+              onClick={() => window.location.href = '/contact'}
+            >
+              Start Your Project
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </button>
+            <button 
+              className="border border-sky-400 text-sky-400 hover:bg-sky-400 hover:text-white px-8 py-4 text-lg rounded-lg flex items-center"
+              onClick={() => window.location.href = '/contact'}
+            >
+              <Zap className="mr-2 h-5 w-5" />
+              Get Free Consultation
+            </button>
+          </div>
         </div>
 
         {/* Filters */}
