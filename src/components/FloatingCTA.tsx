@@ -43,7 +43,7 @@ export function FloatingCTA() {
     return () => clearInterval(timer);
   }, [isVisible, isMinimized]);
 
-  const formatTime = (seconds) => {
+  const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}:${secs.toString().padStart(2, '0')}`;

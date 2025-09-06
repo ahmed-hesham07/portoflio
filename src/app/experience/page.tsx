@@ -1,3 +1,5 @@
+'use client';
+
 import { Trophy, GraduationCap, Briefcase, Star, Users, Award, CheckCircle, ArrowRight, Zap, TrendingUp, Clock, Shield, Target, ArrowUpRight } from 'lucide-react';
 import { getExperience, getEducation, getAchievements } from '@/utils/data';
 import { Timeline } from '@/components/Timeline';

@@ -1,3 +1,5 @@
+'use client';
+
 import { getSkills } from '@/utils/data';
 import { Badge } from './ui/Badge';
 import { Star, Users, Award, CheckCircle, ArrowRight, Zap, TrendingUp, Clock, Shield, Target, ArrowUpRight, Trophy } from 'lucide-react';
