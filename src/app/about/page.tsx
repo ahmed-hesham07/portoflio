@@ -1,7 +1,7 @@
-import { Download, Target, Lightbulb, Heart, Star, Users, Award, CheckCircle, ArrowRight, Zap, TrendingUp, Clock, Shield } from 'lucide-react';
+import { Download, Target, Lightbulb, Heart, Star, Users, Award, CheckCircle, ArrowRight, Zap, TrendingUp, Clock, Shield, Trophy } from 'lucide-react';
 import { getPersonalInfo, getCVData } from '@/utils/data';
 import { Button } from '@/components/ui/Button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+import { Card, CardContent, CardHeader, CardTitle} from '@/components/ui/Card';
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -105,23 +105,19 @@ export default function AboutPage() {
             From <span className="text-sky-400 font-semibold">RoboCup champion</span> to <span className="text-violet-400 font-semibold">engineering software specialist</span>—discover the journey that led to helping 18+ clients transform their ideas into reality.
           </p>
 
-          {/* Social Proof Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto mb-8">
+          {/* Key Achievements */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-8">
             <div className="text-center">
-              <div className="text-3xl font-bold text-sky-400 mb-1">{socialProof.projectsCompleted}+</div>
-              <div className="text-sm text-slate-400">Projects Delivered</div>
+              <div className="text-3xl font-bold text-sky-400 mb-1">🏆</div>
+              <div className="text-sm text-slate-400">RoboCup Champion</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-green-400 mb-1">{socialProof.successRate}</div>
-              <div className="text-sm text-slate-400">Success Rate</div>
+              <div className="text-3xl font-bold text-green-400 mb-1">🔬</div>
+              <div className="text-sm text-slate-400">ML Pioneer</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-violet-400 mb-1">{socialProof.yearsExperience}+</div>
-              <div className="text-sm text-slate-400">Years Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-amber-400 mb-1">{socialProof.clientsSatisfied}+</div>
-              <div className="text-sm text-slate-400">Happy Clients</div>
+              <div className="text-3xl font-bold text-violet-400 mb-1">⚡</div>
+              <div className="text-sm text-slate-400">Self-Taught Expert</div>
             </div>
           </div>
 
@@ -238,38 +234,26 @@ export default function AboutPage() {
 
           {/* Sidebar with Psychology */}
           <div className="space-y-6">
-            {/* Trust Signals */}
-            <Card className="bg-gradient-to-br from-slate-800 to-slate-900 border-slate-700 shadow-xl">
+            {/* Key Achievements */}
+            <Card className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-amber-500/30">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-white">
-                  <Shield className="h-5 w-5 text-green-400" />
-                  Why Choose Me?
+                  <Award className="h-5 w-5 text-amber-400" />
+                  Key Achievements
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center p-4 bg-slate-900/30 rounded-lg">
-                    <div className="text-2xl font-bold text-green-400">{socialProof.successRate}</div>
-                    <div className="text-xs text-slate-400">Success Rate</div>
-                  </div>
-                  <div className="text-center p-4 bg-slate-900/30 rounded-lg">
-                    <div className="text-2xl font-bold text-sky-400">{socialProof.responseTime}</div>
-                    <div className="text-xs text-slate-400">Response Time</div>
-                  </div>
+              <CardContent className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <Trophy className="h-4 w-4 text-amber-400 mt-1 flex-shrink-0" />
+                  <span className="text-slate-300 text-sm">RoboCup World Championship Winner</span>
                 </div>
-                <div className="space-y-2 text-sm text-slate-300">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400" />
-                    <span>Free initial consultation</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400" />
-                    <span>24/7 project support</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400" />
-                    <span>Money-back guarantee</span>
-                  </div>
+                <div className="flex items-start gap-3">
+                  <Trophy className="h-4 w-4 text-amber-400 mt-1 flex-shrink-0" />
+                  <span className="text-slate-300 text-sm">Self-taught ML expert in 2 years</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Trophy className="h-4 w-4 text-amber-400 mt-1 flex-shrink-0" />
+                  <span className="text-slate-300 text-sm">25+ successful projects delivered</span>
                 </div>
               </CardContent>
             </Card>

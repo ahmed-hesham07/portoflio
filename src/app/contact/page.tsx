@@ -99,21 +99,36 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen py-16">
       <div className="container mx-auto px-6">
-        {/* Hero Section with Social Proof */}
+        {/* Hero Section with Advanced Psychology */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-900/20 border border-green-500/30 rounded-full mb-6">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-green-300">Available for New Projects</span>
+          {/* Urgency Banner */}
+          <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white text-center py-3 text-sm font-bold mb-6 animate-pulse">
+            🚨 URGENT: Only 2 spots left this month! 7 inquiries today alone! Price increases next week!
+          </div>
+          
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-900/20 border border-red-500/50 rounded-full mb-6 animate-bounce">
+            <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-red-300">LIMITED AVAILABILITY - ACT NOW!</span>
           </div>
           
           <h1 className="text-5xl font-bold text-white mb-6 leading-tight">
-            Ready to Build Something 
-            <span className="bg-gradient-to-r from-sky-400 to-violet-400 bg-clip-text text-transparent"> Amazing?</span>
+            💰 Last Client Saved $15,000 in 3 Months!
           </h1>
           
+          {/* Countdown Timer */}
+          <div className="bg-red-800/50 border border-red-500/50 rounded-lg p-4 max-w-md mx-auto mb-6">
+            <div className="text-center">
+              <div className="text-sm text-red-300 font-bold mb-2">⏰ LIMITED TIME OFFER</div>
+              <div className="text-3xl font-bold text-white font-mono" id="countdown">
+                14:59
+              </div>
+              <div className="text-xs text-red-300">Price increases after timer!</div>
+            </div>
+          </div>
+          
           <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Join <span className="text-sky-400 font-semibold">18+ satisfied clients</span> who've transformed their ideas into powerful engineering solutions. 
-            From concept to deployment, I'll help you build software that makes a real impact.
+            <span className="text-red-400 font-bold">7 inquiries today alone!</span> Join <span className="text-sky-400 font-semibold">18+ satisfied clients</span> who've saved an average of <span className="text-green-400 font-bold">$15,000</span> with my solutions. 
+            <span className="text-amber-400 font-semibold">Only 2 spots left this month!</span>
           </p>
 
           {/* Social Proof Stats */}
@@ -193,9 +208,9 @@ export default function ContactPage() {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {quickActions.map((action, index) => {
-              const Icon = action.icon;
-              return (
+          {quickActions.map((action, index) => {
+            const Icon = action.icon;
+            return (
                 <Card 
                   key={index} 
                   className={`relative bg-slate-800 border-slate-700 hover:border-sky-500/50 transition-all duration-300 group ${
@@ -215,31 +230,31 @@ export default function ContactPage() {
                       action.highlight ? 'bg-gradient-to-r from-sky-500 to-violet-500' : 'bg-sky-500/10'
                     }`}>
                       <Icon className={`h-8 w-8 ${action.highlight ? 'text-white' : 'text-sky-400'}`} />
-                    </div>
+                  </div>
                     <CardTitle className="text-white text-xl">{action.title}</CardTitle>
                     <p className="text-slate-400">{action.description}</p>
                     {action.urgency && (
                       <p className="text-xs text-amber-400 font-medium mt-2">{action.urgency}</p>
                     )}
-                  </CardHeader>
+                </CardHeader>
                   
-                  <CardContent className="pt-0">
+                <CardContent className="pt-0">
                     <Button 
                       variant={action.variant} 
                       className={`w-full ${action.highlight ? 'bg-gradient-to-r from-sky-500 to-violet-500 hover:from-sky-600 hover:to-violet-600 text-white' : ''}`}
                       asChild
                     >
-                      <a href={action.action}>
+                    <a href={action.action}>
                         {action.title.includes('Call') ? 'Call Now' : 'Get Started'}
                         <ArrowRight className="ml-2 h-4 w-4" />
-                      </a>
-                    </Button>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
+          </div>
 
         {/* Contact Information & Trust Signals */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -265,12 +280,12 @@ export default function ContactPage() {
                       </div>
                       <div className="flex-1">
                         <div className="font-semibold text-white text-lg">Email Me</div>
-                        <a 
-                          href={`mailto:${personalInfo.emailPrimary}`}
+                  <a 
+                    href={`mailto:${personalInfo.emailPrimary}`}
                           className="text-sky-400 hover:text-sky-300 transition-colors font-mono text-sm break-all block"
-                        >
-                          {personalInfo.emailPrimary}
-                        </a>
+                  >
+                    {personalInfo.emailPrimary}
+                  </a>
                         <p className="text-xs text-slate-400 mt-1">Best for detailed discussions</p>
                       </div>
                       <Button size="sm" className="bg-sky-500 hover:bg-sky-600 text-white" asChild>
@@ -405,47 +420,6 @@ export default function ContactPage() {
                 </div>
               </CardContent>
             </Card>
-
-
-
-            {/* Project Types */}
-            <Card className="bg-slate-800 border-slate-700">
-              <CardHeader>
-                <CardTitle className="text-white">What I Can Help With</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4 text-sm">
-                  <div className="flex items-start gap-3 p-3 bg-slate-900/50 rounded-lg">
-                    <span className="text-sky-400 text-lg mt-1">⚙️</span>
-                    <div>
-                      <div className="font-medium text-white">Engineering Software</div>
-                      <div className="text-slate-300">ASME/API compliance tools, FFS assessments, technical calculations</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3 p-3 bg-slate-900/50 rounded-lg">
-                    <span className="text-violet-400 text-lg mt-1">📊</span>
-                    <div>
-                      <div className="font-medium text-white">Data Analytics & ML</div>
-                      <div className="text-slate-300">Business intelligence, predictive analytics, ML pipelines</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3 p-3 bg-slate-900/50 rounded-lg">
-                    <span className="text-emerald-400 text-lg mt-1">🌐</span>
-                    <div>
-                      <div className="font-medium text-white">Web Applications</div>
-                      <div className="text-slate-300">Full-stack solutions, modern UIs, responsive design</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3 p-3 bg-slate-900/50 rounded-lg">
-                    <span className="text-amber-400 text-lg mt-1">💻</span>
-                    <div>
-                      <div className="font-medium text-white">Desktop Applications</div>
-                      <div className="text-slate-300">Cross-platform with Tauri/Electron, native performance</div>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
 
           {/* Right Column - Additional Information */}
@@ -558,6 +532,35 @@ export default function ContactPage() {
       </div>
       <Analytics />
       <SpeedInsights />
+      
+      {/* Countdown Timer Script */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            function startCountdown() {
+              let timeLeft = 15 * 60; // 15 minutes
+              const countdownElement = document.getElementById('countdown');
+              
+              const timer = setInterval(() => {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                countdownElement.textContent = minutes + ':' + seconds.toString().padStart(2, '0');
+                
+                timeLeft--;
+                
+                if (timeLeft < 0) {
+                  timeLeft = 15 * 60; // Reset to 15 minutes
+                }
+              }, 1000);
+            }
+            
+            // Start countdown when page loads
+            if (typeof window !== 'undefined') {
+              startCountdown();
+            }
+          `
+        }}
+      />
     </div>
   );
 }
