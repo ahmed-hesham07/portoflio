@@ -287,6 +287,7 @@ export default function ContactPage() {
                 </div>
               </CardContent>
             </Card>
+          </div>
         </div>
       </div>
       <Analytics />
