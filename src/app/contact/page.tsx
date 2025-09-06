@@ -1,4 +1,4 @@
-import { Mail, Github, Linkedin, MapPin, Clock, Send, MessageCircle, Phone, ExternalLink } from 'lucide-react';
+import { Mail, Github, Linkedin, MapPin, Clock, Send, MessageCircle, Phone, ExternalLink, MessageCircle as WhatsApp } from 'lucide-react';
 import { getPersonalInfo } from '@/utils/data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
@@ -17,6 +17,14 @@ export default function ContactPage() {
       href: `mailto:${personalInfo.emailPrimary}`,
       description: 'Primary contact for all inquiries',
       color: 'text-sky-400'
+    },
+    {
+      icon: Phone,
+      label: 'Phone',
+      value: '+20 103 312 0762',
+      href: 'tel:+201033120762',
+      description: 'Call or WhatsApp for immediate response',
+      color: 'text-green-400'
     },
     {
       icon: Github,
@@ -99,38 +107,79 @@ export default function ContactPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Info & Links */}
+          {/* Contact Information */}
           <div className="space-y-6">
-            {/* Contact Information */}
+            {/* Primary Contact Methods */}
             <Card className="bg-slate-800 border-slate-700">
               <CardHeader>
                 <CardTitle className="text-white flex items-center gap-2">
-                  <Mail className="h-5 w-5 text-sky-400" />
+                  <Phone className="h-5 w-5 text-sky-400" />
                   Contact Information
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
+                {/* Primary Email */}
                 <div className="text-center p-6 bg-slate-900/50 rounded-lg border border-slate-600">
                   <Mail className="h-8 w-8 text-sky-400 mx-auto mb-3" />
-                  <div className="font-medium text-white text-lg mb-1">Primary Email</div>
+                  <div className="font-medium text-white text-lg mb-2">Primary Email</div>
                   <a 
                     href={`mailto:${personalInfo.emailPrimary}`}
-                    className="text-sky-400 hover:text-sky-300 transition-colors font-mono text-sm"
+                    className="text-sky-400 hover:text-sky-300 transition-colors font-mono text-sm break-all"
                   >
                     {personalInfo.emailPrimary}
                   </a>
-                  <p className="text-xs text-slate-400 mt-2">Best for all inquiries and project discussions</p>
+                  <p className="text-xs text-slate-400 mt-2">Best for detailed project discussions</p>
+                </div>
+
+                {/* Phone & WhatsApp */}
+                <div className="text-center p-6 bg-slate-900/50 rounded-lg border border-slate-600">
+                  <Phone className="h-8 w-8 text-green-400 mx-auto mb-3" />
+                  <div className="font-medium text-white text-lg mb-2">Phone & WhatsApp</div>
+                  <div className="space-y-2">
+                    <a 
+                      href="tel:+201033120762"
+                      className="text-green-400 hover:text-green-300 transition-colors font-mono text-lg block"
+                    >
+                      +20 103 312 0762
+                    </a>
+                    <div className="flex gap-2 justify-center">
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="text-green-400 border-green-400 hover:bg-green-400 hover:text-white"
+                        asChild
+                      >
+                        <a href="tel:+201033120762">
+                          <Phone className="h-4 w-4 mr-1" />
+                          Call
+                        </a>
+                      </Button>
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="text-green-400 border-green-400 hover:bg-green-400 hover:text-white"
+                        asChild
+                      >
+                        <a href="https://wa.me/201033120762" target="_blank" rel="noopener noreferrer">
+                          <WhatsApp className="h-4 w-4 mr-1" />
+                          WhatsApp
+                        </a>
+                      </Button>
+                    </div>
+                    <p className="text-xs text-slate-400 mt-2">Available for immediate response</p>
+                  </div>
                 </div>
                 
+                {/* Location & Availability */}
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 p-3 bg-slate-900/30 rounded-lg">
                     <MapPin className="h-4 w-4 text-slate-400" />
                     <div>
                       <div className="font-medium text-white">Location</div>
-                      <div className="text-sm text-slate-300">{personalInfo.location}</div>
+                      <div className="text-sm text-slate-300">{personalInfo.location} • Open to relocation</div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 p-3 bg-slate-900/30 rounded-lg">
                     <Clock className="h-4 w-4 text-slate-400" />
                     <div>
                       <div className="font-medium text-white">Response Time</div>
@@ -141,13 +190,13 @@ export default function ContactPage() {
               </CardContent>
             </Card>
 
-            {/* Social Links */}
+            {/* Professional Profiles */}
             <Card className="bg-slate-800 border-slate-700">
               <CardHeader>
-                <CardTitle className="text-white">Connect With Me</CardTitle>
+                <CardTitle className="text-white">Professional Profiles</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                {contactMethods.map((method, index) => {
+                {contactMethods.slice(2).map((method, index) => {
                   const Icon = method.icon;
                   return (
                     <div
@@ -163,6 +212,7 @@ export default function ContactPage() {
                           <div className="text-xs text-slate-400">{method.value}</div>
                           <div className="text-xs text-slate-500 mt-1">{method.description}</div>
                         </div>
+                        <ExternalLink className="h-4 w-4 text-slate-400 group-hover:text-sky-400 transition-colors" />
                       </a>
                     </div>
                   );
@@ -212,78 +262,8 @@ export default function ContactPage() {
             </Card>
           </div>
 
-          {/* Additional Contact Information */}
+          {/* Additional Information */}
           <div className="space-y-6">
-            {/* Direct Contact Methods */}
-            <Card className="bg-slate-800 border-slate-700">
-              <CardHeader>
-                <CardTitle className="text-white flex items-center gap-2">
-                  <Phone className="h-5 w-5 text-sky-400" />
-                  Direct Contact
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="text-center p-6 bg-slate-900/50 rounded-lg border border-slate-600">
-                  <Mail className="h-8 w-8 text-sky-400 mx-auto mb-3" />
-                  <div className="font-medium text-white text-lg mb-2">Primary Email</div>
-                  <a 
-                    href={`mailto:${personalInfo.emailPrimary}`}
-                    className="text-sky-400 hover:text-sky-300 transition-colors font-mono text-sm break-all"
-                  >
-                    {personalInfo.emailPrimary}
-                  </a>
-                  <p className="text-xs text-slate-400 mt-2">Best for all inquiries and project discussions</p>
-                </div>
-
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3 p-3 bg-slate-900/30 rounded-lg">
-                    <MapPin className="h-4 w-4 text-slate-400" />
-                    <div>
-                      <div className="font-medium text-white">Location</div>
-                      <div className="text-sm text-slate-300">{personalInfo.location}</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 bg-slate-900/30 rounded-lg">
-                    <Clock className="h-4 w-4 text-slate-400" />
-                    <div>
-                      <div className="font-medium text-white">Response Time</div>
-                      <div className="text-sm text-slate-300">Usually within 24 hours</div>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Professional Links */}
-            <Card className="bg-slate-800 border-slate-700">
-              <CardHeader>
-                <CardTitle className="text-white">Professional Profiles</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {contactMethods.map((method, index) => {
-                  const Icon = method.icon;
-                  return (
-                    <div
-                      key={index}
-                      className="group border border-slate-600 rounded-lg p-4 hover:border-sky-500/50 transition-all duration-300"
-                    >
-                      <a href={method.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
-                        <div className={`p-2 rounded-lg bg-slate-700 ${method.color} group-hover:scale-110 transition-transform`}>
-                          <Icon className="h-4 w-4" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="font-medium text-white">{method.label}</div>
-                          <div className="text-xs text-slate-400">{method.value}</div>
-                          <div className="text-xs text-slate-500 mt-1">{method.description}</div>
-                        </div>
-                        <ExternalLink className="h-4 w-4 text-slate-400 group-hover:text-sky-400 transition-colors" />
-                      </a>
-                    </div>
-                  );
-                })}
-              </CardContent>
-            </Card>
-
             {/* Availability Status */}
             <Card className="bg-slate-800 border-slate-700">
               <CardHeader>
@@ -302,11 +282,11 @@ export default function ContactPage() {
                     <p>• Currently accepting new project inquiries</p>
                     <p>• Available for consulting and development work</p>
                     <p>• Open to both short-term and long-term engagements</p>
+                    <p>• <span className="text-sky-400 font-medium">Relocation available</span> - Can work from anywhere</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
-          </div>
         </div>
       </div>
       <Analytics />

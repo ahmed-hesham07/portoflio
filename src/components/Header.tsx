@@ -47,6 +47,12 @@ export function Header() {
               {item.name}
             </Link>
           ))}
+          
+          {/* Availability Status */}
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-green-900/20 border border-green-500/30 rounded-full">
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            <span className="text-xs font-medium text-green-300">Available for Projects</span>
+          </div>
         </nav>
 
         {/* Actions */}
@@ -93,6 +99,12 @@ export function Header() {
             className="md:hidden border-t border-slate-800 bg-slate-950/95 backdrop-blur-sm"
           >
             <nav className="container mx-auto px-4 py-4 space-y-2">
+              {/* Mobile Availability Status */}
+              <div className="flex items-center justify-center gap-2 px-4 py-3 bg-green-900/20 border border-green-500/30 rounded-lg mb-4">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span className="text-sm font-medium text-green-300">Available for Projects</span>
+              </div>
+              
               {navigation.map((item) => (
                 <Link
                   key={item.name}
