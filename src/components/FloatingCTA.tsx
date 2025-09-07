@@ -102,7 +102,7 @@ export function FloatingCTA() {
             
             <div>
               <h3 className="text-lg font-bold text-white mb-1">
-                💰 Save ${psychologicalData.savings}/month!
+                💰 Save ${psychologicalData.savings}!
               </h3>
               <p className="text-sm text-slate-300">
                 Last client saved ${psychologicalData.lastClientSaved} • {psychologicalData.successRate} success rate
@@ -116,7 +116,7 @@ export function FloatingCTA() {
                 <span className="text-green-400 font-bold">My rate: ${psychologicalData.myRate}/hr</span>
               </div>
               <div className="text-center text-xs text-amber-400 font-semibold mt-1">
-                You save ${psychologicalData.savings} per month!
+                You save ${psychologicalData.savings}!
               </div>
             </div>
 

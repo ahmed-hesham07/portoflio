@@ -14,25 +14,29 @@
     }
   },
   "skills": {
-    "programmingAndData": ["Python (Pandas, NumPy, scikit-learn, OpenCV, TensorFlow, Keras)", "C++", "C#", "SQL"],
-    "frameworksTools": ["React", "Next.js", "FastAPI", "Tauri", "Git", "Jupyter", "ROS", "VS Code", "Docker (basic)"],
-    "concepts": ["Machine Learning", "Deep Learning", "NLP", "Predictive Maintenance", "Data Structures & Algorithms", "OOP"],
-    "soft": ["Problem Solving", "Collaboration", "Critical Thinking", "Time Management"]
+    "programmingAndData": ["Python", "C++", "C#", "SQL", "Java", "JavaScript", "TypeScript", "PHP", "HTML", "CSS", "Rust", "C"],
+    "frameworksTools": ["Pandas", "NumPy", "scikit-learn", "OpenCV", "TensorFlow", "Keras", "React", "Next.js", "FastAPI", "Tauri", "Git", "Jupyter", "ROS", "VS Code", "Docker"],
+    "concepts": ["Machine Learning", "Deep Learning", "NLP", "Predictive Maintenance", "Data Structures & Algorithms", "OOP", "REST APIs", "Microservices", "CI/CD", "DevOps"],
+    "soft": ["Problem Solving", "Collaboration", "Critical Thinking", "Time Management", "Adaptability", "Communication"]
   },
   "projects": [
     {
       "slug": "vessel-guard",
       "name": "Vessel Guard",
-      "year": 2025,
+      "year": 2024,
       "description": "Native desktop engineering tool for ASME B31.3 & VIII Fitness-For-Service assessments.",
       "tech": ["Tauri", "React", "FastAPI", "SQLAlchemy", "SQLite"],
       "features": [
         "Automated FFS assessments",
         "Corrosion rate & remaining life calculation",
         "Inspection planning",
+        "Professional PDF report generation",
+        "Standards compliance verification",
+        "AI-assisted assessment",
+        "Cross-platform desktop build",
         "Professional PDF report generation"
       ],
-      "impact": "Reduced assessment time by ~40% through guided workflows and automated reporting.",
+      "impact": "Reduced assessment time by ~80% through guided workflows and automated reporting.",
       "links": {
         "repo": "https://github.com/ahmed-hesham07/vessel-guard",
         "demo": null
@@ -44,11 +48,18 @@
       "name": "Business-wise Analysis Tool",
       "year": 2025,
       "description": "Analytics toolkit that transforms raw datasets into actionable business insights.",
-      "tech": ["Python", "Pandas", "Matplotlib", "Jupyter"],
+      "tech": ["Python", "Pandas", "Matplotlib", "Jupyter", "Plotly", "Seaborn", "Scikit-learn", "TensorFlow", "Keras", "PyTorch", "SQL"],
       "features": [
         "Automated data cleaning",
         "Exploratory & statistical analysis",
-        "Interactive dashboards"
+        "Interactive dashboards",
+        "Export reports in multiple formats",
+        "Data visualization",
+        "Data analysis",
+        "Data cleaning",
+        "Data preprocessing",
+        "Data engineering",
+        "Data modeling"
       ],
       "impact": "Accelerated decision-making with clear visual summaries and repeatable analysis notebooks.",
       "links": {
@@ -62,16 +73,20 @@
       "name": "Engineering Consultancy Website",
       "year": 2025,
       "description": "Professional site for Eng. Hesham Ragab (Hesham Seddik): services, project gallery, and client contact.",
-      "tech": ["React", "Tailwind CSS", "Netlify"],
+      "tech": ["React", "Tailwind CSS", "Netlify", "TypeScript", "Framer Motion", "Vercel"],
       "features": [
         "Responsive design",
         "Articles/blog section",
-        "Image gallery & contact form"
+        "Image gallery & contact form",
+        "SEO optimized content",
+        "Dynamic articles and blog section",
+        "Project gallery with filtering",
+        "Contact integration and forms"
       ],
       "impact": "Improved credibility and lead capture with a fast, mobile-first presence.",
       "links": {
         "repo": null,
-        "demo": "https://hrc-engineering.com"
+        "live": "https://hrc-engineering.com"
       },
       "image": "/assets/consultancy-website.png"
     }
@@ -84,7 +99,8 @@
       "details": [
         "Developed customer segmentation models to improve targeting and personalization.",
         "Performed dataset research, cleaning, and feature engineering for predictive analytics.",
-        "Assisted on an AI chatbot for customer engagement; supported data pipelines and evaluation."
+        "Assisted on an AI chatbot for customer engagement; supported data pipelines and evaluation.",
+        "Worked on a customer relationship management (CRM) system to improve customer engagement and retention."
       ]
     },
     {
@@ -94,7 +110,9 @@
       "details": [
         "Delivered full-stack solutions with React, FastAPI, and SQL tailored to business needs.",
         "Built robotics/automation tools to streamline operations and reduce manual workload.",
-        "Developed ML pipelines and data products providing actionable business insights."
+        "Developed ML pipelines and data products providing actionable business insights.",
+        "Worked on a project management system to improve project tracking and collaboration.",
+        "Worked on a content management system to improve content creation and management."
       ]
     }
   ],
@@ -115,7 +133,10 @@
     "highlights": [
       "Shipped Vessel Guard, a Tauri + React desktop app for FFS assessments (ASME B31.3 & VIII).",
       "Built data analytics and automation tooling for faster, more reliable decisions.",
-      "Blend of software engineering, AI/ML, and domain knowledge."
+      "Blend of software engineering, AI/ML, and domain knowledge.",
+      "Worked on a customer relationship management (CRM) system to improve customer engagement and retention.",
+      "Worked on a project management system to improve project tracking and collaboration.",
+      "Worked on a content management system to improve content creation and management."
     ]
   }
 }

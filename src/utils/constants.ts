@@ -80,7 +80,7 @@ export const PERSONAL_INFO = {
   tagline: 'Building intelligent engineering software at the intersection of AI, cloud, and industry standards.',
   location: 'Alexandria, Egypt',
   email: 'ahmed.hesham0762@gmail.com',
-  domain: 'ahmedseddik.tech',
+  domain: 'ahmedseddik.dev',
   social: {
     github: 'https://github.com/ahmed-hesham07',
     linkedin: 'https://www.linkedin.com/in/ahmedhesham612006'
@@ -92,7 +92,7 @@ export const CONTACT_INFO = {
   title: 'Software Engineer & Data Scientist',
   location: 'Alexandria, Egypt',
   email: 'ahmed.hesham0762@gmail.com',
-  phone: '+20 (xxx) xxx-xxxx',
+  phone: '+20 (103) 312-0762',
   social: {
     github: 'https://github.com/ahmed-hesham07',
     linkedin: 'https://www.linkedin.com/in/ahmedhesham612006'
