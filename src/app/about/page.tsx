@@ -46,7 +46,7 @@ export default function AboutPage() {
         '✅ Publish Vessel Guard and Business-wise Analysis Tool as case studies on GitHub + website',
         '📢 Start LinkedIn posting cadence: 2 posts/month (projects, insights, learnings)',
         '🎓 Focus on core CS fundamentals (DSA, system design, OOP, OS, networking)',
-        '💼 Work on freelance projects (web apps, automation, AI tools) to earn ~$300–500/month by 2026',
+        '💼 Work on freelance projects (web apps, automation, AI tools) to build portfolio and experience',
         '🧩 Certifications: AWS Certified Solutions Architect – Associate, TensorFlow Developer Certificate'
       ]
     },
@@ -57,7 +57,7 @@ export default function AboutPage() {
       goals: [
         '🔬 Develop 3 flagship projects: SaaS product, AI-powered business tool, Open-source library',
         '💼 Internship + part-time jobs → focus on Cloud + AI engineering roles',
-        '🏗️ Scale freelancing into consulting (higher-ticket clients: $1k+/project)',
+        '🏗️ Scale freelancing into consulting (higher-value clients and complex projects)',
         '🪪 Publish research-style case studies on Medium/LinkedIn (applied AI in engineering)',
         '🌍 Grow online brand → 5k+ LinkedIn followers, GitHub stars, speaking at meetups'
       ]
@@ -70,8 +70,8 @@ export default function AboutPage() {
         '📜 Graduate with strong portfolio + CV (projects, internships, freelance)',
         '🏆 Target roles: Software Engineer, Data Engineer, Solutions Architect',
         '🌍 Build reputation → conference talks, guest blog posts, open-source maintainer',
-        '💰 Freelance/consulting should reach $3k–5k/month side income',
-        '🔑 Personal SaaS product should generate recurring revenue (~$500–1k/month)'
+        '💰 Freelance/consulting should reach significant monthly income',
+        '🔑 Personal SaaS product should generate recurring revenue'
       ]
     },
     {
@@ -79,8 +79,8 @@ export default function AboutPage() {
       timeframe: '2030 onward',
       goal: 'Choose between elite career path or founder path.',
       goals: [
-        'Option 1: Senior/principal engineer roles at global companies (Google, AWS, Palantir) with ~$150k+ salary (USD)',
-        'Option 2: Scale your own SaaS product(s) into a business, targeting $10k/month MRR',
+        'Option 1: Senior/principal engineer roles at global companies (Google, AWS, Palantir) with competitive compensation',
+        'Option 2: Scale your own SaaS product(s) into a business with significant monthly recurring revenue',
         'Option 3: Hybrid → continue freelancing/consulting with niche expertise, scaling into an agency'
       ]
     }

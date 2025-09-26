@@ -99,36 +99,19 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen py-16">
       <div className="container mx-auto px-6">
-        {/* Hero Section with Advanced Psychology */}
+        {/* Hero Section */}
         <div className="text-center mb-20">
-          {/* Urgency Banner */}
-          <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white text-center py-3 text-sm font-bold mb-6 animate-pulse">
-            🚨 URGENT: Only 2 spots left this month! 7 inquiries today alone! Price increases next week!
-          </div>
-          
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-900/20 border border-red-500/50 rounded-full mb-6 animate-bounce">
-            <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-red-300">LIMITED AVAILABILITY - ACT NOW!</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-900/20 border border-green-500/50 rounded-full mb-6">
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-green-300">Available for New Projects</span>
           </div>
           
           <h1 className="text-5xl font-bold text-white mb-6 leading-tight">
-            💰 Last Client Saved $15,000 in 3 Months!
+            Let's Build Something Amazing Together
           </h1>
           
-          {/* Countdown Timer */}
-          <div className="bg-red-800/50 border border-red-500/50 rounded-lg p-4 max-w-md mx-auto mb-6">
-            <div className="text-center">
-              <div className="text-sm text-red-300 font-bold mb-2">⏰ LIMITED TIME OFFER</div>
-              <div className="text-3xl font-bold text-white font-mono" id="countdown">
-                14:59
-              </div>
-              <div className="text-xs text-red-300">Price increases after timer!</div>
-            </div>
-          </div>
-          
           <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-8 leading-relaxed">
-            <span className="text-red-400 font-bold">7 inquiries today alone!</span> Join <span className="text-sky-400 font-semibold">18+ satisfied clients</span> who've saved an average of <span className="text-green-400 font-bold">$15,000</span> with my solutions. 
-            <span className="text-amber-400 font-semibold">Only 2 spots left this month!</span>
+            Ready to transform your ideas into reality? Join <span className="text-sky-400 font-semibold">18+ satisfied clients</span> who've achieved their goals with professional engineering software, data analytics, and full-stack development solutions.
           </p>
 
           {/* Social Proof Stats */}
@@ -424,27 +407,27 @@ export default function ContactPage() {
 
           {/* Right Column - Additional Information */}
           <div className="space-y-6">
-            {/* Urgency & Scarcity */}
-            <Card className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-amber-500/30">
+            {/* Professional Services */}
+            <Card className="bg-gradient-to-br from-sky-900/20 to-violet-900/20 border-sky-500/30">
               <CardHeader>
                 <CardTitle className="text-white flex items-center gap-2">
-                  <Timer className="h-5 w-5 text-amber-400" />
-                  Limited Availability
+                  <CheckCircle className="h-5 w-5 text-sky-400" />
+                  Professional Services
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <div className="flex items-center gap-3 p-4 bg-amber-900/20 border border-amber-500/30 rounded-lg">
-                    <div className="w-3 h-3 bg-amber-400 rounded-full animate-pulse"></div>
+                  <div className="flex items-center gap-3 p-4 bg-sky-900/20 border border-sky-500/30 rounded-lg">
+                    <div className="w-3 h-3 bg-sky-400 rounded-full animate-pulse"></div>
                     <div>
-                      <div className="font-medium text-amber-300">Only 3 spots left this month</div>
-                      <div className="text-sm text-amber-400/80">Book your consultation now</div>
+                      <div className="font-medium text-sky-300">Available for new projects</div>
+                      <div className="text-sm text-sky-400/80">Professional consultation available</div>
                     </div>
                   </div>
                   <div className="text-sm text-slate-300 space-y-2">
-                    <p>• <span className="text-amber-400 font-medium">High demand</span> - 15+ inquiries this week</p>
-                    <p>• <span className="text-amber-400 font-medium">Premium pricing</span> - Rates increase next quarter</p>
-                    <p>• <span className="text-amber-400 font-medium">Priority booking</span> - First come, first served</p>
+                    <p>• <span className="text-sky-400 font-medium">Engineering Software</span> - ASME/API compliance tools</p>
+                    <p>• <span className="text-sky-400 font-medium">Data Analytics</span> - Business intelligence solutions</p>
+                    <p>• <span className="text-sky-400 font-medium">Full-Stack Development</span> - Modern web applications</p>
                   </div>
                 </div>
               </CardContent>
@@ -532,35 +515,6 @@ export default function ContactPage() {
       </div>
       <Analytics />
       <SpeedInsights />
-      
-      {/* Countdown Timer Script */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            function startCountdown() {
-              let timeLeft = 15 * 60; // 15 minutes
-              const countdownElement = document.getElementById('countdown');
-              
-              const timer = setInterval(() => {
-                const minutes = Math.floor(timeLeft / 60);
-                const seconds = timeLeft % 60;
-                countdownElement.textContent = minutes + ':' + seconds.toString().padStart(2, '0');
-                
-                timeLeft--;
-                
-                if (timeLeft < 0) {
-                  timeLeft = 15 * 60; // Reset to 15 minutes
-                }
-              }, 1000);
-            }
-            
-            // Start countdown when page loads
-            if (typeof window !== 'undefined') {
-              startCountdown();
-            }
-          `
-        }}
-      />
     </div>
   );
 }

@@ -55,7 +55,7 @@ const experiences: Experience[] = [
       'Delivered 15+ successful projects',
       'Achieved 100% client satisfaction rate',
       'Reduced operational costs by 30% for automation clients',
-      'Generated $50K+ in revenue'
+      'Delivered high-value solutions for clients'
     ]
   },
   {
