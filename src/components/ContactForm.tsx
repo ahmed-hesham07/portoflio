@@ -11,7 +11,7 @@ export function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -35,10 +35,9 @@ export function ContactForm() {
       if (response.ok) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
-        
-        // If there's a fallback mailto (for demo purposes), you could optionally use it
+
         if (data.fallbackMailto) {
-          console.log('Fallback mailto URL:', data.fallbackMailto);
+          console.info('Fallback mailto URL:', data.fallbackMailto);
         }
       } else {
         throw new Error(data.error || 'Failed to send message');
@@ -52,32 +51,31 @@ export function ContactForm() {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
   return (
-    <Card className="bg-slate-800 border-slate-700">
+    <Card>
       <CardHeader>
-        <CardTitle className="flex items-center gap-2 text-white">
-          <Mail className="h-5 w-5 text-slate-400" />
-          Send Me a Message
+        <CardTitle className="flex items-center gap-2 text-slate-900 dark:text-white">
+          <Mail className="h-5 w-5 text-sky-500" />
+          Send me a message
         </CardTitle>
-        <p className="text-slate-400 text-sm">
+        <p className="text-sm text-slate-500 dark:text-slate-400">
           Fill out the form below and I&apos;ll get back to you within 24 hours.
         </p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Name */}
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
+            <label htmlFor="name" className="mb-2 block text-sm font-medium text-slate-600 dark:text-slate-300">
               Name
             </label>
             <div className="relative">
-              <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
+              <User className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-slate-400" />
               <input
                 type="text"
                 id="name"
@@ -85,19 +83,18 @@ export function ContactForm() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full pl-10 pr-4 py-2 border border-slate-600 rounded-lg bg-slate-900 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-colors"
+                className="w-full rounded-lg border border-slate-200 bg-white py-2 pl-10 pr-4 text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-sky-400 dark:focus:ring-sky-400/30"
                 placeholder="Your name"
               />
             </div>
           </div>
 
-          {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
+            <label htmlFor="email" className="mb-2 block text-sm font-medium text-slate-600 dark:text-slate-300">
               Email
             </label>
             <div className="relative">
-              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
+              <Mail className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-slate-400" />
               <input
                 type="email"
                 id="email"
@@ -105,19 +102,17 @@ export function ContactForm() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full pl-10 pr-4 py-2 border border-slate-600 rounded-lg bg-slate-900 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-colors"
+                className="w-full rounded-lg border border-slate-200 bg-white py-2 pl-10 pr-4 text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-sky-400 dark:focus:ring-sky-400/30"
                 placeholder="your.email@example.com"
               />
             </div>
           </div>
-
-          {/* Message */}
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
+            <label htmlFor="message" className="mb-2 block text-sm font-medium text-slate-600 dark:text-slate-300">
               Message
             </label>
             <div className="relative">
-              <MessageSquare className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
+              <MessageSquare className="pointer-events-none absolute left-3 top-3 h-4 w-4 text-slate-400" />
               <textarea
                 id="message"
                 name="message"
@@ -125,18 +120,13 @@ export function ContactForm() {
                 onChange={handleChange}
                 required
                 rows={5}
-                className="w-full pl-10 pr-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-sky-500 focus:border-transparent resize-none"
+                className="w-full resize-none rounded-lg border border-slate-200 bg-white py-2 pl-10 pr-4 text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-sky-400 dark:focus:ring-sky-400/30"
                 placeholder="Tell me about your project or question..."
               />
             </div>
           </div>
 
-          {/* Submit Button */}
-          <Button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full"
-          >
+          <Button type="submit" disabled={isSubmitting} className="w-full">
             {isSubmitting ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -145,34 +135,36 @@ export function ContactForm() {
             ) : (
               <>
                 <Send className="mr-2 h-4 w-4" />
-                Send Message
+                Send message
               </>
             )}
           </Button>
 
-          {/* Status Messages */}
           {submitStatus === 'success' && (
-            <div className="p-4 rounded-lg bg-green-900/20 border border-green-500/20 text-green-300">
+            <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-4 text-emerald-700 dark:border-emerald-900/60 dark:bg-emerald-900/20 dark:text-emerald-200">
               <div className="flex items-center gap-2">
-                <span className="text-green-400">✓</span>
+                <span className="text-emerald-500">✓</span>
                 <div>
                   <div className="font-medium">Message sent successfully!</div>
-                  <div className="text-sm text-green-400/80">I&apos;ll get back to you within 24 hours at {personalInfo.emailPrimary}</div>
+                  <div className="text-sm text-emerald-600 dark:text-emerald-200/80">
+                    I&apos;ll get back to you within 24 hours at {personalInfo.emailPrimary}
+                  </div>
                 </div>
               </div>
             </div>
           )}
+
           {submitStatus === 'error' && (
-            <div className="p-4 rounded-lg bg-red-900/20 border border-red-500/20 text-red-300">
+            <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-red-700 dark:border-red-900/60 dark:bg-red-900/20 dark:text-red-200">
               <div className="flex items-center gap-2">
-                <span className="text-red-400">⚠</span>
+                <span className="text-red-500">⚠</span>
                 <div>
                   <div className="font-medium">Failed to send message</div>
-                  <div className="text-sm text-red-400/80">
+                  <div className="text-sm text-red-600 dark:text-red-200/80">
                     Please try again or email me directly at{' '}
                     <a
                       href={`mailto:${personalInfo.emailPrimary}`}
-                      className="underline hover:text-red-300"
+                      className="underline hover:text-red-500 dark:hover:text-red-200"
                     >
                       {personalInfo.emailPrimary}
                     </a>

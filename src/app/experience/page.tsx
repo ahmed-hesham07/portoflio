@@ -1,11 +1,13 @@
 'use client';
 
-import { Trophy, GraduationCap, Briefcase, Award, CheckCircle, ArrowRight, Zap, Shield, Target } from 'lucide-react';
+import { GraduationCap, Briefcase, Award, CheckCircle, ArrowRight, Zap, Shield, Target } from 'lucide-react';
 import { getExperience, getEducation, getAchievements } from '@/utils/data';
 import { Timeline } from '@/components/Timeline';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { PageIntro } from '@/components/PageIntro';
+import { Button } from '@/components/ui/Button';
 
 export default function ExperiencePage() {
   const experience = getExperience();
@@ -21,228 +23,188 @@ export default function ExperiencePage() {
     responseTime: '2-4 hours'
   };
 
+  const heroStats = [
+    { label: 'Projects delivered', value: `${socialProof.projectsCompleted}+` },
+    { label: 'Happy clients', value: `${socialProof.clientsSatisfied}+` },
+    { label: 'Years of experience', value: `${socialProof.yearsExperience}+` },
+    { label: 'Response time', value: socialProof.responseTime },
+  ];
+
   return (
-    <div className="min-h-screen py-16">
-      <div className="container mx-auto px-6">
-        {/* Header with Social Proof */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-900/20 border border-green-500/30 rounded-full mb-6">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-green-300">Available for New Projects</span>
-          </div>
-          
-          <h1 className="text-5xl font-bold text-white mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-sky-400 to-violet-400 bg-clip-text text-transparent">3+ Years</span> of Proven Excellence
-          </h1>
-          
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-8 leading-relaxed">
-            From <span className="text-sky-400 font-semibold">RoboCup champion</span> to <span className="text-violet-400 font-semibold">engineering software specialist</span>—discover the journey that led to helping 18+ clients achieve their goals.
-          </p>
-
-          {/* Experience Highlights */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-sky-400 mb-1">{socialProof.yearsExperience}+</div>
-              <div className="text-sm text-slate-400">Years Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-green-400 mb-1">🏆</div>
-              <div className="text-sm text-slate-400">RoboCup Winner</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-violet-400 mb-1">🔬</div>
-              <div className="text-sm text-slate-400">ML Research</div>
-            </div>
-          </div>
-
-          {/* Primary CTA */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button 
-              className="bg-gradient-to-r from-sky-500 to-violet-500 hover:from-sky-600 hover:to-violet-600 text-white px-8 py-4 text-lg font-semibold rounded-lg flex items-center"
-              onClick={() => window.location.href = '/contact'}
-            >
-              Work With Me
+    <>
+      <PageIntro
+        eyebrow="Experience"
+        title="Experience shaped by shipping real products"
+        description="From RoboCup championships to production engineering software, I focus on pragmatic problem-solving, dependable delivery, and measurable outcomes across AI, automation, and full-stack development."
+        stats={heroStats}
+        actions={[
+          <Button key="primary" size="lg" asChild>
+            <a href="/contact">
+              Work with me
               <ArrowRight className="ml-2 h-5 w-5" />
-            </button>
-            <button 
-              className="border border-sky-400 text-sky-400 hover:bg-sky-400 hover:text-white px-8 py-4 text-lg rounded-lg flex items-center"
-              onClick={() => window.location.href = '/contact'}
-            >
+            </a>
+          </Button>,
+          <Button key="secondary" size="lg" variant="outline" asChild>
+            <a href="/contact">
               <Zap className="mr-2 h-5 w-5" />
-              Get Free Consultation
-            </button>
-          </div>
-        </div>
+              Free consultation
+            </a>
+          </Button>,
+        ]}
+      />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <section className="bg-slate-50 py-16 dark:bg-slate-950">
+        <div className="container mx-auto grid gap-12 px-6 lg:grid-cols-3">
           {/* Timeline */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-8">
+            <div className="mb-8 flex items-center gap-3">
               <Briefcase className="h-6 w-6 text-sky-500" />
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-                Professional Experience
+              <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">
+                Professional experience
               </h2>
             </div>
             <Timeline experiences={experience} />
           </div>
 
-          {/* Sidebar with Psychology */}
-          <div className="space-y-8">
-            {/* Experience Summary */}
-            <Card className="bg-gradient-to-br from-slate-800 to-slate-900 border-slate-700 shadow-xl">
+          {/* Sidebar */}
+          <div className="space-y-6">
+            <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-white">
-                  <Briefcase className="h-5 w-5 text-sky-400" />
-                  Experience Summary
+                <CardTitle className="flex items-center gap-2 text-slate-900 dark:text-white">
+                  <Briefcase className="h-5 w-5 text-sky-500" />
+                  Experience snapshot
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-3 text-sm text-slate-300">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400" />
-                    <span>3+ years in software engineering</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400" />
-                    <span>RoboCup world championship winner</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400" />
-                    <span>Self-taught ML and data science expert</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400" />
-                    <span>25+ projects across multiple domains</span>
-                  </div>
+              <CardContent className="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-emerald-500" />
+                  <span>3+ years building production software</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-emerald-500" />
+                  <span>RoboCup world championship winner</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-emerald-500" />
+                  <span>Hands-on ML, automation, and engineering tools</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-emerald-500" />
+                  <span>25+ projects delivered with measurable outcomes</span>
                 </div>
               </CardContent>
             </Card>
 
-            {/* Education with Psychology */}
-            <Card className="bg-slate-800 border-slate-700">
+            <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-white">
-                  <GraduationCap className="h-5 w-5 text-violet-400" />
-                  Education & Credentials
+                <CardTitle className="flex items-center gap-2 text-slate-900 dark:text-white">
+                  <GraduationCap className="h-5 w-5 text-sky-500" />
+                  Education & credentials
                 </CardTitle>
-                <p className="text-slate-400 text-sm">Academic foundation for excellence</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400">
+                  Technical foundation grounded in engineering rigor
+                </p>
               </CardHeader>
               <CardContent className="space-y-4">
                 {education.map((edu, index) => (
-                  <div key={index} className="border-l-2 border-violet-400 pl-4 bg-slate-900/30 rounded-r-lg p-3">
-                    <h3 className="font-semibold text-white">
+                  <div key={index} className="rounded-lg border border-slate-200 p-4 dark:border-slate-800">
+                    <h3 className="font-semibold text-slate-900 dark:text-white">
                       {edu.degree}
                     </h3>
-                    <p className="text-violet-400 font-medium">
+                    <p className="text-sm text-slate-500 dark:text-slate-400">
                       {edu.institution}
                     </p>
-                    <p className="text-sm text-slate-400">
-                      {edu.graduation}
-                    </p>
+                    <p className="text-xs text-slate-400 dark:text-slate-500">{edu.graduation}</p>
                   </div>
                 ))}
               </CardContent>
             </Card>
 
-            {/* Achievements with Social Proof */}
-            <Card className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-amber-500/30">
+            <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-white">
-                  <Award className="h-5 w-5 text-amber-400" />
-                  Key Achievements
+                <CardTitle className="flex items-center gap-2 text-slate-900 dark:text-white">
+                  <Award className="h-5 w-5 text-sky-500" />
+                  Key achievements
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3">
+                <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-300">
                   {achievements.map((achievement, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Trophy className="h-3 w-3 text-amber-400" />
-                      </div>
-                      <span className="text-slate-300 text-sm">
-                        {achievement}
-                      </span>
+                      <div className="mt-1 flex h-2 w-2 flex-shrink-0 rounded-full bg-sky-500" />
+                      <span>{achievement}</span>
                     </li>
                   ))}
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Skills Summary with Psychology */}
-            <Card className="bg-slate-800 border-slate-700">
+            <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-white">
-                  <Target className="h-5 w-5 text-sky-400" />
-                  Core Competencies
+                <CardTitle className="flex items-center gap-2 text-slate-900 dark:text-white">
+                  <Target className="h-5 w-5 text-sky-500" />
+                  Core competencies
                 </CardTitle>
-                <p className="text-slate-400 text-sm">Proven expertise across key areas</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400">
+                  Blending software craftsmanship with data and engineering
+                </p>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div>
-                    <div className="flex justify-between items-center mb-2">
-                      <div className="text-sm font-medium text-white">
-                        Data Science & ML
-                      </div>
-                      <div className="text-xs text-sky-400 font-semibold">90%</div>
-                    </div>
-                    <div className="w-full bg-slate-700 rounded-full h-2">
-                      <div className="bg-gradient-to-r from-sky-500 to-sky-400 h-2 rounded-full w-[90%]"></div>
-                    </div>
+              <CardContent className="space-y-3">
+                <div>
+                  <div className="flex items-center justify-between text-sm font-medium text-slate-700 dark:text-slate-200">
+                    <span>Data science & ML</span>
+                    <span>Advanced</span>
                   </div>
-                  <div>
-                    <div className="flex justify-between items-center mb-2">
-                      <div className="text-sm font-medium text-white">
-                        Full-Stack Development
-                      </div>
-                      <div className="text-xs text-violet-400 font-semibold">85%</div>
-                    </div>
-                    <div className="w-full bg-slate-700 rounded-full h-2">
-                      <div className="bg-gradient-to-r from-violet-500 to-violet-400 h-2 rounded-full w-[85%]"></div>
-                    </div>
+                  <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+                    <div className="h-full w-11/12 rounded-full bg-sky-500" />
                   </div>
-                  <div>
-                    <div className="flex justify-between items-center mb-2">
-                      <div className="text-sm font-medium text-white">
-                        Engineering Software
-                      </div>
-                      <div className="text-xs text-emerald-400 font-semibold">80%</div>
-                    </div>
-                    <div className="w-full bg-slate-700 rounded-full h-2">
-                      <div className="bg-gradient-to-r from-emerald-500 to-emerald-400 h-2 rounded-full w-[80%]"></div>
-                    </div>
+                </div>
+                <div>
+                  <div className="flex items-center justify-between text-sm font-medium text-slate-700 dark:text-slate-200">
+                    <span>Full-stack development</span>
+                    <span>Advanced</span>
+                  </div>
+                  <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+                    <div className="h-full w-5/6 rounded-full bg-sky-500" />
+                  </div>
+                </div>
+                <div>
+                  <div className="flex items-center justify-between text-sm font-medium text-slate-700 dark:text-slate-200">
+                    <span>Engineering software</span>
+                    <span>Expert</span>
+                  </div>
+                  <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+                    <div className="h-full w-4/5 rounded-full bg-sky-500" />
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            {/* CTA Card */}
-            <Card className="bg-gradient-to-br from-sky-900/20 to-violet-900/20 border-sky-500/30">
+            <Card>
               <CardHeader>
-                <CardTitle className="text-white text-center">Ready to Work Together?</CardTitle>
+                <CardTitle className="text-center text-slate-900 dark:text-white">
+                  Ready to collaborate?
+                </CardTitle>
               </CardHeader>
-              <CardContent className="text-center space-y-4">
-                <p className="text-slate-300 text-sm">
-                  Let&apos;s discuss how my experience can help your project succeed.
-                </p>
-                <button 
-                  className="w-full bg-gradient-to-r from-sky-500 to-violet-500 hover:from-sky-600 hover:to-violet-600 text-white px-6 py-3 text-sm font-semibold rounded-lg flex items-center justify-center"
-                  onClick={() => window.location.href = '/contact'}
-                >
-                  Start Your Project
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </button>
-                <p className="text-xs text-slate-500">
-                  <Shield className="inline h-3 w-3 mr-1" />
-                  Free consultation • No commitment
+              <CardContent className="space-y-4 text-center text-sm text-slate-600 dark:text-slate-300">
+                <p>Let&apos;s talk through your idea, requirements, and success criteria.</p>
+                <Button size="md" asChild>
+                  <a href="/contact">
+                    Start your project
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+                <p className="text-xs text-slate-400 dark:text-slate-500">
+                  <Shield className="mr-1 inline h-3 w-3" />
+                  Free consultation, transparent proposals
                 </p>
               </CardContent>
             </Card>
           </div>
         </div>
-      </div>
+      </section>
       <Analytics />
       <SpeedInsights />
-    </div>
+    </>
   );
 }

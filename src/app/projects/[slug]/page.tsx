@@ -50,7 +50,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <div className="min-h-screen py-16">
+    <div className="min-h-screen bg-slate-50 py-16 dark:bg-slate-950">
       <div className="container mx-auto px-6">
         {/* Back Button */}
         <div className="mb-8">

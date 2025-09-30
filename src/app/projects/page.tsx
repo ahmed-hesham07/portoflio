@@ -4,8 +4,11 @@ import { useState } from 'react';
 import { Search, Filter, ArrowRight, Zap } from 'lucide-react';
 import { getProjects } from '@/utils/data';
 import { ProjectCard } from '@/components/ProjectCard';
+import { cn } from '@/utils/cn';
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { PageIntro } from '@/components/PageIntro';
+import { Button } from '@/components/ui/Button';
 
 export default function ProjectsPage() {
   const projects = getProjects();
@@ -22,6 +25,13 @@ export default function ProjectsPage() {
     responseTime: '2-4 hours'
   };
 
+  const heroStats = [
+    { label: 'Projects delivered', value: `${socialProof.projectsCompleted}+` },
+    { label: 'Happy clients', value: `${socialProof.clientsSatisfied}+` },
+    { label: 'Years of experience', value: `${socialProof.yearsExperience}+` },
+    { label: 'Success rate', value: socialProof.successRate },
+  ];
+
   // Get unique years and technologies
   const years = [...new Set(projects.map(p => p.year))].sort((a, b) => b - a);
   const allTech = [...new Set(projects.flatMap(p => p.tech))].sort();
@@ -37,174 +47,139 @@ export default function ProjectsPage() {
   });
 
   return (
-    <div className="min-h-screen py-16">
-      <div className="container mx-auto px-6">
-        {/* Header with Social Proof */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-900/20 border border-green-500/30 rounded-full mb-6">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-green-300">Available for New Projects</span>
-          </div>
-          
-          <h1 className="text-5xl font-bold text-white mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-sky-400 to-violet-400 bg-clip-text text-transparent">25+ Projects</span> That Made a Difference
-          </h1>
-          
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-8 leading-relaxed">
-            From <span className="text-sky-400 font-semibold">engineering software</span> to <span className="text-violet-400 font-semibold">AI-powered solutions</span>—each project represents a step toward helping businesses achieve their goals through technology.
-          </p>
-
-          {/* Social Proof Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto mb-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-sky-400 mb-1">{socialProof.projectsCompleted}+</div>
-              <div className="text-sm text-slate-400">Projects Delivered</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-green-400 mb-1">{socialProof.successRate}</div>
-              <div className="text-sm text-slate-400">Success Rate</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-violet-400 mb-1">{socialProof.clientsSatisfied}+</div>
-              <div className="text-sm text-slate-400">Happy Clients</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-amber-400 mb-1">{socialProof.yearsExperience}+</div>
-              <div className="text-sm text-slate-400">Years Experience</div>
-            </div>
-          </div>
-
-          {/* Primary CTA */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button 
-              className="bg-gradient-to-r from-sky-500 to-violet-500 hover:from-sky-600 hover:to-violet-600 text-white px-8 py-4 text-lg font-semibold rounded-lg flex items-center"
-              onClick={() => window.location.href = '/contact'}
-            >
-              Start Your Project
+    <>
+      <PageIntro
+        eyebrow="Projects"
+        title="Real-world software and data products"
+        description="A curated selection of engineering, analytics, and product builds shipped for clients across energy, operations, and SaaS. Each project balances technical depth with thoughtful user experience."
+        stats={heroStats}
+        actions={[
+          <Button key="primary" size="lg" asChild>
+            <a href="/contact">
+              Start your project
               <ArrowRight className="ml-2 h-5 w-5" />
-            </button>
-            <button 
-              className="border border-sky-400 text-sky-400 hover:bg-sky-400 hover:text-white px-8 py-4 text-lg rounded-lg flex items-center"
-              onClick={() => window.location.href = '/contact'}
-            >
+            </a>
+          </Button>,
+          <Button key="secondary" size="lg" variant="outline" asChild>
+            <a href="/contact">
               <Zap className="mr-2 h-5 w-5" />
-              Get Free Consultation
-            </button>
-          </div>
-        </div>
+              Get a consultation
+            </a>
+          </Button>,
+        ]}
+      />
 
-        {/* Filters */}
-        <div className="mb-8 space-y-4">
-          {/* Search */}
-          <div className="relative max-w-md mx-auto">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
-            <input
-              type="text"
-              placeholder="Search projects..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-sky-500 focus:border-transparent"
-            />
-          </div>
-
-          {/* Filter Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <div className="flex items-center gap-2">
-              <Filter className="h-4 w-4 text-slate-500" />
-              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Filter by:</span>
-            </div>
-            
-            {/* Year Filter */}
-            <div className="flex gap-2">
-              <button
-                onClick={() => setSelectedYear(null)}
-                className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
-                  selectedYear === null
-                    ? 'bg-sky-500 text-white'
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-                }`}
+      <section className="bg-slate-50 py-16 dark:bg-slate-950">
+        <div className="container mx-auto px-6">
+          <div className="mb-10 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+              <div>
+                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">Filter projects</h2>
+                <p className="text-sm text-slate-500 dark:text-slate-400">
+                  Search by name, year, or technology stack.
+                </p>
+              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  setSearchTerm('');
+                  setSelectedYear(null);
+                  setSelectedTech(null);
+                }}
               >
-                All Years
-              </button>
-              {years.map(year => (
-                <button
-                  key={year}
-                  onClick={() => setSelectedYear(year)}
-                  className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
-                    selectedYear === year
-                      ? 'bg-sky-500 text-white'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-                  }`}
-                >
-                  {year}
-                </button>
-              ))}
+                Reset filters
+              </Button>
             </div>
 
-            {/* Tech Filter */}
-            <div className="flex flex-wrap gap-2">
-              <button
-                onClick={() => setSelectedTech(null)}
-                className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
-                  selectedTech === null
-                    ? 'bg-violet-400 text-white'
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-                }`}
-              >
-                All Tech
-              </button>
-              {allTech.slice(0, 8).map(tech => (
+            <div className="grid gap-6 md:grid-cols-[1fr_auto] lg:grid-cols-[2fr_auto] lg:items-start">
+              <div className="relative">
+                <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                <input
+                  type="text"
+                  placeholder="Search by project name or description"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full rounded-lg border border-slate-200 bg-white py-2 pl-10 pr-4 text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-sky-400 dark:focus:ring-sky-400/30"
+                />
+              </div>
+
+              <div className="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <Filter className="h-4 w-4" />
+                <span>Refine by year and technology</span>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
                 <button
-                  key={tech}
-                  onClick={() => setSelectedTech(tech)}
-                  className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
-                    selectedTech === tech
-                      ? 'bg-violet-400 text-white'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-                  }`}
+                  onClick={() => setSelectedYear(null)}
+                  className={cn(
+                    'rounded-full border border-slate-200 px-3 py-1 text-sm font-medium text-slate-600 transition hover:border-sky-400 hover:text-sky-600 dark:border-slate-700 dark:text-slate-300 dark:hover:border-sky-500 dark:hover:text-sky-400',
+                    selectedYear === null && 'border-sky-500 bg-sky-500 text-white dark:text-white',
+                  )}
                 >
-                  {tech}
+                  All years
                 </button>
-              ))}
+                {years.map((year) => (
+                  <button
+                    key={year}
+                    onClick={() => setSelectedYear(year)}
+                    className={cn(
+                      'rounded-full border border-slate-200 px-3 py-1 text-sm font-medium text-slate-600 transition hover:border-sky-400 hover:text-sky-600 dark:border-slate-700 dark:text-slate-300 dark:hover:border-sky-500 dark:hover:text-sky-400',
+                      selectedYear === year && 'border-sky-500 bg-sky-500 text-white dark:text-white',
+                    )}
+                  >
+                    {year}
+                  </button>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                <button
+                  onClick={() => setSelectedTech(null)}
+                  className={cn(
+                    'rounded-full border border-slate-200 px-3 py-1 text-sm font-medium text-slate-600 transition hover:border-sky-400 hover:text-sky-600 dark:border-slate-700 dark:text-slate-300 dark:hover:border-sky-500 dark:hover:text-sky-400',
+                    selectedTech === null && 'border-sky-500 bg-sky-500 text-white dark:text-white',
+                  )}
+                >
+                  All tech
+                </button>
+                {allTech.slice(0, 8).map((tech) => (
+                  <button
+                    key={tech}
+                    onClick={() => setSelectedTech(tech)}
+                    className={cn(
+                      'rounded-full border border-slate-200 px-3 py-1 text-sm font-medium text-slate-600 transition hover:border-sky-400 hover:text-sky-600 dark:border-slate-700 dark:text-slate-300 dark:hover:border-sky-500 dark:hover:text-sky-400',
+                      selectedTech === tech && 'border-sky-500 bg-sky-500 text-white dark:text-white',
+                    )}
+                  >
+                    {tech}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Results Count */}
-        <div className="text-center mb-8">
-          <p className="text-slate-600 dark:text-slate-400">
+          <div className="mb-6 text-center text-sm text-slate-600 dark:text-slate-400">
             Showing {filteredProjects.length} of {projects.length} projects
-          </p>
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
-        </div>
-
-        {/* No Results */}
-        {filteredProjects.length === 0 && (
-          <div className="text-center py-16">
-            <p className="text-slate-500 dark:text-slate-400 text-lg">
-              No projects found matching your criteria.
-            </p>
-            <button
-              onClick={() => {
-                setSearchTerm('');
-                setSelectedYear(null);
-                setSelectedTech(null);
-              }}
-              className="mt-4 text-sky-500 hover:text-sky-600 font-medium"
-            >
-              Clear all filters
-            </button>
           </div>
-        )}
-      </div>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {filteredProjects.map((project) => (
+              <ProjectCard key={project.slug} project={project} />
+            ))}
+          </div>
+
+          {filteredProjects.length === 0 && (
+            <div className="py-16 text-center">
+              <p className="text-lg text-slate-500 dark:text-slate-400">
+                No projects matched your filters. Try adjusting the inputs above.
+              </p>
+            </div>
+          )}
+        </div>
+      </section>
       <Analytics />
       <SpeedInsights />
-    </div>
+    </>
   );
 }
