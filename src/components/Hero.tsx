@@ -4,6 +4,7 @@ import { ArrowRight, Mail, Github, Linkedin, Download } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from './ui/Button';
 import { getPersonalInfo } from '@/utils/data';
+import { autography } from '@/styles/fonts';
 
 const Hero = () => {
   const personalInfo = getPersonalInfo();
@@ -12,9 +13,13 @@ const Hero = () => {
     <section className="relative px-6 py-24 sm:py-32 lg:px-8 min-h-screen flex items-center">
       <div className="mx-auto max-w-4xl text-center">
         <div className="space-y-8">
-          <h1 className="text-5xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl md:text-7xl">
-            <span className="block">{personalInfo.name.split(' ')[0]}</span>
-            <span className="block text-slate-600 dark:text-slate-300">{personalInfo.name.split(' ')[3]}</span>
+          <h1 className="text-5xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-6xl md:text-7xl">
+            <span className={`${autography.className} block text-6xl sm:text-7xl md:text-8xl leading-none text-slate-900 dark:text-white`}>
+              {personalInfo.name.split(' ')[0]}
+            </span>
+            <span className={`${autography.className} block text-5xl sm:text-6xl md:text-7xl leading-tight text-slate-600 dark:text-slate-300`}>
+              {personalInfo.name.split(' ')[3]}
+            </span>
           </h1>
           
           <p className="text-xl sm:text-2xl text-slate-600 dark:text-slate-300 font-light">
