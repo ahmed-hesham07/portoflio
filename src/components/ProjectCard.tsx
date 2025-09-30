@@ -50,7 +50,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       
       <CardHeader>
         <div className="flex items-start justify-between">
-          <CardTitle className="text-lg group-hover:text-sky-500 transition-colors">
+          <CardTitle className="text-lg group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
             <Link href={`/projects/${project.slug}`}>
               {project.name}
             </Link>

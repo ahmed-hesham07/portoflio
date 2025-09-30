@@ -3,7 +3,6 @@ import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { FloatingCTA } from '@/components/FloatingCTA';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -90,11 +89,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetBrainsMono.variable} font-sans antialiased`}
       >
-        <div className="min-h-screen bg-slate-950 text-white">
+        <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-white transition-colors">
           <Header />
           <main>{children}</main>
           <Footer />
-          <FloatingCTA />
         </div>
       </body>
     </html>

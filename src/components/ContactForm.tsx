@@ -62,11 +62,11 @@ export function ContactForm() {
     <Card className="bg-slate-800 border-slate-700">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-white">
-          <Mail className="h-5 w-5 text-sky-400" />
+          <Mail className="h-5 w-5 text-slate-400" />
           Send Me a Message
         </CardTitle>
         <p className="text-slate-400 text-sm">
-          Fill out the form below and I'll get back to you within 24 hours.
+          Fill out the form below and I&apos;ll get back to you within 24 hours.
         </p>
       </CardHeader>
       <CardContent>
@@ -157,7 +157,7 @@ export function ContactForm() {
                 <span className="text-green-400">✓</span>
                 <div>
                   <div className="font-medium">Message sent successfully!</div>
-                  <div className="text-sm text-green-400/80">I'll get back to you within 24 hours at {personalInfo.emailPrimary}</div>
+                  <div className="text-sm text-green-400/80">I&apos;ll get back to you within 24 hours at {personalInfo.emailPrimary}</div>
                 </div>
               </div>
             </div>
@@ -170,9 +170,12 @@ export function ContactForm() {
                   <div className="font-medium">Failed to send message</div>
                   <div className="text-sm text-red-400/80">
                     Please try again or email me directly at{' '}
-                                    <a href={`mailto:${personalInfo.emailPrimary}`} className="underline hover:text-red-300">
-                  {personalInfo.emailPrimary}
-                </a>
+                    <a
+                      href={`mailto:${personalInfo.emailPrimary}`}
+                      className="underline hover:text-red-300"
+                    >
+                      {personalInfo.emailPrimary}
+                    </a>
                   </div>
                 </div>
               </div>

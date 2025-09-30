@@ -112,6 +112,7 @@ const Contact = () => {
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
+      console.error('Contact form submission failed:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -152,7 +153,7 @@ const Contact = () => {
             <span className="cyber-text">{'>'}</span> ESTABLISH <span className="gradient-text">CONNECTION</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto font-cyber">
-            Ready to architect the future? Let's synchronize our neural networks and build 
+            Ready to architect the future? Let&apos;s synchronize our neural networks and build 
             quantum-enhanced solutions together.
           </p>
         </motion.div>
@@ -170,9 +171,9 @@ const Contact = () => {
                 NEURAL_INTERFACE
               </h3>
               <p className="text-gray-300 mb-8 leading-relaxed font-cyber">
-                I'm actively seeking opportunities for quantum computing collaborations, autonomous system development, 
+                I&apos;m actively seeking opportunities for quantum computing collaborations, autonomous system development, 
                 and neural network architecture projects. Whether you need an AI engineer, quantum software developer, 
-                or engineering consultant, let's build the future together.
+                or engineering consultant, let&apos;s build the future together.
               </p>
             </div>
 
@@ -224,7 +225,7 @@ const Contact = () => {
               </h4>
               <p className="text-blue-700 dark:text-blue-300 text-sm">
                 I typically respond to all inquiries within 24 hours. For urgent matters, 
-                please mention "URGENT" in your subject line.
+                please mention &quot;URGENT&quot; in your subject line.
               </p>
             </motion.div>
           </motion.div>
@@ -366,7 +367,7 @@ const Contact = () => {
                     <span className="font-medium">Message sent successfully!</span>
                   </div>
                   <p className="text-green-600 dark:text-green-300 text-sm mt-1">
-                    Thank you for reaching out. I'll get back to you within 24 hours.
+                    Thank you for reaching out. I&apos;ll get back to you within 24 hours.
                   </p>
                 </motion.div>
               )}

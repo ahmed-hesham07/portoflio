@@ -1,8 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import type { Metadata } from "next";
-import { Search, Filter, Star, Users, Award, CheckCircle, ArrowRight, Zap, TrendingUp, Clock, Shield, Target } from 'lucide-react';
+import { Search, Filter, ArrowRight, Zap } from 'lucide-react';
 import { getProjects } from '@/utils/data';
 import { ProjectCard } from '@/components/ProjectCard';
 import { Analytics } from "@vercel/analytics/next";

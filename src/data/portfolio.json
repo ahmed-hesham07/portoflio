@@ -32,9 +32,7 @@
         "Inspection planning",
         "Professional PDF report generation",
         "Standards compliance verification",
-        "AI-assisted assessment",
-        "Cross-platform desktop build",
-        "Professional PDF report generation"
+        "Cross-platform desktop application"
       ],
       "impact": "Reduced assessment time by ~80% through guided workflows and automated reporting.",
       "links": {
@@ -50,16 +48,11 @@
       "description": "Analytics toolkit that transforms raw datasets into actionable business insights.",
       "tech": ["Python", "Pandas", "Matplotlib", "Jupyter", "Plotly", "Seaborn", "Scikit-learn", "TensorFlow", "Keras", "PyTorch", "SQL"],
       "features": [
-        "Automated data cleaning",
-        "Exploratory & statistical analysis",
+        "Automated data cleaning and preprocessing",
+        "Statistical analysis and visualization",
         "Interactive dashboards",
-        "Export reports in multiple formats",
-        "Data visualization",
-        "Data analysis",
-        "Data cleaning",
-        "Data preprocessing",
-        "Data engineering",
-        "Data modeling"
+        "Multi-format report export",
+        "Machine learning model integration"
       ],
       "impact": "Accelerated decision-making with clear visual summaries and repeatable analysis notebooks.",
       "links": {
@@ -75,13 +68,11 @@
       "description": "Professional site for Eng. Hesham Ragab (Hesham Seddik): services, project gallery, and client contact.",
       "tech": ["React", "Tailwind CSS", "Netlify", "TypeScript", "Framer Motion", "Vercel"],
       "features": [
-        "Responsive design",
-        "Articles/blog section",
-        "Image gallery & contact form",
-        "SEO optimized content",
-        "Dynamic articles and blog section",
-        "Project gallery with filtering",
-        "Contact integration and forms"
+        "Responsive design optimized for all devices",
+        "Professional project gallery",
+        "Content management system",
+        "SEO optimization",
+        "Contact integration"
       ],
       "impact": "Improved credibility and lead capture with a fast, mobile-first presence.",
       "links": {
@@ -97,10 +88,10 @@
       "company": "Accur Digital (AED)",
       "period": "Jan 2025 – Jun 2025",
       "details": [
-        "Developed customer segmentation models to improve targeting and personalization.",
-        "Performed dataset research, cleaning, and feature engineering for predictive analytics.",
-        "Assisted on an AI chatbot for customer engagement; supported data pipelines and evaluation.",
-        "Worked on a customer relationship management (CRM) system to improve customer engagement and retention."
+        "Developed customer segmentation models to improve targeting and personalization",
+        "Performed dataset research, cleaning, and feature engineering for predictive analytics",
+        "Assisted in AI chatbot development for customer engagement",
+        "Contributed to CRM system development to improve customer retention"
       ]
     },
     {
@@ -108,11 +99,10 @@
       "company": "Various Clients",
       "period": "2024 – Present",
       "details": [
-        "Delivered full-stack solutions with React, FastAPI, and SQL tailored to business needs.",
-        "Built robotics/automation tools to streamline operations and reduce manual workload.",
-        "Developed ML pipelines and data products providing actionable business insights.",
-        "Worked on a project management system to improve project tracking and collaboration.",
-        "Worked on a content management system to improve content creation and management."
+        "Delivered full-stack solutions with React, FastAPI, and SQL tailored to business needs",
+        "Built automation tools to streamline operations and reduce manual workload",
+        "Developed ML pipelines and data products providing actionable business insights",
+        "Created project management and content management systems"
       ]
     }
   ],
@@ -129,14 +119,12 @@
     "Competitor – ECPC (2024)"
   ],
   "cv": {
-    "objective": "Software Engineer & Data Scientist building applied AI and engineering software. Focused on productizing ML, modern desktop apps, and cloud-ready solutions.",
+    "objective": "Software Engineer & Data Scientist building applied AI and engineering software. Focused on productizing ML, modern desktop applications, and cloud-ready solutions.",
     "highlights": [
-      "Shipped Vessel Guard, a Tauri + React desktop app for FFS assessments (ASME B31.3 & VIII).",
-      "Built data analytics and automation tooling for faster, more reliable decisions.",
-      "Blend of software engineering, AI/ML, and domain knowledge.",
-      "Worked on a customer relationship management (CRM) system to improve customer engagement and retention.",
-      "Worked on a project management system to improve project tracking and collaboration.",
-      "Worked on a content management system to improve content creation and management."
+      "Developed Vessel Guard, a desktop application for FFS assessments (ASME B31.3 & VIII)",
+      "Built data analytics and automation tooling for enhanced decision-making",
+      "Combined software engineering expertise with AI/ML and domain knowledge",
+      "Delivered complete software solutions from concept to deployment"
     ]
   }
 }

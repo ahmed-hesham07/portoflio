@@ -42,7 +42,7 @@ export function Footer() {
               <li>
                 <Link 
                   href="/projects" 
-                  className="text-slate-400 hover:text-sky-400 transition-colors text-sm"
+                  className="text-slate-400 hover:text-slate-200 transition-colors text-sm"
                 >
                   Projects
                 </Link>
@@ -50,7 +50,7 @@ export function Footer() {
               <li>
                 <Link 
                   href="/experience" 
-                  className="text-slate-400 hover:text-sky-400 transition-colors text-sm"
+                  className="text-slate-400 hover:text-slate-200 transition-colors text-sm"
                 >
                   Experience
                 </Link>
@@ -58,7 +58,7 @@ export function Footer() {
               <li>
                 <Link 
                   href="/skills" 
-                  className="text-slate-400 hover:text-sky-400 transition-colors text-sm"
+                  className="text-slate-400 hover:text-slate-200 transition-colors text-sm"
                 >
                   Skills
                 </Link>
@@ -66,7 +66,7 @@ export function Footer() {
               <li>
                 <Link 
                   href="/about" 
-                  className="text-slate-400 hover:text-sky-400 transition-colors text-sm"
+                  className="text-slate-400 hover:text-slate-200 transition-colors text-sm"
                 >
                   About
                 </Link>
@@ -80,7 +80,7 @@ export function Footer() {
             <div className="space-y-3">
               <a 
                 href={`mailto:${personalInfo.emailPrimary}`}
-                className="flex items-center gap-2 text-slate-400 hover:text-sky-400 transition-colors text-sm"
+                className="flex items-center gap-2 text-slate-400 hover:text-slate-200 transition-colors text-sm"
               >
                 <Mail className="h-4 w-4" />
                 <span>Email</span>
@@ -89,7 +89,7 @@ export function Footer() {
                 href={personalInfo.social.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-slate-400 hover:text-sky-400 transition-colors text-sm"
+                className="flex items-center gap-2 text-slate-400 hover:text-slate-200 transition-colors text-sm"
               >
                 <Github className="h-4 w-4" />
                 <span>GitHub</span>
@@ -98,7 +98,7 @@ export function Footer() {
                 href={personalInfo.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-slate-400 hover:text-sky-400 transition-colors text-sm"
+                className="flex items-center gap-2 text-slate-400 hover:text-slate-200 transition-colors text-sm"
               >
                 <Linkedin className="h-4 w-4" />
                 <span>LinkedIn</span>
@@ -122,7 +122,7 @@ export function Footer() {
             {/* Back to Top Button */}
             <motion.button
               onClick={scrollToTop}
-              className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-sky-400 transition-all duration-300 border border-slate-700 hover:border-sky-500/50"
+              className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-slate-200 transition-all duration-300 border border-slate-700 hover:border-slate-500"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-label="Back to top"

@@ -106,6 +106,11 @@ const typeColors = {
 const Experience = () => {
   const [selectedExperience, setSelectedExperience] = useState<Experience | null>(null);
   const [activeTab, setActiveTab] = useState<'details' | 'achievements' | 'tech'>('details');
+  const tabs: Array<{ id: 'details' | 'achievements' | 'tech'; label: string; icon: string }> = [
+    { id: 'details', label: 'Details', icon: '📝' },
+    { id: 'achievements', label: 'Achievements', icon: '🏆' },
+    { id: 'tech', label: 'Technologies', icon: '⚙️' }
+  ];
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -254,7 +259,7 @@ const Experience = () => {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
                 className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[80vh] overflow-y-auto"
-                onClick={(e) => e.stopPropagation()}
+                onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
               >
                 <div className="p-8">
                   {/* Header */}
@@ -278,14 +283,10 @@ const Experience = () => {
 
                   {/* Tab Navigation */}
                   <div className="flex space-x-1 mb-6 bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
-                    {[
-                      { id: 'details', label: 'Details', icon: '📝' },
-                      { id: 'achievements', label: 'Achievements', icon: '🏆' },
-                      { id: 'tech', label: 'Technologies', icon: '⚙️' }
-                    ].map((tab) => (
+                    {tabs.map((tab) => (
                       <button
                         key={tab.id}
-                        onClick={() => setActiveTab(tab.id as any)}
+                        onClick={() => setActiveTab(tab.id)}
                         className={`flex-1 py-2 px-4 rounded-md font-medium transition-all ${
                           activeTab === tab.id
                             ? 'bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 shadow-sm'

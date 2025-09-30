@@ -1,6 +1,6 @@
 'use client';
 
-import { Trophy, GraduationCap, Briefcase, Star, Users, Award, CheckCircle, ArrowRight, Zap, TrendingUp, Clock, Shield, Target, ArrowUpRight } from 'lucide-react';
+import { Trophy, GraduationCap, Briefcase, Award, CheckCircle, ArrowRight, Zap, Shield, Target } from 'lucide-react';
 import { getExperience, getEducation, getAchievements } from '@/utils/data';
 import { Timeline } from '@/components/Timeline';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
@@ -223,7 +223,7 @@ export default function ExperiencePage() {
               </CardHeader>
               <CardContent className="text-center space-y-4">
                 <p className="text-slate-300 text-sm">
-                  Let's discuss how my experience can help your project succeed.
+                  Let&apos;s discuss how my experience can help your project succeed.
                 </p>
                 <button 
                   className="w-full bg-gradient-to-r from-sky-500 to-violet-500 hover:from-sky-600 hover:to-violet-600 text-white px-6 py-3 text-sm font-semibold rounded-lg flex items-center justify-center"

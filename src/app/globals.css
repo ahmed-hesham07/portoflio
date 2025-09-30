@@ -10,11 +10,33 @@
 }
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #fafafa;
+  /* Light theme */
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  --border: #e2e8f0;
+  --primary: #0f172a;
+  --primary-foreground: #ffffff;
+  
+  /* Accent colors */
+  --accent: #0ea5e9;
+  --accent-foreground: #ffffff;
+}
+
+.dark {
+  /* Dark theme */
+  --background: #0f172a;
+  --foreground: #f8fafc;
   --muted: #1e293b;
   --muted-foreground: #94a3b8;
   --border: #334155;
+  --primary: #f8fafc;
+  --primary-foreground: #0f172a;
+  
+  /* Accent colors */
+  --accent: #0ea5e9;
+  --accent-foreground: #0f172a;
 }
 
 * {
@@ -34,9 +56,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - cleaner design */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -44,60 +66,28 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0ea5e9;
-  border-radius: 3px;
+  background: var(--muted-foreground);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0284c7;
+  background: var(--accent);
 }
 
 /* Selection */
 ::selection {
-  background: #0ea5e9;
-  color: white;
+  background: var(--accent);
+  color: var(--accent-foreground);
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out;
-}
-
-.animate-slide-in {
-  animation: slideIn 0.6s ease-out;
+/* Smooth transitions */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 /* Custom font classes */
 .font-autography {
   font-family: 'Autography', cursive, sans-serif;
-}
-
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(45deg, #0ea5e9, #a78bfa);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
