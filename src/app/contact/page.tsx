@@ -1,8 +1,8 @@
-import { type LucideIcon, ArrowRight, CheckCircle, ExternalLink, Github, Linkedin, Mail, MapPin, MessageCircle, Phone, Send, Shield, Star, Zap } from 'lucide-react';
+import { type LucideIcon, ArrowRight, ExternalLink, Github, Linkedin, Mail, MapPin, MessageCircle, Phone, Send, Shield, Star, Zap } from 'lucide-react';
 import { getPersonalInfo } from '@/utils/data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { ContactForm } from '@/components/ContactForm';
+import { Badge } from '@/components/ui/Badge';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { PageIntro } from '@/components/PageIntro';
@@ -21,7 +21,7 @@ type QuickAction = {
   title: string;
   description: string;
   action: string;
-  variant: 'primary' | 'secondary' | 'outline';
+  ctaLabel: string;
   highlight?: boolean;
   urgency?: string;
 };
@@ -85,7 +85,7 @@ export default function ContactPage() {
       title: 'Start Your Project',
       description: 'Join 18+ satisfied clients who built amazing solutions',
       action: `mailto:${personalInfo.emailPrimary}?subject=Project Inquiry&body=Hi Ahmed, I'm interested in working with you on a project. Here are the details:%0D%0A%0D%0A`,
-      variant: 'primary',
+      ctaLabel: 'Start a project brief',
       urgency: 'Limited spots available this month',
       highlight: true,
     },
@@ -94,16 +94,38 @@ export default function ContactPage() {
       title: 'Free Consultation',
       description: 'Get expert advice on your technical challenges',
       action: `mailto:${personalInfo.emailPrimary}?subject=Free Consultation&body=Hi Ahmed, I'd like to schedule a free consultation to discuss:%0D%0A%0D%0A`,
-      variant: 'secondary',
+      ctaLabel: 'Book a calm chat',
     },
     {
       icon: Phone,
       title: 'Quick Call',
       description: 'Speak directly — 98% response rate within 2-4 hours',
       action: 'tel:+201033120762',
-      variant: 'outline',
+      ctaLabel: 'Call now',
     },
   ];
+
+  const collaborationHighlights = [
+    {
+      icon: Send,
+      title: 'Thoughtful discovery',
+      description: 'We begin with a relaxed conversation to understand your goals, constraints, and what success feels like for you.',
+    },
+    {
+      icon: Zap,
+      title: 'Responsive updates',
+      description: `Expect clear check-ins and answers inside ${socialProof.responseTime.toLowerCase()} — momentum without the rush.`,
+    },
+    {
+      icon: Shield,
+      title: 'Proven delivery',
+      description: `${socialProof.successRate} success rate across ${socialProof.projectsCompleted}+ engagements, with teams who keep coming back.`,
+    },
+  ];
+
+  const primaryChannels = contactMethods.filter((method) => ['Email', 'Phone'].includes(method.label));
+  const supportingChannels = contactMethods.filter((method) => method.href.startsWith('http'));
+  const locationMethod = contactMethods.find((method) => method.label === 'Location');
 
   const testimonials = [
     {
@@ -150,120 +172,151 @@ export default function ContactPage() {
         ]}
       />
 
-      <section className="bg-slate-50 py-16 dark:bg-slate-950">
-        <div className="container mx-auto space-y-12 px-6">
-          <div className="grid gap-8 lg:grid-cols-3">
-            <div className="space-y-6 lg:col-span-2">
-              <ContactForm />
+      <section className="relative isolate overflow-hidden py-20">
+        <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-sky-100/40 via-transparent to-transparent dark:from-slate-900/40" />
+        <div className="absolute -right-24 top-24 hidden h-72 w-72 rounded-full bg-sky-200/50 blur-3xl dark:bg-sky-500/10 lg:block" />
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-slate-900 dark:text-white">
-                    <Zap className="h-5 w-5 text-sky-500" />
-                    Quick ways to get started
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
+        <div className="container relative mx-auto space-y-16 px-6">
+          <div className="grid gap-10 lg:grid-cols-[1.45fr_1fr]">
+            <Card className="rounded-3xl border border-white/60 bg-white/80 shadow-xl backdrop-blur md:px-2 dark:border-slate-800/60 dark:bg-slate-900/70">
+              <CardHeader className="space-y-5 lg:p-10">
+                <Badge size="sm" variant="default" className="w-fit bg-sky-500/15 text-sky-600 dark:bg-sky-500/10 dark:text-sky-300">
+                  Start a conversation
+                </Badge>
+                <CardTitle className="text-3xl font-semibold leading-snug text-slate-900 dark:text-white">
+                  Tell me about the product you have in mind
+                </CardTitle>
+                <p className="max-w-2xl text-base text-slate-600 dark:text-slate-300">
+                  Skip the long forms. Share a note, book a short chat, or hop on a call—whatever feels easiest. I&apos;ll reply personally with a thoughtful first step.
+                </p>
+              </CardHeader>
+              <CardContent className="space-y-10 lg:p-10 lg:pt-0">
+                <div className="grid gap-4 sm:grid-cols-2">
                   {quickActions.map((action, index) => {
                     const Icon = action.icon;
-
                     return (
-                      <div key={index} className="flex flex-col gap-3 rounded-lg border border-slate-200 p-4 dark:border-slate-800 md:flex-row md:items-center md:justify-between">
+                      <a
+                        key={`${action.title}-${index}`}
+                        href={action.action}
+                        className={`group flex h-full flex-col justify-between rounded-2xl border border-slate-200/70 bg-white/80 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-xl dark:border-slate-800/80 dark:bg-slate-900/70 ${
+                          action.highlight ? 'border-sky-300/80 bg-sky-50/80 dark:border-sky-500/40 dark:bg-sky-500/10' : ''
+                        }`}
+                      >
                         <div className="flex items-center gap-3">
-                          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+                          <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-sky-500/10 text-sky-600 dark:bg-sky-500/10 dark:text-sky-300">
                             <Icon className="h-5 w-5" />
-                          </div>
+                          </span>
                           <div>
-                            <div className="font-medium text-slate-900 dark:text-white">{action.title}</div>
-                            <p className="text-sm text-slate-500 dark:text-slate-400">{action.description}</p>
-                            {action.urgency && <p className="text-xs text-amber-500">{action.urgency}</p>}
+                            <div className="text-sm font-semibold text-slate-900 dark:text-white">{action.title}</div>
+                            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{action.description}</p>
                           </div>
                         </div>
-                        <Button variant={action.variant === 'outline' ? 'outline' : action.variant} size="sm" asChild>
-                          <a href={action.action}>
-                            {action.title.includes('Call') ? 'Call now' : 'Get started'}
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </a>
-                        </Button>
-                      </div>
+                        {action.urgency && <p className="mt-4 text-xs font-medium text-amber-500">{action.urgency}</p>}
+                        <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-sky-600 transition group-hover:gap-3 dark:text-sky-300">
+                          {action.ctaLabel}
+                          <ArrowRight className="h-4 w-4" />
+                        </span>
+                      </a>
                     );
                   })}
-                </CardContent>
-              </Card>
-            </div>
+                </div>
 
-            <div className="space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-slate-900 dark:text-white">
-                    <Mail className="h-5 w-5 text-sky-500" />
-                    Direct contact details
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {contactMethods.map((method, index) => {
+                <div className="grid gap-4 md:grid-cols-2">
+                  {primaryChannels.map((method, index) => {
                     const Icon = method.icon;
+                    const isLink = method.href !== '#';
+                    const isExternal = isLink && method.href.startsWith('http');
                     return (
-                      <div key={`${method.label}-${index}`} className="flex items-start gap-3">
-                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-                          <Icon className="h-4 w-4" />
+                      <div
+                        key={`${method.label}-${index}`}
+                        className="flex h-full flex-col justify-between rounded-2xl border border-slate-200/70 bg-white/80 p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-slate-800/80 dark:bg-slate-900/70"
+                      >
+                        <div className="flex items-center gap-3">
+                          <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-slate-900/5 text-slate-900 dark:bg-slate-100/10 dark:text-slate-100">
+                            <Icon className={`h-5 w-5 ${method.color ?? ''}`} />
+                          </span>
+                          <div>
+                            <div className="text-sm font-semibold text-slate-900 dark:text-white">{method.label}</div>
+                            <p className="text-xs text-slate-500 dark:text-slate-400">{method.description}</p>
+                          </div>
                         </div>
-                        <div>
-                          <div className="font-medium text-slate-900 dark:text-white">{method.label}</div>
-                          <p className="text-sm text-slate-500 dark:text-slate-400">{method.description}</p>
-                          {method.href !== '#' ? (
+                        <div className="mt-5">
+                          {isLink ? (
                             <a
                               href={method.href}
-                              target={method.href.startsWith('http') ? '_blank' : undefined}
-                              rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                              className="text-sm font-medium text-sky-600 hover:text-sky-500 dark:text-sky-400"
+                              target={isExternal ? '_blank' : undefined}
+                              rel={isExternal ? 'noopener noreferrer' : undefined}
+                              className="inline-flex items-center gap-2 text-base font-semibold text-slate-900 transition hover:text-sky-600 dark:text-white dark:hover:text-sky-300"
                             >
                               {method.value}
+                              {isExternal ? <ExternalLink className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
                             </a>
                           ) : (
-                            <span className="text-sm text-slate-600 dark:text-slate-300">{method.value}</span>
+                            <span className="text-base font-semibold text-slate-900 dark:text-white">{method.value}</span>
                           )}
                         </div>
                       </div>
                     );
                   })}
+                </div>
+
+                {locationMethod && (
+                  <div className="flex flex-col gap-3 rounded-2xl border border-slate-200/70 bg-white/80 p-5 text-sm text-slate-600 dark:border-slate-800/80 dark:bg-slate-900/70 dark:text-slate-300 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/10 text-sky-600 dark:bg-sky-500/10 dark:text-sky-300">
+                        <MapPin className="h-5 w-5" />
+                      </span>
+                      <div>
+                        <div className="text-sm font-semibold text-slate-900 dark:text-white">Currently collaborating from</div>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">{locationMethod.description}</p>
+                      </div>
+                    </div>
+                    <span className="text-base font-medium text-slate-900 dark:text-white">{locationMethod.value}</span>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
+            <div className="space-y-6">
+              <Card className="rounded-3xl border border-white/60 bg-white/80 shadow-xl backdrop-blur dark:border-slate-800/60 dark:bg-slate-900/70">
+                <CardHeader className="space-y-4 lg:p-10">
+                  <CardTitle className="text-2xl font-semibold text-slate-900 dark:text-white">What happens after you reach out</CardTitle>
+                  <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">A calm, collaborative process to understand your needs and craft a plan together.</p>
+                </CardHeader>
+                <CardContent className="space-y-6 lg:p-10 lg:pt-0">
+                  {collaborationHighlights.map((item, index) => {
+                    const Icon = item.icon;
+                    return (
+                      <div key={`${item.title}-${index}`} className="flex items-start gap-3 rounded-2xl border border-transparent bg-slate-50/60 p-4 dark:bg-slate-800/40">
+                        <span className="mt-1 flex h-9 w-9 items-center justify-center rounded-full bg-sky-500/10 text-sky-600 dark:bg-sky-500/10 dark:text-sky-300">
+                          <Icon className="h-4 w-4" />
+                        </span>
+                        <div className="space-y-1">
+                          <div className="text-sm font-semibold text-slate-900 dark:text-white">{item.title}</div>
+                          <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">{item.description}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+
+                  <div className="flex flex-wrap items-center gap-3 rounded-2xl bg-slate-900/5 p-4 dark:bg-slate-100/5">
+                    <Badge variant="default" size="sm">Accepting new collaborations</Badge>
+                    <span className="text-sm text-slate-500 dark:text-slate-400">Replies typically land within {socialProof.responseTime.toLowerCase()}.</span>
+                  </div>
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-slate-900 dark:text-white">
-                    <Shield className="h-5 w-5 text-sky-500" />
-                    Why teams enjoy collaborating
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3 text-sm text-slate-600 dark:text-slate-300">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-emerald-500" />
-                    <span>{socialProof.successRate} success across 25+ deliveries</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-emerald-500" />
-                    <span>Deep experience with engineering, analytics, and UX</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-emerald-500" />
-                    <span>Transparent communication with 2–4 hour response time</span>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-slate-900 dark:text-white">
-                    <ExternalLink className="h-5 w-5 text-sky-500" />
-                    Professional profiles
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  {contactMethods
-                    .filter((method) => method.href.startsWith('http'))
-                    .map((method, index) => {
+              {supportingChannels.length > 0 && (
+                <Card className="rounded-3xl border border-white/60 bg-white/80 shadow-lg backdrop-blur dark:border-slate-800/60 dark:bg-slate-900/70">
+                  <CardHeader className="space-y-3 lg:p-8">
+                    <CardTitle className="flex items-center gap-2 text-slate-900 dark:text-white">
+                      <ExternalLink className="h-5 w-5 text-sky-500" />
+                      Follow along elsewhere
+                    </CardTitle>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">Peek behind the scenes, explore open-source work, or connect for future collaborations.</p>
+                  </CardHeader>
+                  <CardContent className="space-y-3 lg:p-8 lg:pt-0">
+                    {supportingChannels.map((method, index) => {
                       const Icon = method.icon;
                       return (
                         <a
@@ -271,39 +324,45 @@ export default function ContactPage() {
                           href={method.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-between rounded-lg border border-slate-200 px-4 py-3 text-sm transition hover:border-sky-400 dark:border-slate-800 dark:hover:border-sky-500"
+                          className="flex items-center justify-between rounded-2xl border border-slate-200/70 bg-white/70 px-5 py-4 text-sm transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-slate-800/70 dark:bg-slate-900/60"
                         >
                           <span className="flex items-center gap-3 text-slate-700 dark:text-slate-200">
-                            <Icon className="h-4 w-4" />
+                            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-900/5 text-slate-900 dark:bg-slate-100/10 dark:text-slate-100">
+                              <Icon className="h-4 w-4" />
+                            </span>
                             {method.label}
                           </span>
                           <span className="text-xs text-slate-500 dark:text-slate-400">{method.value}</span>
                         </a>
                       );
                     })}
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              )}
             </div>
           </div>
 
-          <div>
-            <h2 className="mb-6 text-center text-2xl font-semibold text-slate-900 dark:text-white">Client feedback</h2>
+          <div className="space-y-12">
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">Kind words from collaborators</h2>
+              <p className="mt-3 text-base text-slate-500 dark:text-slate-400">A few teams who trusted me to bring clarity and momentum to their projects.</p>
+            </div>
             <div className="grid gap-6 md:grid-cols-2">
               {testimonials.map((testimonial, index) => (
-                <Card key={index}>
-                  <CardContent className="space-y-4 p-6">
+                <Card key={index} className="rounded-3xl border border-white/60 bg-white/80 shadow-lg backdrop-blur dark:border-slate-800/60 dark:bg-slate-900/70">
+                  <CardContent className="space-y-5 p-8">
                     <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 text-sky-600 dark:bg-sky-500/10 dark:text-sky-300">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-sky-500/10 text-sky-600 dark:bg-sky-500/10 dark:text-sky-300">
                         {testimonial.author.charAt(0)}
                       </div>
                       <div>
-                        <div className="font-semibold text-slate-900 dark:text-white">{testimonial.author}</div>
+                        <div className="text-base font-semibold text-slate-900 dark:text-white">{testimonial.author}</div>
                         <div className="text-sm text-slate-500 dark:text-slate-400">
                           {testimonial.role}, {testimonial.company}
                         </div>
                       </div>
                     </div>
-                    <p className="text-sm text-slate-600 dark:text-slate-300">“{testimonial.quote}”</p>
+                    <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">“{testimonial.quote}”</p>
                     <div className="flex gap-1 text-amber-400">
                       {[...Array(5)].map((_, starIndex) => (
                         <Star key={starIndex} className="h-4 w-4 fill-current" />
