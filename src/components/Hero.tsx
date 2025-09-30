@@ -8,18 +8,23 @@ import { autography } from '@/styles/fonts';
 
 const Hero = () => {
   const personalInfo = getPersonalInfo();
+  const nameParts = personalInfo.name.trim().split(/\s+/);
+  const [firstName = '', ...restNameParts] = nameParts;
+  const lastName = restNameParts.length > 0 ? restNameParts[restNameParts.length - 1] : '';
 
   return (
     <section className="relative px-6 py-24 sm:py-32 lg:px-8 min-h-screen flex items-center">
       <div className="mx-auto max-w-4xl text-center">
         <div className="space-y-8">
-          <h1 className="text-5xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-6xl md:text-7xl">
-            <span className={`${autography.className} block text-6xl sm:text-7xl md:text-8xl leading-none text-slate-900 dark:text-white`}>
-              {personalInfo.name.split(' ')[0]}
+          <h1 className="text-5xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-6xl md:text-7xl flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+            <span className={`${autography.className} inline-block text-6xl sm:text-7xl md:text-8xl leading-none text-slate-900 dark:text-white`}>
+              {firstName}
             </span>
-            <span className={`${autography.className} block text-5xl sm:text-6xl md:text-7xl leading-tight text-slate-600 dark:text-slate-300`}>
-              {personalInfo.name.split(' ')[3]}
-            </span>
+            {lastName && (
+              <span className={`${autography.className} inline-block text-5xl sm:text-6xl md:text-7xl leading-tight text-slate-600 dark:text-slate-300`}>
+                {lastName}
+              </span>
+            )}
           </h1>
           
           <p className="text-xl sm:text-2xl text-slate-600 dark:text-slate-300 font-light">
