@@ -21,9 +21,77 @@
   },
   "projects": [
     {
+      "slug": "corrosion-annotator",
+      "name": "Corrosion Annotator",
+      "year": 2024,
+      "status": "completed",
+      "description": "Intelligent corrosion detection and segmentation system combining deep learning with computer vision to automate industrial asset inspection with pixel-level accuracy.",
+      "tech": ["Python", "TensorFlow", "OpenCV", "U-Net", "ResNet34", "NumPy", "Pillow", "DenseCRF"],
+      "features": [
+        "Hybrid segmentation using U-Net and HSV color thresholding",
+        "Five-level severity classification (None to HIGH)",
+        "CRF post-processing for mask refinement",
+        "Batch processing with automated reporting",
+        "Comprehensive visual outputs (masks, overlays, annotations)",
+        "Flexible deployment with model fallback capability"
+      ],
+      "problemsSolved": [
+        "Manual corrosion inspection time and human error",
+        "Inconsistent severity assessment across inspectors",
+        "Lack of quantifiable corrosion metrics",
+        "Delayed detection leading to structural failures"
+      ],
+      "businessValue": {
+        "efficiency": "Automated inspection reducing manual assessment time",
+        "quality": "Pixel-level accuracy with quantifiable severity metrics",
+        "roi": "Early detection enabling predictive maintenance and preventing failures"
+      },
+      "impact": "Transforms manual industrial inspection into automated AI-powered analysis with pixel-level segmentation and quantifiable severity classification.",
+      "links": {
+        "repo": "https://github.com/ahmed-hesham07/corrosion-annotator",
+        "demo": null
+      },
+      "image": "/assets/corrosion-annotator.png"
+    },
+    {
+      "slug": "massa-ndt-platform",
+      "name": "MASSA NDT Intelligence Platform",
+      "year": 2025,
+      "status": "in-progress",
+      "description": "Enterprise digital transformation platform for industrial inspection services - modernizing traditional operations with AI-powered automation and real-time data management.",
+      "tech": ["React", "AWS Cloud", "AI/ML", "Mobile Development", "TypeScript"],
+      "features": [
+        "Intelligent asset management and tracking",
+        "Mobile field inspection system",
+        "Automated quality assurance workflows",
+        "AI-powered report generation",
+        "Enterprise-grade security and compliance",
+        "Real-time data synchronization",
+        "Multi-language support"
+      ],
+      "problemsSolved": [
+        "Digitizing decades of manual paper-based processes",
+        "Improving data accuracy and quality control",
+        "Reducing reporting time and client communication delays",
+        "Enabling real-time operational visibility"
+      ],
+      "businessValue": {
+        "efficiency": "60%+ reduction in report generation time",
+        "quality": "Significant improvement in data accuracy and compliance",
+        "roi": "Strong return on investment with rapid payback period"
+      },
+      "impact": "Complete digital transformation delivering significant operational efficiency gains and quality improvements. Modernizes traditional industrial operations with AI-powered intelligent platform.",
+      "links": {
+        "repo": null,
+        "demo": null
+      },
+      "image": "/assets/massa-logo.png"
+    },
+    {
       "slug": "vessel-guard",
       "name": "Vessel Guard",
       "year": 2024,
+      "status": "completed",
       "description": "Native desktop engineering tool for ASME B31.3 & VIII Fitness-For-Service assessments.",
       "tech": ["Tauri", "React", "FastAPI", "SQLAlchemy", "SQLite"],
       "features": [
@@ -34,6 +102,17 @@
         "Standards compliance verification",
         "Cross-platform desktop application"
       ],
+      "problemsSolved": [
+        "Time-consuming manual FFS calculations",
+        "Complex ASME standards compliance verification",
+        "Inconsistent inspection documentation",
+        "Lack of standardized assessment workflows"
+      ],
+      "businessValue": {
+        "efficiency": "80% reduction in assessment time",
+        "quality": "Consistent standards-compliant reports",
+        "roi": "Significant time savings for engineering teams"
+      },
       "impact": "Reduced assessment time by ~80% through guided workflows and automated reporting.",
       "links": {
         "repo": "https://github.com/ahmed-hesham07/vessel-guard",
@@ -45,6 +124,7 @@
       "slug": "business-wise-analysis",
       "name": "Business-wise Analysis Tool",
       "year": 2025,
+      "status": "completed",
       "description": "Analytics toolkit that transforms raw datasets into actionable business insights.",
       "tech": ["Python", "Pandas", "Matplotlib", "Jupyter", "Plotly", "Seaborn", "Scikit-learn", "TensorFlow", "Keras", "PyTorch", "SQL"],
       "features": [
@@ -54,6 +134,17 @@
         "Multi-format report export",
         "Machine learning model integration"
       ],
+      "problemsSolved": [
+        "Time-consuming manual data analysis",
+        "Inconsistent data preprocessing workflows",
+        "Lack of repeatable analysis processes",
+        "Complex data visualization requirements"
+      ],
+      "businessValue": {
+        "efficiency": "Accelerated decision-making with automated analysis",
+        "quality": "Clear visual summaries and repeatable notebooks",
+        "roi": "Faster insights from raw data to actionable reports"
+      },
       "impact": "Accelerated decision-making with clear visual summaries and repeatable analysis notebooks.",
       "links": {
         "repo": "https://github.com/ahmed-hesham07/business-analysis",
@@ -65,6 +156,7 @@
       "slug": "engineering-consultancy-site",
       "name": "Engineering Consultancy Website",
       "year": 2025,
+      "status": "completed",
       "description": "Professional site for Eng. Hesham Ragab (Hesham Seddik): services, project gallery, and client contact.",
       "tech": ["React", "Tailwind CSS", "Netlify", "TypeScript", "Framer Motion", "Vercel"],
       "features": [
@@ -74,6 +166,17 @@
         "SEO optimization",
         "Contact integration"
       ],
+      "problemsSolved": [
+        "Lack of professional online presence",
+        "Difficulty showcasing portfolio and services",
+        "Manual client inquiry management",
+        "Mobile accessibility challenges"
+      ],
+      "businessValue": {
+        "efficiency": "Streamlined client communication and lead capture",
+        "quality": "Professional brand presentation",
+        "roi": "Improved credibility and client acquisition"
+      },
       "impact": "Improved credibility and lead capture with a fast, mobile-first presence.",
       "links": {
         "repo": null,
