@@ -48,9 +48,9 @@ export default function ContactPage() {
     {
       icon: Phone,
       label: 'Phone',
-      value: '+20 103 312 0762',
-      href: 'tel:+201033120762',
-      description: 'Call or WhatsApp for immediate response',
+      value: '+20 128 498 6274',
+      href: 'https://wa.me/201284986274',
+      description: 'WhatsApp messages only (no calls)',
       color: 'text-green-400',
     },
     {
@@ -83,8 +83,8 @@ export default function ContactPage() {
     {
       icon: Send,
       title: 'Start Your Project',
-      description: 'Join 18+ satisfied clients who built amazing solutions',
-      action: `mailto:${personalInfo.emailPrimary}?subject=Project Inquiry&body=Hi Ahmed, I'm interested in working with you on a project. Here are the details:%0D%0A%0D%0A`,
+      description: 'Join satisfied clients who built amazing solutions',
+      action: `mailto:${personalInfo.emailPrimary}?subject=Project Inquiry`,
       ctaLabel: 'Start a project brief',
       urgency: 'Limited spots available this month',
       highlight: true,
@@ -92,16 +92,16 @@ export default function ContactPage() {
     {
       icon: MessageCircle,
       title: 'Free Consultation',
-      description: 'Get expert advice on your technical challenges',
-      action: `mailto:${personalInfo.emailPrimary}?subject=Free Consultation&body=Hi Ahmed, I'd like to schedule a free consultation to discuss:%0D%0A%0D%0A`,
-      ctaLabel: 'Book a calm chat',
+      description: 'Chat with me on WhatsApp for quick responses',
+      action: 'https://wa.me/201284986274',
+      ctaLabel: 'Chat on WhatsApp',
     },
     {
       icon: Phone,
       title: 'Quick Call',
-      description: 'Speak directly — 98% response rate within 2-4 hours',
-      action: 'tel:+201033120762',
-      ctaLabel: 'Call now',
+      description: 'Speak directly — fast response within hours',
+      action: 'https://wa.me/201284986274',
+      ctaLabel: 'Message on WhatsApp',
     },
   ];
 
@@ -164,9 +164,9 @@ export default function ContactPage() {
             </a>
           </Button>,
           <Button key="call" size="lg" variant="outline" asChild>
-            <a href="tel:+201033120762">
+            <a href="https://wa.me/201284986274">
               <Phone className="mr-2 h-5 w-5" />
-              Call or WhatsApp
+              Chat on WhatsApp
             </a>
           </Button>,
         ]}
