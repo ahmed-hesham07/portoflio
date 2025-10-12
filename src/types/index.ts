@@ -24,13 +24,21 @@ export interface Project {
   slug: string;
   name: string;
   year: number;
+  status: 'completed' | 'in-progress';
   description: string;
   tech: string[];
   features: string[];
+  problemsSolved: string[];
+  businessValue: {
+    efficiency: string;
+    quality: string;
+    roi: string;
+  };
   impact: string;
   links: {
     repo: string | null;
-    demo: string | null;
+    demo?: string | null;
+    live?: string | null;
   };
   image: string;
 }
