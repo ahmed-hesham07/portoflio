@@ -1,5 +1,5 @@
-import { type LucideIcon, ArrowRight, ExternalLink, Github, Linkedin, Mail, MapPin, MessageCircle, Phone, Send, Shield, Star, Zap } from 'lucide-react';
-import { getPersonalInfo } from '@/utils/data';
+import { type LucideIcon, ArrowRight, ExternalLink, Github, Linkedin, Mail, MapPin, MessageCircle, Phone, Send, Shield, Star, Zap, FileText, Clock, CheckCircle, Calendar, Globe, Heart } from 'lucide-react';
+import { getPersonalInfo, getPortfolioData } from '@/utils/data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
@@ -7,372 +7,434 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { PageIntro } from '@/components/PageIntro';
 
-type ContactMethod = {
-  icon: LucideIcon;
-  label: string;
-  value: string;
-  href: string;
-  description: string;
-  color?: string;
-};
-
-type QuickAction = {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  action: string;
-  ctaLabel: string;
-  highlight?: boolean;
-  urgency?: string;
-};
-
-const socialProof = {
-  projectsCompleted: 25,
-  successRate: '98%',
-  responseTime: '2-4 hours',
-  yearsExperience: 3,
-};
-
 export default function ContactPage() {
   const personalInfo = getPersonalInfo();
+  const portfolioData = getPortfolioData();
+  const stats = portfolioData.stats || {};
+  const faqs = portfolioData.faqs || [];
+  const testimonials = portfolioData.testimonials || [];
 
-  const contactMethods: ContactMethod[] = [
+  const socialProof = {
+    projectsCompleted: stats.projectsCompleted || '25+',
+    successRate: stats.successRate || '98%',
+    responseTime: stats.responseTime || '2-4 hours',
+    yearsExperience: stats.yearsExperience || '5+',
+  };
+
+  const heroStats = [
+    { label: 'Projects delivered', value: socialProof.projectsCompleted },
+    { label: 'Success rate', value: socialProof.successRate },
+    { label: 'Avg response time', value: socialProof.responseTime },
+    { label: 'Years of experience', value: socialProof.yearsExperience },
+  ];
+
+  const processSteps = [
     {
-      icon: Mail,
-      label: 'Email',
-      value: personalInfo.emailPrimary,
-      href: `mailto:${personalInfo.emailPrimary}`,
-      description: 'Send me an email',
-      color: 'text-sky-400',
+      step: 1,
+      title: 'Initial Response',
+      time: '2-4 hours',
+      description: "I'll acknowledge your inquiry and ask a few clarifying questions to understand your needs better.",
+      color: 'bg-teal-500',
     },
     {
-      icon: Phone,
-      label: 'Phone',
-      value: '+20 128 498 6274',
-      href: 'https://wa.me/201284986274',
-      description: 'WhatsApp messages only (no calls)',
-      color: 'text-green-400',
+      step: 2,
+      title: 'Discovery Call',
+      time: '30-60 min',
+      description: 'Detailed discussion about your current inspection workflows, pain points, report formats, integration requirements, and budget expectations.',
+      color: 'bg-blue-600',
     },
     {
-      icon: Github,
-      label: 'GitHub',
-      value: '@ahmed-hesham07',
-      href: personalInfo.social.github,
-      description: 'View my code and projects',
-      color: 'text-slate-300',
+      step: 3,
+      title: 'Custom Demo',
+      time: '3-5 days',
+      description: "I'll create a demo using YOUR sample data and YOUR report formats to show exactly what the solution would look like.",
+      color: 'bg-blue-800',
     },
     {
-      icon: Linkedin,
-      label: 'LinkedIn',
-      value: 'Ahmed Hesham',
-      href: personalInfo.social.linkedin,
-      description: 'Connect professionally',
-      color: 'text-blue-400',
+      step: 4,
+      title: 'Proposal & Agreement',
+      time: '1 week',
+      description: 'Detailed proposal including scope of work, timeline with milestones, pricing (development + ongoing support), and terms.',
+      color: 'bg-indigo-700',
     },
     {
-      icon: MapPin,
-      label: 'Location',
-      value: personalInfo.location,
-      href: '#',
-      description: 'Currently based in Alexandria, Egypt',
-      color: 'text-amber-400',
+      step: 5,
+      title: 'Development & Delivery',
+      time: '4-8 weeks',
+      description: 'Iterative development with weekly check-ins, bi-weekly demos, continuous feedback incorporation, training, and documentation.',
+      color: 'bg-violet-700',
     },
   ];
 
-  const quickActions: QuickAction[] = [
+  const commitments = [
     {
-      icon: Send,
-      title: 'Start Your Project',
-      description: 'Join satisfied clients who built amazing solutions',
-      action: `mailto:${personalInfo.emailPrimary}?subject=Project Inquiry`,
-      ctaLabel: 'Start a project brief',
-      urgency: 'Limited spots available this month',
-      highlight: true,
+      icon: Shield,
+      title: 'Honest Assessment',
+      description: "If software isn't the right solution for your problem, I'll tell you.",
     },
     {
-      icon: MessageCircle,
-      title: 'Free Consultation',
-      description: 'Chat with me on WhatsApp for quick responses',
-      action: 'https://wa.me/201284986274',
-      ctaLabel: 'Chat on WhatsApp',
+      icon: CheckCircle,
+      title: 'Transparent Pricing',
+      description: "No hidden costs or surprise fees. You'll know the full investment upfront.",
     },
     {
-      icon: Phone,
-      title: 'Quick Call',
-      description: 'Speak directly — fast response within hours',
-      action: 'https://wa.me/201284986274',
-      ctaLabel: 'Message on WhatsApp',
+      icon: Star,
+      title: 'Quality Over Speed',
+      description: "I won't cut corners to hit arbitrary deadlines. The software works correctly or it doesn't ship.",
     },
-  ];
-
-  const collaborationHighlights = [
     {
-      icon: Send,
-      title: 'Thoughtful discovery',
-      description: 'We begin with a relaxed conversation to understand your goals, constraints, and what success feels like for you.',
+      icon: Heart,
+      title: 'Your Success = My Success',
+      description: "I'm invested in your actual business outcomes, not just delivering code.",
     },
     {
       icon: Zap,
-      title: 'Responsive updates',
-      description: `Expect clear check-ins and answers inside ${socialProof.responseTime.toLowerCase()} — momentum without the rush.`,
+      title: 'Ongoing Partnership',
+      description: "Support doesn't end at deployment. I'm here for updates, fixes, and enhancements as you grow.",
     },
-    {
-      icon: Shield,
-      title: 'Proven delivery',
-      description: `${socialProof.successRate} success rate across ${socialProof.projectsCompleted}+ engagements, with teams who keep coming back.`,
-    },
-  ];
-
-  const primaryChannels = contactMethods.filter((method) => ['Email', 'Phone'].includes(method.label));
-  const supportingChannels = contactMethods.filter((method) => method.href.startsWith('http'));
-  const locationMethod = contactMethods.find((method) => method.label === 'Location');
-
-  const testimonials = [
-    {
-      quote: 'Ahmed delivered our engineering software two weeks ahead of schedule. The quality exceeded our expectations.',
-      author: 'Sarah M.',
-      role: 'Engineering Manager',
-      company: 'TechCorp',
-    },
-    {
-      quote: 'His expertise in data analytics helped us increase efficiency by 40%. Highly recommended!',
-      author: 'David L.',
-      role: 'CTO',
-      company: 'DataFlow Inc.',
-    },
-  ];
-
-  const heroStats = [
-    { label: 'Projects delivered', value: `${socialProof.projectsCompleted}+` },
-    { label: 'Success rate', value: socialProof.successRate },
-    { label: 'Avg response time', value: socialProof.responseTime },
-    { label: 'Years of experience', value: `${socialProof.yearsExperience}+` },
   ];
 
   return (
     <>
       <PageIntro
         eyebrow="Contact"
-        title="Let&apos;s build something thoughtful together"
-        description="Share your idea, brief, or technical challenge and I&apos;ll reach back within a few hours with next steps. Every conversation starts with listening."
+        title="Let's Discuss Your Digital Transformation"
+        description="Whether you're looking to automate a single report type or transform your entire inspection operation, I'm here to help. No sales pressure - just a straightforward conversation about your needs and how technology can help you achieve your goals."
         stats={heroStats}
         actions={[
-          <Button key="email" size="lg" asChild>
-            <a href={`mailto:${personalInfo.emailPrimary}?subject=Project Inquiry&body=Hi Ahmed, I'm interested in working with you on a project.`}>
-              Start via email
+          <Button key="email" size="lg" className="bg-blue-900 dark:bg-blue-600 text-white hover:bg-blue-800 dark:hover:bg-blue-500" asChild>
+            <a href={`mailto:${personalInfo.emailPrimary}?subject=NDT/FFS Digital Transformation Inquiry`}>
+              Send Email
               <ArrowRight className="ml-2 h-5 w-5" />
             </a>
           </Button>,
-          <Button key="call" size="lg" variant="outline" asChild>
-            <a href="https://wa.me/201284986274">
-              <Phone className="mr-2 h-5 w-5" />
-              Chat on WhatsApp
+          <Button key="whatsapp" size="lg" variant="outline" className="border-teal-300 dark:border-teal-600 text-teal-700 dark:text-teal-300 hover:bg-teal-50 dark:hover:bg-teal-900/30" asChild>
+            <a href="https://wa.me/201284986274" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="mr-2 h-5 w-5" />
+              Message on WhatsApp
             </a>
           </Button>,
         ]}
       />
 
-      <section className="relative isolate overflow-hidden py-20">
-        <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-sky-100/40 via-transparent to-transparent dark:from-slate-900/40" />
-        <div className="absolute -right-24 top-24 hidden h-72 w-72 rounded-full bg-sky-200/50 blur-3xl dark:bg-sky-500/10 lg:block" />
+      <section className="py-16 bg-slate-50 dark:bg-slate-950">
+        <div className="container mx-auto space-y-16 px-6 max-w-6xl">
 
-        <div className="container relative mx-auto space-y-16 px-6">
-          <div className="grid gap-10 lg:grid-cols-[1.45fr_1fr]">
-            <Card className="rounded-3xl border border-white/60 bg-white/80 shadow-xl backdrop-blur md:px-2 dark:border-slate-800/60 dark:bg-slate-900/70">
-              <CardHeader className="space-y-5 lg:p-10">
-                <Badge size="sm" variant="default" className="w-fit bg-sky-500/15 text-sky-600 dark:bg-sky-500/10 dark:text-sky-300">
-                  Start a conversation
-                </Badge>
-                <CardTitle className="text-3xl font-semibold leading-snug text-slate-900 dark:text-white">
-                  Tell me about the product you have in mind
-                </CardTitle>
-                <p className="max-w-2xl text-base text-slate-600 dark:text-slate-300">
-                  Skip the long forms. Share a note, book a short chat, or hop on a call—whatever feels easiest. I&apos;ll reply personally with a thoughtful first step.
-                </p>
-              </CardHeader>
-              <CardContent className="space-y-10 lg:p-10 lg:pt-0">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  {quickActions.map((action, index) => {
-                    const Icon = action.icon;
-                    return (
-                      <a
-                        key={`${action.title}-${index}`}
-                        href={action.action}
-                        className={`group flex h-full flex-col justify-between rounded-2xl border border-slate-200/70 bg-white/80 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-xl dark:border-slate-800/80 dark:bg-slate-900/70 ${
-                          action.highlight ? 'border-sky-300/80 bg-sky-50/80 dark:border-sky-500/40 dark:bg-sky-500/10' : ''
-                        }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-sky-500/10 text-sky-600 dark:bg-sky-500/10 dark:text-sky-300">
-                            <Icon className="h-5 w-5" />
-                          </span>
-                          <div>
-                            <div className="text-sm font-semibold text-slate-900 dark:text-white">{action.title}</div>
-                            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{action.description}</p>
-                          </div>
-                        </div>
-                        {action.urgency && <p className="mt-4 text-xs font-medium text-amber-500">{action.urgency}</p>}
-                        <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-sky-600 transition group-hover:gap-3 dark:text-sky-300">
-                          {action.ctaLabel}
-                          <ArrowRight className="h-4 w-4" />
-                        </span>
-                      </a>
-                    );
-                  })}
-                </div>
+          {/* Contact Methods & Quick Actions */}
+          <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr]">
+            {/* Left: Contact + Quick Actions */}
+            <div className="space-y-6">
+              {/* Contact Methods */}
+              <Card className="rounded-2xl">
+                <CardHeader>
+                  <CardTitle className="text-2xl text-slate-900 dark:text-white">
+                    Get in Touch
+                  </CardTitle>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">
+                    Choose your preferred communication method. I typically respond within {socialProof.responseTime}.
+                  </p>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  {/* Email */}
+                  <a
+                    href={`mailto:${personalInfo.emailPrimary}?subject=NDT/FFS Digital Transformation Inquiry`}
+                    className="flex items-start gap-4 p-4 rounded-xl border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20 hover:shadow-md hover:-translate-y-0.5 transition-all group"
+                  >
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400">
+                      <Mail className="h-6 w-6" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="font-semibold text-slate-900 dark:text-white">Email (Preferred)</div>
+                      <p className="text-sm text-blue-700 dark:text-blue-400 font-mono">{personalInfo.emailPrimary}</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Best for detailed project descriptions, sharing sample reports, technical specifications</p>
+                    </div>
+                    <ArrowRight className="h-5 w-5 text-slate-400 group-hover:text-blue-600 mt-1 transition-colors" />
+                  </a>
 
-                <div className="grid gap-4 md:grid-cols-2">
-                  {primaryChannels.map((method, index) => {
-                    const Icon = method.icon;
-                    const isLink = method.href !== '#';
-                    const isExternal = isLink && method.href.startsWith('http');
-                    return (
-                      <div
-                        key={`${method.label}-${index}`}
-                        className="flex h-full flex-col justify-between rounded-2xl border border-slate-200/70 bg-white/80 p-5 transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-slate-800/80 dark:bg-slate-900/70"
-                      >
-                        <div className="flex items-center gap-3">
-                          <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-slate-900/5 text-slate-900 dark:bg-slate-100/10 dark:text-slate-100">
-                            <Icon className={`h-5 w-5 ${method.color ?? ''}`} />
-                          </span>
-                          <div>
-                            <div className="text-sm font-semibold text-slate-900 dark:text-white">{method.label}</div>
-                            <p className="text-xs text-slate-500 dark:text-slate-400">{method.description}</p>
-                          </div>
-                        </div>
-                        <div className="mt-5">
-                          {isLink ? (
-                            <a
-                              href={method.href}
-                              target={isExternal ? '_blank' : undefined}
-                              rel={isExternal ? 'noopener noreferrer' : undefined}
-                              className="inline-flex items-center gap-2 text-base font-semibold text-slate-900 transition hover:text-sky-600 dark:text-white dark:hover:text-sky-300"
-                            >
-                              {method.value}
-                              {isExternal ? <ExternalLink className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
-                            </a>
-                          ) : (
-                            <span className="text-base font-semibold text-slate-900 dark:text-white">{method.value}</span>
-                          )}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
+                  {/* WhatsApp */}
+                  <a
+                    href="https://wa.me/201284986274"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-4 p-4 rounded-xl border border-teal-200 dark:border-teal-800 bg-teal-50 dark:bg-teal-900/20 hover:shadow-md hover:-translate-y-0.5 transition-all group"
+                  >
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-400">
+                      <MessageCircle className="h-6 w-6" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="font-semibold text-slate-900 dark:text-white">WhatsApp (Quick Questions)</div>
+                      <p className="text-sm text-teal-700 dark:text-teal-400">{personalInfo.phone || '+20 128 498 6274'}</p>
+                      <p className="text-xs font-medium text-orange-600 dark:text-orange-400 mt-1">MESSAGES ONLY - NO VOICE CALLS</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Best for quick questions, scheduling, urgent inquiries</p>
+                    </div>
+                    <ExternalLink className="h-5 w-5 text-slate-400 group-hover:text-teal-600 mt-1 transition-colors" />
+                  </a>
 
-                {locationMethod && (
-                  <div className="flex flex-col gap-3 rounded-2xl border border-slate-200/70 bg-white/80 p-5 text-sm text-slate-600 dark:border-slate-800/80 dark:bg-slate-900/70 dark:text-slate-300 sm:flex-row sm:items-center sm:justify-between">
-                    <div className="flex items-center gap-3">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/10 text-sky-600 dark:bg-sky-500/10 dark:text-sky-300">
-                        <MapPin className="h-5 w-5" />
-                      </span>
+                  {/* Professional Networks */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <a
+                      href={personalInfo.social.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:shadow-md hover:-translate-y-0.5 transition-all"
+                    >
+                      <Linkedin className="h-5 w-5 text-blue-600" />
                       <div>
-                        <div className="text-sm font-semibold text-slate-900 dark:text-white">Currently collaborating from</div>
-                        <p className="text-sm text-slate-500 dark:text-slate-400">{locationMethod.description}</p>
+                        <div className="text-sm font-medium text-slate-900 dark:text-white">LinkedIn</div>
+                        <div className="text-xs text-slate-500">Ahmed Hesham</div>
+                      </div>
+                    </a>
+                    <a
+                      href={personalInfo.social.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:shadow-md hover:-translate-y-0.5 transition-all"
+                    >
+                      <Github className="h-5 w-5 text-slate-700 dark:text-slate-300" />
+                      <div>
+                        <div className="text-sm font-medium text-slate-900 dark:text-white">GitHub</div>
+                        <div className="text-xs text-slate-500">@ahmed-hesham07</div>
+                      </div>
+                    </a>
+                  </div>
+
+                  {/* Location & Working Hours */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-100 dark:bg-slate-800/60">
+                      <MapPin className="h-5 w-5 text-orange-500" />
+                      <div>
+                        <div className="text-sm font-medium text-slate-900 dark:text-white">{personalInfo.location}</div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400">EET (UTC+2)</div>
                       </div>
                     </div>
-                    <span className="text-base font-medium text-slate-900 dark:text-white">{locationMethod.value}</span>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-
-            <div className="space-y-6">
-              <Card className="rounded-3xl border border-white/60 bg-white/80 shadow-xl backdrop-blur dark:border-slate-800/60 dark:bg-slate-900/70">
-                <CardHeader className="space-y-4 lg:p-10">
-                  <CardTitle className="text-2xl font-semibold text-slate-900 dark:text-white">What happens after you reach out</CardTitle>
-                  <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">A calm, collaborative process to understand your needs and craft a plan together.</p>
-                </CardHeader>
-                <CardContent className="space-y-6 lg:p-10 lg:pt-0">
-                  {collaborationHighlights.map((item, index) => {
-                    const Icon = item.icon;
-                    return (
-                      <div key={`${item.title}-${index}`} className="flex items-start gap-3 rounded-2xl border border-transparent bg-slate-50/60 p-4 dark:bg-slate-800/40">
-                        <span className="mt-1 flex h-9 w-9 items-center justify-center rounded-full bg-sky-500/10 text-sky-600 dark:bg-sky-500/10 dark:text-sky-300">
-                          <Icon className="h-4 w-4" />
-                        </span>
-                        <div className="space-y-1">
-                          <div className="text-sm font-semibold text-slate-900 dark:text-white">{item.title}</div>
-                          <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">{item.description}</p>
-                        </div>
+                    <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-100 dark:bg-slate-800/60">
+                      <Clock className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                      <div>
+                        <div className="text-sm font-medium text-slate-900 dark:text-white">Sun-Thu: 9AM-6PM</div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400">Fri-Sat: By appointment</div>
                       </div>
-                    );
-                  })}
-
-                  <div className="flex flex-wrap items-center gap-3 rounded-2xl bg-slate-900/5 p-4 dark:bg-slate-100/5">
-                    <Badge variant="default" size="sm">Accepting new collaborations</Badge>
-                    <span className="text-sm text-slate-500 dark:text-slate-400">Replies typically land within {socialProof.responseTime.toLowerCase()}.</span>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
 
-              {supportingChannels.length > 0 && (
-                <Card className="rounded-3xl border border-white/60 bg-white/80 shadow-lg backdrop-blur dark:border-slate-800/60 dark:bg-slate-900/70">
-                  <CardHeader className="space-y-3 lg:p-8">
-                    <CardTitle className="flex items-center gap-2 text-slate-900 dark:text-white">
-                      <ExternalLink className="h-5 w-5 text-sky-500" />
-                      Follow along elsewhere
-                    </CardTitle>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">Peek behind the scenes, explore open-source work, or connect for future collaborations.</p>
-                  </CardHeader>
-                  <CardContent className="space-y-3 lg:p-8 lg:pt-0">
-                    {supportingChannels.map((method, index) => {
-                      const Icon = method.icon;
-                      return (
-                        <a
-                          key={`${method.label}-${index}`}
-                          href={method.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-between rounded-2xl border border-slate-200/70 bg-white/70 px-5 py-4 text-sm transition hover:-translate-y-0.5 hover:border-sky-400 hover:shadow-lg dark:border-slate-800/70 dark:bg-slate-900/60"
-                        >
-                          <span className="flex items-center gap-3 text-slate-700 dark:text-slate-200">
-                            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-900/5 text-slate-900 dark:bg-slate-100/10 dark:text-slate-100">
-                              <Icon className="h-4 w-4" />
-                            </span>
-                            {method.label}
+              {/* Quick Actions */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <a
+                  href={`mailto:${personalInfo.emailPrimary}?subject=Demo Report Request`}
+                  className="p-5 rounded-xl border-2 border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20 hover:shadow-lg hover:-translate-y-1 transition-all text-center group"
+                >
+                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400 mb-3">
+                    <FileText className="h-6 w-6" />
+                  </div>
+                  <h3 className="font-semibold text-slate-900 dark:text-white text-sm mb-1">Demo Reports</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Within 24 hours</p>
+                </a>
+                <a
+                  href="https://wa.me/201284986274"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-5 rounded-xl border-2 border-teal-200 dark:border-teal-800 bg-teal-50 dark:bg-teal-900/20 hover:shadow-lg hover:-translate-y-1 transition-all text-center group"
+                >
+                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-400 mb-3">
+                    <Calendar className="h-6 w-6" />
+                  </div>
+                  <h3 className="font-semibold text-slate-900 dark:text-white text-sm mb-1">Free Consultation</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">30-minute call</p>
+                </a>
+                <a
+                  href="/Ahmed_Hesham_CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-5 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:shadow-lg hover:-translate-y-1 transition-all text-center group"
+                >
+                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-400 mb-3">
+                    <Send className="h-6 w-6" />
+                  </div>
+                  <h3 className="font-semibold text-slate-900 dark:text-white text-sm mb-1">Download CV</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">PDF resume</p>
+                </a>
+              </div>
+            </div>
+
+            {/* Right: Process & Commitments */}
+            <div className="space-y-6">
+              {/* Process Timeline */}
+              <Card className="rounded-2xl">
+                <CardHeader>
+                  <CardTitle className="text-xl text-slate-900 dark:text-white">What Happens After You Reach Out</CardTitle>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">A structured, no-pressure process</p>
+                </CardHeader>
+                <CardContent className="space-y-0">
+                  {processSteps.map((step, index) => (
+                    <div key={step.step} className="relative flex gap-4 pb-6 last:pb-0">
+                      {/* Timeline line */}
+                      {index < processSteps.length - 1 && (
+                        <div className="absolute left-[19px] top-10 bottom-0 w-0.5 bg-slate-200 dark:bg-slate-700" />
+                      )}
+                      {/* Step number */}
+                      <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full ${step.color} text-white text-sm font-bold z-10`}>
+                        {step.step}
+                      </div>
+                      {/* Content */}
+                      <div className="flex-1 pt-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <h4 className="text-sm font-semibold text-slate-900 dark:text-white">{step.title}</h4>
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
+                            {step.time}
                           </span>
-                          <span className="text-xs text-slate-500 dark:text-slate-400">{method.value}</span>
-                        </a>
-                      );
-                    })}
-                  </CardContent>
-                </Card>
-              )}
+                        </div>
+                        <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </CardContent>
+              </Card>
+
+              {/* My Commitments */}
+              <Card className="rounded-2xl bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800">
+                <CardHeader>
+                  <CardTitle className="text-lg text-slate-900 dark:text-white">My Promises to Every Client</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  {commitments.map((commitment) => {
+                    const Icon = commitment.icon;
+                    return (
+                      <div key={commitment.title} className="flex items-start gap-3">
+                        <Icon className="h-4 w-4 text-teal-600 dark:text-teal-400 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-sm font-semibold text-slate-900 dark:text-white">{commitment.title}</p>
+                          <p className="text-xs text-slate-600 dark:text-slate-300">{commitment.description}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </CardContent>
+              </Card>
+
+              {/* Proven Track Record */}
+              <Card className="rounded-2xl">
+                <CardContent className="p-6">
+                  <h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-3">Proven Track Record</h3>
+                  <div className="space-y-2">
+                    {[
+                      `${socialProof.projectsCompleted} NDT/FFS projects delivered`,
+                      `${socialProof.successRate} client satisfaction rate`,
+                      '18+ oil & gas, petrochemical clients',
+                      'Zero failed projects',
+                      'Average 80-90% time savings for clients',
+                    ].map((item) => (
+                      <div key={item} className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+                        <CheckCircle className="h-3.5 w-3.5 text-teal-500 flex-shrink-0" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-2 italic">
+                      References available upon request
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
 
-          <div className="space-y-12">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">Kind words from collaborators</h2>
-              <p className="mt-3 text-base text-slate-500 dark:text-slate-400">A few teams who trusted me to bring clarity and momentum to their projects.</p>
+          {/* FAQs Section */}
+          {faqs.length > 0 && (
+            <div className="space-y-8">
+              <div className="mx-auto max-w-2xl text-center">
+                <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+                <p className="mt-3 text-base text-slate-500 dark:text-slate-400">Common questions about NDT/FFS digital transformation projects.</p>
+              </div>
+              <div className="grid gap-4 md:grid-cols-2">
+                {faqs.map((faq, index) => (
+                  <Card key={index} className="rounded-xl">
+                    <CardContent className="p-5">
+                      <h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-2">
+                        {faq.question}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                        {faq.answer}
+                      </p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
-            <div className="grid gap-6 md:grid-cols-2">
-              {testimonials.map((testimonial, index) => (
-                <Card key={index} className="rounded-3xl border border-white/60 bg-white/80 shadow-lg backdrop-blur dark:border-slate-800/60 dark:bg-slate-900/70">
-                  <CardContent className="space-y-5 p-8">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-sky-500/10 text-sky-600 dark:bg-sky-500/10 dark:text-sky-300">
-                        {testimonial.author.charAt(0)}
-                      </div>
-                      <div>
-                        <div className="text-base font-semibold text-slate-900 dark:text-white">{testimonial.author}</div>
-                        <div className="text-sm text-slate-500 dark:text-slate-400">
-                          {testimonial.role}, {testimonial.company}
+          )}
+
+          {/* Testimonials */}
+          {testimonials.length > 0 && (
+            <div className="space-y-8">
+              <div className="mx-auto max-w-2xl text-center">
+                <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">Client Feedback</h2>
+              </div>
+              <div className="grid gap-6 md:grid-cols-2">
+                {testimonials.map((testimonial, index) => (
+                  <Card key={index} className="rounded-xl border-l-4 border-l-teal-500">
+                    <CardContent className="p-6">
+                      <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300 italic mb-4">
+                        &quot;{testimonial.quote}&quot;
+                      </p>
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 font-semibold">
+                          {testimonial.author.charAt(0)}
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-slate-900 dark:text-white">{testimonial.author}</p>
+                          <p className="text-xs text-slate-500 dark:text-slate-400">{testimonial.title}, {testimonial.company}</p>
+                        </div>
+                        <div className="ml-auto flex gap-0.5 text-amber-400">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className="h-3.5 w-3.5 fill-current" />
+                          ))}
                         </div>
                       </div>
-                    </div>
-                    <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">“{testimonial.quote}”</p>
-                    <div className="flex gap-1 text-amber-400">
-                      {[...Array(5)].map((_, starIndex) => (
-                        <Star key={starIndex} className="h-4 w-4 fill-current" />
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Final CTA */}
+          <div className="text-center py-12 bg-gradient-to-br from-blue-50 to-teal-50 dark:from-blue-900/20 dark:to-teal-900/20 rounded-2xl border border-blue-200 dark:border-blue-800 px-8">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+              Ready to Take the First Step?
+            </h2>
+            <div className="max-w-xl mx-auto space-y-4 text-sm text-slate-600 dark:text-slate-300">
+              <p>
+                <strong className="text-slate-900 dark:text-white">Your Next Move:</strong>
+              </p>
+              <ol className="text-left space-y-2 list-decimal list-inside">
+                <li>Send me an email at <a href={`mailto:${personalInfo.emailPrimary}`} className="text-blue-700 dark:text-blue-400 hover:underline font-medium">{personalInfo.emailPrimary}</a></li>
+                <li>Describe your inspection workflow and current challenges</li>
+                <li>I&apos;ll respond within 2-4 hours to schedule a call</li>
+              </ol>
+              <p className="text-slate-500 dark:text-slate-400">
+                Or message me on WhatsApp (<a href="https://wa.me/201284986274" className="text-teal-700 dark:text-teal-400 hover:underline">+20 128 498 6274</a>) to schedule a free 30-minute consultation.
+              </p>
+              <p className="text-xs text-slate-400 dark:text-slate-500 italic">
+                No sales pressure. Just a conversation about what&apos;s possible.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
+              <Button size="lg" className="bg-blue-900 dark:bg-blue-600 text-white hover:bg-blue-800 dark:hover:bg-blue-500" asChild>
+                <a href={`mailto:${personalInfo.emailPrimary}?subject=NDT/FFS Digital Transformation Inquiry`}>
+                  <Mail className="mr-2 h-5 w-5" />
+                  Send Email Now
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" className="border-teal-300 dark:border-teal-600 text-teal-700 dark:text-teal-300 hover:bg-teal-50 dark:hover:bg-teal-900/30" asChild>
+                <a href="https://wa.me/201284986274" target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  Message on WhatsApp
+                </a>
+              </Button>
             </div>
           </div>
+
         </div>
       </section>
 

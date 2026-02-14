@@ -1,7 +1,7 @@
 'use client';
 
-import { GraduationCap, Briefcase, Award, CheckCircle, ArrowRight, Zap, Shield, Target } from 'lucide-react';
-import { getExperience, getEducation, getAchievements } from '@/utils/data';
+import { GraduationCap, Briefcase, Award, CheckCircle, ArrowRight, Zap, Shield, Target, Star, MessageCircle } from 'lucide-react';
+import { getExperience, getEducation, getAchievements, getPortfolioData } from '@/utils/data';
 import { Timeline } from '@/components/Timeline';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Analytics } from "@vercel/analytics/next";
@@ -13,41 +13,46 @@ export default function ExperiencePage() {
   const experience = getExperience();
   const education = getEducation();
   const achievements = getAchievements();
-
-  // Social proof and credibility data
-  const socialProof = {
-    projectsCompleted: 25,
-    clientsSatisfied: 18,
-    yearsExperience: 3,
-    successRate: '98%',
-    responseTime: '2-4 hours'
-  };
+  const portfolioData = getPortfolioData();
+  const stats = portfolioData.stats || {};
+  const testimonials = portfolioData.testimonials || [];
 
   const heroStats = [
-    { label: 'Projects delivered', value: `${socialProof.projectsCompleted}+` },
-    { label: 'Happy clients', value: `${socialProof.clientsSatisfied}+` },
-    { label: 'Years of experience', value: `${socialProof.yearsExperience}+` },
-    { label: 'Response time', value: socialProof.responseTime },
+    { label: 'NDT/FFS Projects', value: stats.projectsCompleted || '25+' },
+    { label: 'Oil & Gas/Petrochem Clients', value: stats.clients || '18+' },
+    { label: 'Years Industry Focus', value: stats.yearsExperience || '5+' },
+    { label: 'Response Time', value: stats.responseTime || '2-4 hours' },
+  ];
+
+  const competencies = [
+    { name: 'NDT & FFS Operations', level: 'Expert', width: 'w-full' },
+    { name: 'Inspection Workflows', level: 'Expert', width: 'w-full' },
+    { name: 'Engineering Codes', level: 'Advanced', width: 'w-5/6' },
+    { name: 'Full-Stack Development', level: 'Expert', width: 'w-full' },
+    { name: 'AI/ML Development', level: 'Advanced', width: 'w-5/6' },
+    { name: 'Database Design', level: 'Expert', width: 'w-full' },
+    { name: 'Cloud Architecture', level: 'Advanced', width: 'w-5/6' },
+    { name: 'Desktop Applications', level: 'Expert', width: 'w-full' },
   ];
 
   return (
     <>
       <PageIntro
         eyebrow="Experience"
-        title="Experience shaped by shipping real products"
-        description="From RoboCup championships to production engineering software, I focus on pragmatic problem-solving, dependable delivery, and measurable outcomes across AI, automation, and full-stack development."
+        title="A proven track record of delivering digital transformation solutions"
+        description="A proven track record of delivering digital transformation solutions for the NDT and FFS industry. From individual inspection companies to large asset owners, I've helped organizations modernize their operations and achieve measurable results."
         stats={heroStats}
         actions={[
-          <Button key="primary" size="lg" asChild>
+          <Button key="primary" size="lg" className="bg-blue-900 dark:bg-blue-600 text-white hover:bg-blue-800 dark:hover:bg-blue-500" asChild>
             <a href="/contact">
-              Work with me
+              Schedule Consultation
               <ArrowRight className="ml-2 h-5 w-5" />
             </a>
           </Button>,
           <Button key="secondary" size="lg" variant="outline" asChild>
-            <a href="/contact">
+            <a href="/projects">
               <Zap className="mr-2 h-5 w-5" />
-              Free consultation
+              View Projects
             </a>
           </Button>,
         ]}
@@ -58,60 +63,148 @@ export default function ExperiencePage() {
           {/* Timeline */}
           <div className="lg:col-span-2">
             <div className="mb-8 flex items-center gap-3">
-              <Briefcase className="h-6 w-6 text-sky-500" />
+              <Briefcase className="h-6 w-6 text-teal-600 dark:text-teal-400" />
               <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">
-                Professional experience
+                Professional Experience
               </h2>
             </div>
             <Timeline experiences={experience} />
+
+            {/* Client Testimonials */}
+            <div className="mt-12">
+              <div className="mb-6 flex items-center gap-3">
+                <MessageCircle className="h-6 w-6 text-teal-600 dark:text-teal-400" />
+                <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">
+                  Client Feedback
+                </h2>
+              </div>
+
+              {testimonials.length > 0 ? (
+                <div className="space-y-4">
+                  {testimonials.map((testimonial, index) => (
+                    <Card key={index} className="border-l-4 border-l-teal-500">
+                      <CardContent className="p-6">
+                        <p className="text-slate-600 dark:text-slate-300 italic mb-3">
+                          &quot;{testimonial.quote}&quot;
+                        </p>
+                        <div className="flex items-center gap-3">
+                          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 font-semibold text-sm">
+                            {testimonial.author.charAt(0)}
+                          </div>
+                          <div>
+                            <p className="text-sm font-semibold text-slate-900 dark:text-white">{testimonial.author}</p>
+                            <p className="text-xs text-slate-500 dark:text-slate-400">
+                              {testimonial.title}, {testimonial.company} &bull; {testimonial.industry}
+                            </p>
+                          </div>
+                          <div className="ml-auto flex gap-0.5 text-amber-400">
+                            {[...Array(5)].map((_, i) => (
+                              <Star key={i} className="h-3.5 w-3.5 fill-current" />
+                            ))}
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              ) : (
+                <Card className="bg-slate-100 dark:bg-slate-800/60">
+                  <CardContent className="p-6 text-center">
+                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+                      Client References Available Upon Request
+                    </p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      Due to confidentiality agreements, specific client names and testimonials are shared during the consultation process.
+                      Contact us to speak with references from inspection service companies, oil &amp; gas asset owners, and engineering consultancies.
+                    </p>
+                  </CardContent>
+                </Card>
+              )}
+            </div>
           </div>
 
           {/* Sidebar */}
           <div className="space-y-6">
+            {/* Experience Snapshot */}
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-slate-900 dark:text-white">
-                  <Briefcase className="h-5 w-5 text-sky-500" />
-                  Experience snapshot
+                  <Briefcase className="h-5 w-5 text-teal-600 dark:text-teal-400" />
+                  Experience Snapshot
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3 text-sm text-slate-600 dark:text-slate-300">
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-emerald-500" />
-                  <span>3+ years building production software</span>
+                  <CheckCircle className="h-4 w-4 text-teal-500" />
+                  <span>5+ years NDT/FFS software experience</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-emerald-500" />
-                  <span>RoboCup world championship winner</span>
+                  <CheckCircle className="h-4 w-4 text-teal-500" />
+                  <span>25+ NDT/FFS projects delivered</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-emerald-500" />
-                  <span>Hands-on ML, automation, and engineering tools</span>
+                  <CheckCircle className="h-4 w-4 text-teal-500" />
+                  <span>18+ oil &amp; gas, petrochemical clients</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-emerald-500" />
-                  <span>25+ projects delivered with measurable outcomes</span>
+                  <CheckCircle className="h-4 w-4 text-teal-500" />
+                  <span>80-90% time savings for clients</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-teal-500" />
+                  <span>All NDT methods supported</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-teal-500" />
+                  <span>98% client satisfaction rate</span>
                 </div>
               </CardContent>
             </Card>
 
+            {/* Core Competencies */}
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-slate-900 dark:text-white">
-                  <GraduationCap className="h-5 w-5 text-sky-500" />
-                  Education & credentials
+                  <Target className="h-5 w-5 text-teal-600 dark:text-teal-400" />
+                  Core Competencies
                 </CardTitle>
                 <p className="text-sm text-slate-500 dark:text-slate-400">
-                  Technical foundation grounded in engineering rigor
+                  Combining domain expertise with technical capabilities
+                </p>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {competencies.map((comp, index) => (
+                  <div key={index}>
+                    <div className="flex items-center justify-between text-sm font-medium text-slate-700 dark:text-slate-200">
+                      <span>{comp.name}</span>
+                      <span className="text-xs text-slate-500">{comp.level}</span>
+                    </div>
+                    <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+                      <div className={`h-full ${comp.width} rounded-full bg-gradient-to-r from-teal-500 to-blue-600`} />
+                    </div>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+
+            {/* Education */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-slate-900 dark:text-white">
+                  <GraduationCap className="h-5 w-5 text-blue-700 dark:text-blue-400" />
+                  Education &amp; Credentials
+                </CardTitle>
+                <p className="text-sm text-slate-500 dark:text-slate-400">
+                  Academic foundation with continuous industry learning
                 </p>
               </CardHeader>
               <CardContent className="space-y-4">
                 {education.map((edu, index) => (
-                  <div key={index} className="rounded-lg border border-slate-200 p-4 dark:border-slate-800">
-                    <h3 className="font-semibold text-slate-900 dark:text-white">
+                  <div key={index} className="rounded-xl border border-slate-200 p-4 dark:border-slate-800">
+                    <h3 className="font-semibold text-slate-900 dark:text-white text-sm">
                       {edu.degree}
                     </h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                       {edu.institution}
                     </p>
                     <p className="text-xs text-slate-400 dark:text-slate-500">{edu.graduation}</p>
@@ -120,77 +213,47 @@ export default function ExperiencePage() {
               </CardContent>
             </Card>
 
+            {/* Achievements */}
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-slate-900 dark:text-white">
-                  <Award className="h-5 w-5 text-sky-500" />
-                  Key achievements
+                  <Award className="h-5 w-5 text-teal-600 dark:text-teal-400" />
+                  Key Achievements
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-300">
-                  {achievements.map((achievement, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="mt-1 flex h-2 w-2 flex-shrink-0 rounded-full bg-sky-500" />
-                      <span>{achievement}</span>
-                    </li>
-                  ))}
+                  {achievements.map((achievement, index) => {
+                    const achievementText = typeof achievement === 'string' ? achievement : achievement.title;
+                    const achievementYear = typeof achievement === 'string' ? '' : achievement.year;
+                    return (
+                      <li key={index} className="flex items-start gap-3">
+                        <div className="mt-1 flex h-2 w-2 flex-shrink-0 rounded-full bg-teal-500" />
+                        <div>
+                          <span>{achievementText}</span>
+                          {achievementYear && (
+                            <span className="text-xs text-slate-400 ml-1">({achievementYear})</span>
+                          )}
+                        </div>
+                      </li>
+                    );
+                  })}
                 </ul>
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-slate-900 dark:text-white">
-                  <Target className="h-5 w-5 text-sky-500" />
-                  Core competencies
-                </CardTitle>
-                <p className="text-sm text-slate-500 dark:text-slate-400">
-                  Blending software craftsmanship with data and engineering
-                </p>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div>
-                  <div className="flex items-center justify-between text-sm font-medium text-slate-700 dark:text-slate-200">
-                    <span>Data science & ML</span>
-                    <span>Advanced</span>
-                  </div>
-                  <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
-                    <div className="h-full w-11/12 rounded-full bg-sky-500" />
-                  </div>
-                </div>
-                <div>
-                  <div className="flex items-center justify-between text-sm font-medium text-slate-700 dark:text-slate-200">
-                    <span>Full-stack development</span>
-                    <span>Advanced</span>
-                  </div>
-                  <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
-                    <div className="h-full w-5/6 rounded-full bg-sky-500" />
-                  </div>
-                </div>
-                <div>
-                  <div className="flex items-center justify-between text-sm font-medium text-slate-700 dark:text-slate-200">
-                    <span>Engineering software</span>
-                    <span>Expert</span>
-                  </div>
-                  <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
-                    <div className="h-full w-4/5 rounded-full bg-sky-500" />
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
+            {/* CTA */}
+            <Card className="bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800">
               <CardHeader>
                 <CardTitle className="text-center text-slate-900 dark:text-white">
-                  Ready to collaborate?
+                  Ready to Collaborate?
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4 text-center text-sm text-slate-600 dark:text-slate-300">
-                <p>Let&apos;s talk through your idea, requirements, and success criteria.</p>
-                <Button size="md" asChild>
+                <p>Let&apos;s discuss how digital transformation can impact your business.</p>
+                <Button size="md" className="bg-blue-900 dark:bg-blue-600 text-white hover:bg-blue-800 dark:hover:bg-blue-500" asChild>
                   <a href="/contact">
-                    Start your project
+                    Schedule Free Consultation
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>

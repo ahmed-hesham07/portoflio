@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Search, Filter, ArrowRight, Zap } from 'lucide-react';
-import { getProjects } from '@/utils/data';
+import { getProjects, getPortfolioData } from '@/utils/data';
 import { ProjectCard } from '@/components/ProjectCard';
 import { cn } from '@/utils/cn';
 import { Analytics } from "@vercel/analytics/next";
@@ -14,56 +14,64 @@ export default function ProjectsPage() {
   const projects = getProjects();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
-  const [selectedTech, setSelectedTech] = useState<string | null>(null);
+  const [selectedType, setSelectedType] = useState<string | null>(null);
+  const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null);
+  const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
 
-  // Social proof and credibility data
-  const socialProof = {
-    projectsCompleted: 25,
-    clientsSatisfied: 18,
-    yearsExperience: 3,
-    successRate: '98%',
-    responseTime: '2-4 hours'
-  };
+  const portfolioData = getPortfolioData();
+  const stats = portfolioData.stats || {};
 
   const heroStats = [
-    { label: 'Projects delivered', value: `${socialProof.projectsCompleted}+` },
-    { label: 'Happy clients', value: `${socialProof.clientsSatisfied}+` },
-    { label: 'Years of experience', value: `${socialProof.yearsExperience}+` },
-    { label: 'Success rate', value: socialProof.successRate },
+    { label: 'NDT/FFS Projects', value: stats.projectsCompleted || '25+' },
+    { label: 'Oil & Gas/Petrochem Clients', value: stats.clients || '18+' },
+    { label: 'Years Dedicated to NDT/FFS', value: stats.yearsExperience || '5+' },
+    { label: 'Code Compliant Solutions', value: '100%' },
   ];
 
-  // Get unique years and technologies
+  // Get unique filter values
   const years = [...new Set(projects.map(p => p.year))].sort((a, b) => b - a);
-  const allTech = [...new Set(projects.flatMap(p => p.tech))].sort();
+  const projectTypes = [...new Set(projects.flatMap(p => p.projectType || []))].sort();
+  const industries = [...new Set(projects.flatMap(p => p.industry || []))].sort();
 
   // Filter projects
   const filteredProjects = projects.filter(project => {
     const matchesSearch = project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         project.description.toLowerCase().includes(searchTerm.toLowerCase());
+                         project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         (project.tagline && project.tagline.toLowerCase().includes(searchTerm.toLowerCase()));
     const matchesYear = !selectedYear || project.year === selectedYear;
-    const matchesTech = !selectedTech || project.tech.includes(selectedTech);
+    const matchesType = !selectedType || (project.projectType && project.projectType.includes(selectedType));
+    const matchesIndustry = !selectedIndustry || (project.industry && project.industry.includes(selectedIndustry));
+    const matchesStatus = !selectedStatus || project.status === selectedStatus;
     
-    return matchesSearch && matchesYear && matchesTech;
+    return matchesSearch && matchesYear && matchesType && matchesIndustry && matchesStatus;
   });
+
+  const resetFilters = () => {
+    setSearchTerm('');
+    setSelectedYear(null);
+    setSelectedType(null);
+    setSelectedIndustry(null);
+    setSelectedStatus(null);
+  };
 
   return (
     <>
       <PageIntro
         eyebrow="Projects"
-        title="Real-world software and data products"
-        description="A curated selection of engineering, analytics, and product builds shipped for clients across energy, operations, and SaaS. Each project balances technical depth with thoughtful user experience."
+        title="NDT & FFS Digital Transformation Portfolio"
+        description="Explore our portfolio of NDT and FFS digital transformation projects. Each solution is custom-built to meet specific client requirements while maintaining the highest standards of code compliance and professional quality."
         stats={heroStats}
         actions={[
-          <Button key="primary" size="lg" asChild>
+          <Button key="primary" size="lg" className="bg-blue-900 dark:bg-blue-600 text-white hover:bg-blue-800 dark:hover:bg-blue-500" asChild>
             <a href="/contact">
-              Start your project
+              Request Demo Reports
               <ArrowRight className="ml-2 h-5 w-5" />
             </a>
           </Button>,
           <Button key="secondary" size="lg" variant="outline" asChild>
             <a href="/contact">
               <Zap className="mr-2 h-5 w-5" />
-              Get a consultation
+              Free Consultation
             </a>
           </Button>,
         ]}
@@ -76,23 +84,16 @@ export default function ProjectsPage() {
               <div>
                 <h2 className="text-xl font-semibold text-slate-900 dark:text-white">Filter projects</h2>
                 <p className="text-sm text-slate-500 dark:text-slate-400">
-                  Search by name, year, or technology stack.
+                  Search by project name, or filter by year, project type, industry, or status.
                 </p>
               </div>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => {
-                  setSearchTerm('');
-                  setSelectedYear(null);
-                  setSelectedTech(null);
-                }}
-              >
+              <Button variant="outline" size="sm" onClick={resetFilters}>
                 Reset filters
               </Button>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-[1fr_auto] lg:grid-cols-[2fr_auto] lg:items-start">
+            <div className="space-y-4">
+              {/* Search */}
               <div className="relative">
                 <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
                 <input
@@ -100,61 +101,144 @@ export default function ProjectsPage() {
                   placeholder="Search by project name or description"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full rounded-lg border border-slate-200 bg-white py-2 pl-10 pr-4 text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-sky-400 dark:focus:ring-sky-400/30"
+                  className="w-full rounded-lg border border-slate-200 bg-white py-2 pl-10 pr-4 text-slate-900 shadow-sm focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-200 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:border-teal-400 dark:focus:ring-teal-400/30"
                 />
               </div>
 
-              <div className="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
-                <Filter className="h-4 w-4" />
-                <span>Refine by year and technology</span>
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                <button
-                  onClick={() => setSelectedYear(null)}
-                  className={cn(
-                    'rounded-full border border-slate-200 px-3 py-1 text-sm font-medium text-slate-600 transition hover:border-sky-400 hover:text-sky-600 dark:border-slate-700 dark:text-slate-300 dark:hover:border-sky-500 dark:hover:text-sky-400',
-                    selectedYear === null && 'border-sky-500 bg-sky-500 text-white dark:text-white',
-                  )}
-                >
-                  All years
-                </button>
-                {years.map((year) => (
+              {/* Year Filter */}
+              <div>
+                <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wider">Year</p>
+                <div className="flex flex-wrap gap-2">
                   <button
-                    key={year}
-                    onClick={() => setSelectedYear(year)}
+                    onClick={() => setSelectedYear(null)}
                     className={cn(
-                      'rounded-full border border-slate-200 px-3 py-1 text-sm font-medium text-slate-600 transition hover:border-sky-400 hover:text-sky-600 dark:border-slate-700 dark:text-slate-300 dark:hover:border-sky-500 dark:hover:text-sky-400',
-                      selectedYear === year && 'border-sky-500 bg-sky-500 text-white dark:text-white',
+                      'rounded-full border px-3 py-1 text-sm font-medium transition',
+                      selectedYear === null
+                        ? 'border-blue-900 bg-blue-900 text-white dark:border-blue-600 dark:bg-blue-600'
+                        : 'border-slate-200 text-slate-600 hover:border-blue-400 hover:text-blue-600 dark:border-slate-700 dark:text-slate-300'
                     )}
                   >
-                    {year}
+                    All
                   </button>
-                ))}
+                  {years.map((year) => (
+                    <button
+                      key={year}
+                      onClick={() => setSelectedYear(year)}
+                      className={cn(
+                        'rounded-full border px-3 py-1 text-sm font-medium transition',
+                        selectedYear === year
+                          ? 'border-blue-900 bg-blue-900 text-white dark:border-blue-600 dark:bg-blue-600'
+                          : 'border-slate-200 text-slate-600 hover:border-blue-400 hover:text-blue-600 dark:border-slate-700 dark:text-slate-300'
+                      )}
+                    >
+                      {year}
+                    </button>
+                  ))}
+                </div>
               </div>
 
-              <div className="flex flex-wrap gap-2">
-                <button
-                  onClick={() => setSelectedTech(null)}
-                  className={cn(
-                    'rounded-full border border-slate-200 px-3 py-1 text-sm font-medium text-slate-600 transition hover:border-sky-400 hover:text-sky-600 dark:border-slate-700 dark:text-slate-300 dark:hover:border-sky-500 dark:hover:text-sky-400',
-                    selectedTech === null && 'border-sky-500 bg-sky-500 text-white dark:text-white',
-                  )}
-                >
-                  All tech
-                </button>
-                {allTech.slice(0, 8).map((tech) => (
+              {/* Project Type Filter */}
+              <div>
+                <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wider">Project Type</p>
+                <div className="flex flex-wrap gap-2">
                   <button
-                    key={tech}
-                    onClick={() => setSelectedTech(tech)}
+                    onClick={() => setSelectedType(null)}
                     className={cn(
-                      'rounded-full border border-slate-200 px-3 py-1 text-sm font-medium text-slate-600 transition hover:border-sky-400 hover:text-sky-600 dark:border-slate-700 dark:text-slate-300 dark:hover:border-sky-500 dark:hover:text-sky-400',
-                      selectedTech === tech && 'border-sky-500 bg-sky-500 text-white dark:text-white',
+                      'rounded-full border px-3 py-1 text-sm font-medium transition',
+                      selectedType === null
+                        ? 'border-teal-600 bg-teal-600 text-white dark:border-teal-500 dark:bg-teal-500'
+                        : 'border-slate-200 text-slate-600 hover:border-teal-400 hover:text-teal-600 dark:border-slate-700 dark:text-slate-300'
                     )}
                   >
-                    {tech}
+                    All
                   </button>
-                ))}
+                  {projectTypes.map((type) => (
+                    <button
+                      key={type}
+                      onClick={() => setSelectedType(type)}
+                      className={cn(
+                        'rounded-full border px-3 py-1 text-sm font-medium transition',
+                        selectedType === type
+                          ? 'border-teal-600 bg-teal-600 text-white dark:border-teal-500 dark:bg-teal-500'
+                          : 'border-slate-200 text-slate-600 hover:border-teal-400 hover:text-teal-600 dark:border-slate-700 dark:text-slate-300'
+                      )}
+                    >
+                      {type}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Industry Filter */}
+              <div>
+                <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wider">Industry</p>
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    onClick={() => setSelectedIndustry(null)}
+                    className={cn(
+                      'rounded-full border px-3 py-1 text-sm font-medium transition',
+                      selectedIndustry === null
+                        ? 'border-orange-600 bg-orange-600 text-white dark:border-orange-500 dark:bg-orange-500'
+                        : 'border-slate-200 text-slate-600 hover:border-orange-400 hover:text-orange-600 dark:border-slate-700 dark:text-slate-300'
+                    )}
+                  >
+                    All
+                  </button>
+                  {industries.map((industry) => (
+                    <button
+                      key={industry}
+                      onClick={() => setSelectedIndustry(industry)}
+                      className={cn(
+                        'rounded-full border px-3 py-1 text-sm font-medium transition',
+                        selectedIndustry === industry
+                          ? 'border-orange-600 bg-orange-600 text-white dark:border-orange-500 dark:bg-orange-500'
+                          : 'border-slate-200 text-slate-600 hover:border-orange-400 hover:text-orange-600 dark:border-slate-700 dark:text-slate-300'
+                      )}
+                    >
+                      {industry}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Status Filter */}
+              <div>
+                <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wider">Status</p>
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    onClick={() => setSelectedStatus(null)}
+                    className={cn(
+                      'rounded-full border px-3 py-1 text-sm font-medium transition',
+                      selectedStatus === null
+                        ? 'border-slate-600 bg-slate-600 text-white dark:border-slate-500 dark:bg-slate-500'
+                        : 'border-slate-200 text-slate-600 hover:border-slate-400 dark:border-slate-700 dark:text-slate-300'
+                    )}
+                  >
+                    All
+                  </button>
+                  <button
+                    onClick={() => setSelectedStatus('completed')}
+                    className={cn(
+                      'rounded-full border px-3 py-1 text-sm font-medium transition',
+                      selectedStatus === 'completed'
+                        ? 'border-green-600 bg-green-600 text-white'
+                        : 'border-slate-200 text-slate-600 hover:border-green-400 hover:text-green-600 dark:border-slate-700 dark:text-slate-300'
+                    )}
+                  >
+                    Completed
+                  </button>
+                  <button
+                    onClick={() => setSelectedStatus('in-progress')}
+                    className={cn(
+                      'rounded-full border px-3 py-1 text-sm font-medium transition',
+                      selectedStatus === 'in-progress'
+                        ? 'border-blue-600 bg-blue-600 text-white'
+                        : 'border-slate-200 text-slate-600 hover:border-blue-400 hover:text-blue-600 dark:border-slate-700 dark:text-slate-300'
+                    )}
+                  >
+                    In Progress
+                  </button>
+                </div>
               </div>
             </div>
           </div>

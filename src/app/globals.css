@@ -10,33 +10,45 @@
 }
 
 :root {
-  /* Light theme */
+  /* Light theme - Industrial Professional */
   --background: #ffffff;
-  --foreground: #0f172a;
-  --muted: #f8fafc;
-  --muted-foreground: #64748b;
-  --border: #e2e8f0;
-  --primary: #0f172a;
+  --foreground: #1f2937;
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  --border: #e5e7eb;
+  --primary: #1e3a8a;
   --primary-foreground: #ffffff;
   
-  /* Accent colors */
-  --accent: #0ea5e9;
+  /* Accent colors - Industrial */
+  --accent: #0d9488;
   --accent-foreground: #ffffff;
+  --accent-orange: #ea580c;
+  --accent-blue: #1e3a8a;
+  --accent-teal: #0d9488;
+
+  /* Code/Standard Badge Colors */
+  --api-blue: #3b82f6;
+  --asme-green: #059669;
+  --aws-orange: #f97316;
+  --astm-purple: #8b5cf6;
 }
 
 .dark {
-  /* Dark theme */
+  /* Dark theme - Industrial Professional */
   --background: #0f172a;
   --foreground: #f8fafc;
   --muted: #1e293b;
   --muted-foreground: #94a3b8;
   --border: #334155;
-  --primary: #f8fafc;
+  --primary: #60a5fa;
   --primary-foreground: #0f172a;
   
   /* Accent colors */
-  --accent: #0ea5e9;
+  --accent: #2dd4bf;
   --accent-foreground: #0f172a;
+  --accent-orange: #fb923c;
+  --accent-blue: #60a5fa;
+  --accent-teal: #2dd4bf;
 }
 
 * {
@@ -76,7 +88,7 @@ body {
 
 /* Selection */
 ::selection {
-  background: var(--accent);
+  background: var(--accent-teal);
   color: var(--accent-foreground);
 }
 
@@ -91,3 +103,15 @@ body {
 .font-autography {
   font-family: 'Autography', cursive, sans-serif;
 }
+
+/* Industrial accent utilities */
+.text-industrial-blue { color: #1e3a8a; }
+.text-industrial-teal { color: #0d9488; }
+.text-industrial-orange { color: #ea580c; }
+.dark .text-industrial-blue { color: #60a5fa; }
+.dark .text-industrial-teal { color: #2dd4bf; }
+.dark .text-industrial-orange { color: #fb923c; }
+
+.bg-industrial-blue { background-color: #1e3a8a; }
+.bg-industrial-teal { background-color: #0d9488; }
+.bg-industrial-orange { background-color: #ea580c; }

@@ -2,85 +2,181 @@
   "personal": {
     "name": "Ahmed Hesham Ismail Seddik",
     "shortName": "Ahmed Seddik",
-    "title": "Software Engineer & Data Scientist",
-    "tagline": "Building intelligent engineering software at the intersection of AI, cloud, and industry standards.",
+    "title": "NDT & FFS Software Specialist",
+    "tagline": "Digitalize Your NDT & Fitness-for-Service Operations - From Field to Final Report",
+    "description": "Complete inspection management platform that transforms traditional manual workflows into intelligent, automated digital processes - customized to your exact standards and procedures",
     "location": "Alexandria, Egypt",
     "emailPrimary": "hello@ahmedseddik.dev",
     "emailContact": "hello@ahmedseddik.dev",
+    "phone": "+20 128 498 6274",
+    "phoneNote": "WhatsApp messages only, no calls",
+    "responseTime": "2-4 hours",
     "domain": "ahmedseddik.dev",
+    "website": "https://ahmedseddik.tech",
     "social": {
       "github": "https://github.com/ahmed-hesham07",
       "linkedin": "https://www.linkedin.com/in/ahmedhesham612006"
-    }
-  },
-  "skills": {
-    "programmingAndData": ["Python", "C++", "C#", "SQL", "Java", "JavaScript", "TypeScript", "PHP", "HTML", "CSS", "Rust", "C"],
-    "frameworksTools": ["Pandas", "NumPy", "scikit-learn", "OpenCV", "TensorFlow", "Keras", "React", "Next.js", "FastAPI", "Tauri", "Git", "Jupyter", "ROS", "VS Code", "Docker"],
-    "concepts": ["Machine Learning", "Deep Learning", "NLP", "Predictive Maintenance", "Data Structures & Algorithms", "OOP", "REST APIs", "Microservices", "CI/CD", "DevOps"],
-    "soft": ["Problem Solving", "Collaboration", "Critical Thinking", "Time Management", "Adaptability", "Communication"]
-  },
-  "projects": [
-    {
-      "slug": "corrosion-annotator",
-      "name": "Corrosion Annotator",
-      "year": 2024,
-      "status": "completed",
-      "description": "Intelligent corrosion detection and segmentation system combining deep learning with computer vision to automate industrial asset inspection with pixel-level accuracy.",
-      "tech": ["Python", "TensorFlow", "OpenCV", "U-Net", "ResNet34", "NumPy", "Pillow", "DenseCRF"],
-      "features": [
-        "Hybrid segmentation using U-Net and HSV color thresholding",
-        "Five-level severity classification (None to HIGH)",
-        "CRF post-processing for mask refinement",
-        "Batch processing with automated reporting",
-        "Comprehensive visual outputs (masks, overlays, annotations)",
-        "Flexible deployment with model fallback capability"
-      ],
-      "problemsSolved": [
-        "Manual corrosion inspection time and human error",
-        "Inconsistent severity assessment across inspectors",
-        "Lack of quantifiable corrosion metrics",
-        "Delayed detection leading to structural failures"
-      ],
-      "businessValue": {
-        "efficiency": "Automated inspection reducing manual assessment time",
-        "quality": "Pixel-level accuracy with quantifiable severity metrics",
-        "roi": "Early detection enabling predictive maintenance and preventing failures"
-      },
-      "impact": "Transforms manual industrial inspection into automated AI-powered analysis with pixel-level segmentation and quantifiable severity classification.",
-      "links": {
-        "repo": "https://github.com/ahmed-hesham07/corrosion-annotator",
-        "demo": null
-      },
-      "image": "/assets/corrosion-annotator.png"
     },
+    "availability": "Available for NDT/FFS digital transformation projects"
+  },
+  "stats": {
+    "projectsCompleted": "25+",
+    "clients": "18+",
+    "yearsExperience": "5+",
+    "successRate": "98%",
+    "responseTime": "2-4 hours",
+    "typicalImplementation": "4-8 weeks",
+    "timeSavings": "80-90%",
+    "productivityIncrease": "3-5x"
+  },
+  "valuePropositions": [
+    {
+      "icon": "workflow",
+      "title": "End-to-End Digital Workflow",
+      "description": "From field data capture to professional deliverables - manage everything in one platform"
+    },
+    {
+      "icon": "settings",
+      "title": "Built for YOUR Standards",
+      "description": "Custom templates matching your exact report formats, codes (API 579, ASME, AWS), and branding"
+    },
+    {
+      "icon": "rocket",
+      "title": "Deploy in Weeks, Not Months",
+      "description": "Rapid implementation with minimal disruption to your current operations"
+    }
+  ],
+  "industries": [
+    {
+      "name": "Oil & Gas",
+      "icon": "oil-barrel",
+      "sectors": ["Refineries", "Pipelines", "Offshore", "Storage"]
+    },
+    {
+      "name": "Petrochemical",
+      "icon": "chemical",
+      "sectors": ["Processing", "Storage", "Distribution"]
+    },
+    {
+      "name": "Power Generation",
+      "icon": "lightning",
+      "sectors": ["Fossil", "Nuclear", "Renewable", "Co-generation"]
+    },
+    {
+      "name": "Manufacturing",
+      "icon": "factory",
+      "sectors": ["Heavy Industry", "Food/Pharma", "Aerospace"]
+    },
+    {
+      "name": "Marine",
+      "icon": "ship",
+      "sectors": ["Vessels", "Offshore", "Ports"]
+    },
+    {
+      "name": "Infrastructure",
+      "icon": "bridge",
+      "sectors": ["Bridges", "Pipelines", "Structures"]
+    }
+  ],
+  "ndtMethods": [
+    { "code": "UT", "name": "Ultrasonic Testing", "description": "Thickness gauging, flaw detection, corrosion mapping" },
+    { "code": "RT", "name": "Radiographic Testing", "description": "Film interpretation, digital RT, weld quality" },
+    { "code": "MT", "name": "Magnetic Particle Testing", "description": "Surface crack detection, weld inspection" },
+    { "code": "PT", "name": "Liquid Penetrant Testing", "description": "Surface defect detection" },
+    { "code": "VT", "name": "Visual Testing", "description": "Direct and remote inspection, damage assessment" },
+    { "code": "PAUT", "name": "Phased Array UT", "description": "Advanced ultrasonic imaging" },
+    { "code": "TOFD", "name": "Time of Flight Diffraction", "description": "Weld inspection, sizing" },
+    { "code": "ET", "name": "Eddy Current Testing", "description": "Tube inspection, crack detection" },
+    { "code": "AE", "name": "Acoustic Emission", "description": "Active defect monitoring" },
+    { "code": "IR", "name": "Infrared Thermography", "description": "Thermal imaging" },
+    { "code": "PMI", "name": "Positive Material Identification", "description": "Material verification" }
+  ],
+  "codesStandards": [
+    {
+      "category": "Fitness-for-Service",
+      "standards": [
+        { "code": "API 579-1/ASME FFS-1", "name": "Fitness-For-Service", "description": "LTA, general metal loss, pitting, crack-like flaws" }
+      ]
+    },
+    {
+      "category": "Pressure Equipment",
+      "standards": [
+        { "code": "ASME Section V", "name": "Nondestructive Examination" },
+        { "code": "ASME Section VIII", "name": "Pressure Vessels (Div 1 & 2)" },
+        { "code": "ASME B31.3", "name": "Process Piping" },
+        { "code": "ASME B31.4", "name": "Liquid Petroleum Transportation" },
+        { "code": "ASME B31.8", "name": "Gas Transmission and Distribution" }
+      ]
+    },
+    {
+      "category": "Inspection Standards",
+      "standards": [
+        { "code": "API 510", "name": "Pressure Vessel Inspection Code" },
+        { "code": "API 570", "name": "Piping Inspection Code" },
+        { "code": "API 653", "name": "Tank Inspection, Repair, Alteration, and Reconstruction" },
+        { "code": "API 571", "name": "Damage Mechanisms Affecting Fixed Equipment" }
+      ]
+    },
+    {
+      "category": "Welding Standards",
+      "standards": [
+        { "code": "AWS D1.1", "name": "Structural Welding Code - Steel" },
+        { "code": "AWS D1.5", "name": "Bridge Welding Code" },
+        { "code": "ASME Section IX", "name": "Welding and Brazing Qualifications" }
+      ]
+    },
+    {
+      "category": "Material & Testing",
+      "standards": [
+        { "code": "ASTM", "name": "Material and Testing Standards" },
+        { "code": "EN Standards", "name": "European Standards" }
+      ]
+    },
+    {
+      "category": "Custom",
+      "standards": [
+        { "code": "Client Specific", "name": "Company-specific procedures and acceptance criteria" }
+      ]
+    }
+  ],
+  "projects": [
     {
       "slug": "massa-ndt-platform",
       "name": "MASSA NDT Intelligence Platform",
+      "tagline": "Enterprise Digital Transformation for Industrial Inspection",
       "year": 2025,
       "status": "in-progress",
-      "description": "Enterprise digital transformation platform for industrial inspection services - modernizing traditional operations with AI-powered automation and real-time data management.",
-      "tech": ["React", "AWS Cloud", "AI/ML", "Mobile Development", "TypeScript"],
+      "industry": ["Oil & Gas", "Petrochemical", "Power Generation"],
+      "projectType": ["Inspection Management", "Cloud Platform", "Mobile Solutions", "AI/ML"],
+      "description": "Complete end-to-end digital ecosystem for inspection companies, integrating field data collection, centralized management, intelligent processing, and client portals in a unified cloud platform.",
+      "shortDescription": "Enterprise digital transformation platform for industrial inspection services - modernizing traditional operations with AI-powered automation and real-time data management.",
+      "tech": ["React", "TypeScript", "FastAPI", "PostgreSQL", "AWS", "TensorFlow", "React Native"],
       "features": [
-        "Intelligent asset management and tracking",
-        "Mobile field inspection system",
-        "Automated quality assurance workflows",
-        "AI-powered report generation",
-        "Enterprise-grade security and compliance",
-        "Real-time data synchronization",
-        "Multi-language support"
+        "Mobile/Tablet Field App: Offline-capable data collection for inspectors",
+        "Cloud-Based Management: Centralized inspection database with real-time sync",
+        "AI-Powered Analysis: Automated defect detection and corrosion segmentation",
+        "Analytics Dashboard: Real-time project tracking and KPI monitoring",
+        "Client Portal: Secure access for clients to view inspection status and reports",
+        "API Integration: Connects with existing ERP, CMMS, and equipment systems",
+        "Multi-Template Reports: Supports all NDT methods and client-specific formats",
+        "Multi-Language: English, Arabic, and more"
       ],
       "problemsSolved": [
-        "Digitizing decades of manual paper-based processes",
-        "Improving data accuracy and quality control",
-        "Reducing reporting time and client communication delays",
-        "Enabling real-time operational visibility"
+        "Fragmented data across multiple systems and spreadsheets",
+        "No real-time visibility into inspection progress",
+        "Difficulty managing multi-site, multi-project operations",
+        "Poor client communication and delayed deliverables",
+        "Inability to leverage historical data for trend analysis",
+        "Scaling challenges as business grows"
       ],
       "businessValue": {
-        "efficiency": "60%+ reduction in report generation time",
-        "quality": "Significant improvement in data accuracy and compliance",
-        "roi": "Strong return on investment with rapid payback period"
+        "efficiency": "Reduce inspection-to-delivery cycle by 60%",
+        "quality": "AI-assisted defect detection with 95%+ accuracy",
+        "scalability": "Manage 10x more projects without proportional staff increase",
+        "clientSatisfaction": "Real-time visibility improves client trust and retention",
+        "roi": "Typical payback period: 6-12 months"
       },
-      "impact": "Complete digital transformation delivering significant operational efficiency gains and quality improvements. Modernizes traditional industrial operations with AI-powered intelligent platform.",
+      "impact": "MASSA transforms inspection companies from traditional service providers into modern, data-driven organizations. By unifying field operations, backend management, and client communication, it enables companies to compete with larger enterprise competitors while maintaining agility.",
       "links": {
         "repo": null,
         "demo": null
@@ -90,30 +186,40 @@
     {
       "slug": "vessel-guard",
       "name": "Vessel Guard",
+      "tagline": "Native Desktop Engineering Tool for ASME FFS Assessments",
       "year": 2024,
       "status": "completed",
-      "description": "Native desktop engineering tool for ASME B31.3 & VIII Fitness-For-Service assessments.",
-      "tech": ["Tauri", "React", "FastAPI", "SQLAlchemy", "SQLite"],
+      "industry": ["Oil & Gas", "Petrochemical", "Power Generation"],
+      "projectType": ["FFS Assessment", "Desktop Application", "Engineering Calculation"],
+      "description": "Professional desktop application for Fitness-for-Service assessments per ASME B31.3 & VIII Division 1. Automates complex calculations for local thin areas, general corrosion, and pitting damage with professional PDF report generation.",
+      "shortDescription": "Native desktop engineering tool for ASME B31.3 & VIII Fitness-For-Service assessments.",
+      "tech": ["Tauri", "React", "FastAPI", "SQLAlchemy", "SQLite", "ReportLab"],
       "features": [
-        "Automated FFS assessments",
-        "Corrosion rate & remaining life calculation",
-        "Inspection planning",
-        "Professional PDF report generation",
-        "Standards compliance verification",
-        "Cross-platform desktop application"
+        "Automated Calculations: RSF, MAWP, remaining life, acceptance criteria",
+        "ASME B31.3 & VIII Compliance: Built-in code requirements and decision trees",
+        "Component Database: Store and track all assessed components",
+        "Photo/Sketch Integration: Visual documentation in reports",
+        "Professional Reports: Branded PDF outputs with all calculations shown",
+        "Data Management: SQLite database for historical tracking",
+        "Cross-Platform: Windows, Mac, Linux support via Tauri",
+        "Fast & Lightweight: Native desktop performance"
       ],
       "problemsSolved": [
-        "Time-consuming manual FFS calculations",
-        "Complex ASME standards compliance verification",
-        "Inconsistent inspection documentation",
-        "Lack of standardized assessment workflows"
+        "Manual FFS calculations prone to errors",
+        "Time-consuming spreadsheet-based assessments",
+        "Inconsistent application of code requirements",
+        "Difficulty maintaining calculation audit trails",
+        "No standardized report format",
+        "Training new engineers takes months"
       ],
       "businessValue": {
-        "efficiency": "80% reduction in assessment time",
-        "quality": "Consistent standards-compliant reports",
-        "roi": "Significant time savings for engineering teams"
+        "efficiency": "Reduce FFS assessment time from 4-6 hours to 30-45 minutes",
+        "quality": "Eliminate calculation errors, ensure code compliance",
+        "training": "New engineers productive in days instead of months",
+        "auditTrail": "Complete calculation documentation for regulatory review",
+        "roi": "Pays for itself after 5-10 assessments"
       },
-      "impact": "Reduced assessment time by ~80% through guided workflows and automated reporting.",
+      "impact": "Vessel Guard democratizes FFS expertise, allowing companies to perform assessments in-house that previously required expensive external consultants. It has become the go-to tool for asset integrity engineers performing damage assessments.",
       "links": {
         "repo": "https://github.com/ahmed-hesham07/vessel-guard",
         "demo": null
@@ -121,31 +227,85 @@
       "image": "/assets/vessel-guard.jpg"
     },
     {
-      "slug": "business-wise-analysis",
-      "name": "Business-wise Analysis Tool",
-      "year": 2025,
+      "slug": "corrosion-annotator",
+      "name": "Corrosion Annotator",
+      "tagline": "Intelligent Corrosion Detection & Segmentation System",
+      "year": 2024,
       "status": "completed",
-      "description": "Analytics toolkit that transforms raw datasets into actionable business insights.",
-      "tech": ["Python", "Pandas", "Matplotlib", "Jupyter", "Plotly", "Seaborn", "Scikit-learn", "TensorFlow", "Keras", "PyTorch", "SQL"],
+      "industry": ["Oil & Gas", "Petrochemical", "Power Generation", "Infrastructure"],
+      "projectType": ["AI/ML", "NDT Support", "Visual Inspection"],
+      "description": "Deep learning-powered system for automated corrosion detection and segmentation in visual inspection images. Uses U-Net architecture with ResNet34 backbone to identify and quantify corroded areas with high accuracy.",
+      "shortDescription": "Intelligent corrosion detection and segmentation system combining deep learning with computer vision to automate industrial asset inspection with pixel-level accuracy.",
+      "tech": ["Python", "TensorFlow", "OpenCV", "U-Net", "ResNet34", "NumPy", "Pillow", "DenseCRF"],
       "features": [
-        "Automated data cleaning and preprocessing",
-        "Statistical analysis and visualization",
-        "Interactive dashboards",
-        "Multi-format report export",
-        "Machine learning model integration"
+        "Deep Learning Model: U-Net with ResNet34 encoder",
+        "Pixel-Level Segmentation: Precise corrosion boundary detection",
+        "Quantification: Automatic corrosion area and percentage calculation",
+        "Severity Classification: Mild, moderate, severe corrosion grading",
+        "Batch Processing: Analyze hundreds of images automatically",
+        "Multi-Source Support: Works with photos from phones, drones, cameras",
+        "Training Pipeline: Continuously improves with more data",
+        "Visualization: Color-coded heatmaps and overlay masks"
       ],
       "problemsSolved": [
-        "Time-consuming manual data analysis",
-        "Inconsistent data preprocessing workflows",
-        "Lack of repeatable analysis processes",
-        "Complex data visualization requirements"
+        "Subjective visual inspection assessments",
+        "Missed corrosion in hard-to-see areas",
+        "Inconsistent corrosion severity rating between inspectors",
+        "Time-consuming manual image analysis",
+        "Difficulty quantifying corrosion extent",
+        "No historical comparison capability"
       ],
       "businessValue": {
-        "efficiency": "Accelerated decision-making with automated analysis",
-        "quality": "Clear visual summaries and repeatable notebooks",
-        "roi": "Faster insights from raw data to actionable reports"
+        "efficiency": "Process 100+ inspection photos in minutes vs hours of manual review",
+        "quality": "95%+ accuracy in corrosion detection, reducing human error",
+        "consistency": "Standardized assessment criteria across all inspectors",
+        "documentation": "Quantifiable corrosion metrics for trending and reporting",
+        "roi": "Reduces inspection time by 30-40% on large visual campaigns"
       },
-      "impact": "Accelerated decision-making with clear visual summaries and repeatable analysis notebooks.",
+      "impact": "Corrosion Annotator augments human inspectors with AI-powered insights, catching corrosion that might be missed and providing objective, quantifiable data for asset integrity decisions. It's particularly valuable for large-scale inspection campaigns with thousands of images.",
+      "links": {
+        "repo": "https://github.com/ahmed-hesham07/corrosion-annotator",
+        "demo": null
+      },
+      "image": "/assets/corrosion-annotator.png"
+    },
+    {
+      "slug": "business-wise-analysis",
+      "name": "Business-wise NDT Analytics Tool",
+      "tagline": "Transform Inspection Data into Business Intelligence",
+      "year": 2025,
+      "status": "completed",
+      "industry": ["Oil & Gas", "Petrochemical", "Power Generation"],
+      "projectType": ["Data Analytics", "Business Intelligence"],
+      "description": "Comprehensive analytics platform that transforms raw NDT/FFS datasets into actionable business insights. Provides trend analysis, predictive maintenance indicators, asset health scoring, and executive dashboards.",
+      "shortDescription": "Analytics toolkit that transforms raw datasets into actionable business insights.",
+      "tech": ["Python", "Pandas", "Matplotlib", "Jupyter", "Plotly", "Seaborn", "Scikit-learn", "TensorFlow", "Keras", "PyTorch", "SQL"],
+      "features": [
+        "Data Integration: Import from any source (Excel, CSV, databases, APIs)",
+        "Trend Analysis: Corrosion rate trending across CMLs and assets",
+        "Predictive Analytics: Forecast remaining life and next inspection dates",
+        "Risk Scoring: Asset health scoring based on inspection history",
+        "Cost Optimization: Identify inspection frequency optimization opportunities",
+        "Executive Dashboards: High-level KPIs for management",
+        "Deep-Dive Analytics: Detailed technical analysis for engineers",
+        "Automated Reports: Scheduled analytics reports to stakeholders"
+      ],
+      "problemsSolved": [
+        "Inspection data trapped in silos (Excel, PDFs, paper)",
+        "No visibility into asset degradation trends",
+        "Reactive maintenance instead of predictive",
+        "Difficulty justifying inspection budgets to management",
+        "Missing opportunities to optimize inspection intervals",
+        "Poor communication of technical data to non-technical stakeholders"
+      ],
+      "businessValue": {
+        "efficiency": "Reduce data analysis time from days to hours",
+        "decisionQuality": "Data-driven maintenance planning vs gut feeling",
+        "costSavings": "Optimize inspection intervals - reduce unnecessary inspections by 20-30%",
+        "riskMitigation": "Early warning system for accelerating degradation",
+        "roi": "Typical cost savings 10-15% of annual inspection budget"
+      },
+      "impact": "Business-wise turns inspection data from a compliance requirement into a strategic asset. By uncovering trends and patterns hidden in historical data, it enables truly predictive maintenance strategies and helps justify inspection programs with hard ROI numbers.",
       "links": {
         "repo": "https://github.com/ahmed-hesham07/business-analysis",
         "demo": null
@@ -154,11 +314,15 @@
     },
     {
       "slug": "engineering-consultancy-site",
-      "name": "Engineering Consultancy Website",
+      "name": "HRC Engineering Consultancy Website",
+      "tagline": "Professional Web Presence for Engineering Services",
       "year": 2025,
       "status": "completed",
-      "description": "Professional site for Eng. Hesham Ragab (Hesham Seddik): services, project gallery, and client contact.",
-      "tech": ["React", "Tailwind CSS", "Netlify", "TypeScript", "Framer Motion", "Vercel"],
+      "industry": ["Engineering Consultancy"],
+      "projectType": ["Web Development", "Marketing"],
+      "description": "Modern, professional website for Eng. Hesham Ragab's engineering consultancy practice. Showcases services, projects, and establishes credibility in the engineering sector.",
+      "shortDescription": "Professional site for Eng. Hesham Ragab (Hesham Seddik): services, project gallery, and client contact.",
+      "tech": ["React", "Tailwind CSS", "TypeScript", "Framer Motion", "Vercel"],
       "features": [
         "Responsive design optimized for all devices",
         "Professional project gallery",
@@ -183,51 +347,230 @@
         "live": "https://hrc-engineering.com"
       },
       "image": "/assets/consultancy-website.png"
+    },
+    {
+      "slug": "ndt-report-automation",
+      "name": "Custom NDT Report Automation Suite",
+      "tagline": "Your Exact Templates, Fully Automated",
+      "year": 2024,
+      "status": "completed",
+      "industry": ["Oil & Gas", "Petrochemical", "Manufacturing"],
+      "projectType": ["NDT Reporting", "Custom Development"],
+      "description": "Collection of custom-built report automation solutions for various clients, each tailored to their specific inspection methods, report formats, and workflows. Demonstrates flexibility to match any client requirement.",
+      "shortDescription": "18+ custom reporting solutions tailored to each client's specific inspection methods, report formats, and workflow requirements.",
+      "tech": ["Python", "ReportLab", "openpyxl", "python-docx", "FastAPI", "Tauri", "React", "SQLite"],
+      "features": [
+        "UT Thickness Reporting: Integration with Olympus gauges, isometric overlays, CML tracking",
+        "API 653 Tank Inspections: Floor scan grids, multi-method compilation, hotspot tagging",
+        "Welding Inspection Packages: Weld map generation, accept/reject tracking, NCR generation",
+        "RT Film Evaluation: Film reader integration, automatic code compliance checking",
+        "Custom Templates: Exact match to each client's report formats and branding",
+        "Multi-Project Management: Handle multiple simultaneous inspection campaigns",
+        "Equipment Integration: Direct data import from UT gauges and other instruments",
+        "Batch Processing: Generate hundreds of reports from raw inspection data"
+      ],
+      "problemsSolved": [
+        "Each client has unique report formats that generic software cannot match",
+        "Manual transcription from field sheets to reports introduces errors",
+        "Inconsistent report quality across different inspectors and projects",
+        "Time-consuming formatting and calculations for each report",
+        "Difficulty maintaining compliance with evolving code requirements",
+        "No standardized workflow for report generation across the team"
+      ],
+      "businessValue": {
+        "efficiency": "75-90% reduction in report generation time across all implementations",
+        "quality": "Elimination of transcription errors and calculation mistakes",
+        "scalability": "Handle 3x more projects with same QC team size",
+        "consistency": "Standardized report quality regardless of who generates them",
+        "roi": "Typical payback within 2-3 months of deployment"
+      },
+      "impact": "These custom projects prove that one-size-fits-all doesn't work for NDT software. Each inspection company has unique workflows, client requirements, and reporting standards. Our ability to deliver exactly what's needed - not a generic approximation - is why clients choose us over off-the-shelf solutions.",
+      "links": {
+        "repo": null,
+        "demo": null
+      },
+      "image": "/assets/ndt-reporting.png"
     }
   ],
   "experience": [
     {
+      "role": "Freelance NDT/FFS Software Specialist",
+      "company": "Independent Consultant",
+      "period": "2023 – Present",
+      "type": "Independent Consultant",
+      "description": "Specialized software development for Non-Destructive Testing and Fitness-for-Service operations. Working directly with inspection companies, asset owners, and engineering consultancies to digitalize inspection workflows.",
+      "highlights": [
+        "MASSA NDT Intelligence Platform (2025) - Enterprise digital ecosystem for inspection companies",
+        "Vessel Guard FFS Platform (2024) - Desktop application for ASME B31.3 & VIII assessments",
+        "18+ Custom NDT Report Automation projects - Tailored solutions for various inspection companies",
+        "AI/ML Integration Projects - Corrosion detection, defect classification, predictive maintenance"
+      ],
+      "details": [
+        "Developed complete desktop application for ASME B31.3 & VIII FFS assessments with automated calculations and professional report generation",
+        "Built enterprise digital transformation platform integrating mobile field apps, cloud management, and AI-powered analysis",
+        "Delivered 18+ custom reporting solutions for various inspection companies, each tailored to specific methods, formats, and workflows",
+        "Created AI-powered corrosion detection system using deep learning (U-Net architecture) for visual inspection automation",
+        "Developed analytics platforms transforming inspection data into actionable business intelligence"
+      ],
+      "achievements": [
+        "80-90% reduction in report generation time for clients",
+        "3-5x productivity increase per inspector",
+        "Elimination of calculation errors",
+        "Faster project delivery (days vs weeks)",
+        "Improved client satisfaction and retention"
+      ],
+      "industriesServed": [
+        "Oil & Gas (upstream, midstream, downstream)",
+        "Petrochemical processing and storage",
+        "Power generation (fossil, nuclear)",
+        "Heavy manufacturing",
+        "Marine and offshore"
+      ]
+    },
+    {
       "role": "Data Science Intern",
       "company": "Accur Digital (AED)",
       "period": "Jan 2025 – Jun 2025",
+      "type": "Internship",
+      "description": "Applied data science and ML techniques to business problems in customer analytics and process automation.",
+      "highlights": [
+        "Customer segmentation models",
+        "Dataset research & preparation",
+        "AI chatbot development",
+        "CRM system enhancement"
+      ],
       "details": [
         "Developed customer segmentation models to improve targeting and personalization",
         "Performed dataset research, cleaning, and feature engineering for predictive analytics",
         "Assisted in AI chatbot development for customer engagement",
         "Contributed to CRM system development to improve customer retention"
       ]
-    },
-    {
-      "role": "Freelance Full-Stack Developer",
-      "company": "Various Clients",
-      "period": "2024 – Present",
-      "details": [
-        "Delivered full-stack solutions with React, FastAPI, and SQL tailored to business needs",
-        "Built automation tools to streamline operations and reduce manual workload",
-        "Developed ML pipelines and data products providing actionable business insights",
-        "Created project management and content management systems"
-      ]
     }
   ],
   "education": [
     {
-      "degree": "B.Sc. in Computer Engineering (in progress)",
-      "institution": "AASTMT — Alexandria",
-      "graduation": "Expected 2028"
+      "degree": "Bachelor of Science - Computer Engineering",
+      "institution": "Arab Academy for Science, Technology & Maritime Transport (AASTMT)",
+      "location": "Alexandria, Egypt",
+      "graduation": "Expected 2028",
+      "status": "In Progress",
+      "relevantCoursework": [
+        "Advanced Database Systems",
+        "Machine Learning & Artificial Intelligence",
+        "Software Engineering Principles",
+        "Data Structures & Algorithms",
+        "Engineering Mathematics & Numerical Methods"
+      ]
     }
   ],
   "achievements": [
-    "National Champion – RoboCup Junior Egypt (2019)",
-    "Asia-Pacific RoboCup Participant (2018)",
-    "Competitor – ECPC (2024)"
+    {
+      "title": "National Champion – RoboCup Junior Egypt",
+      "year": "2019",
+      "description": "Demonstrates problem-solving excellence and technical innovation"
+    },
+    {
+      "title": "Asia-Pacific RoboCup Participant",
+      "year": "2018",
+      "description": "International competition representing Egypt"
+    },
+    {
+      "title": "ECPC Competitor",
+      "year": "2024",
+      "description": "Egyptian Collegiate Programming Contest"
+    },
+    {
+      "title": "25+ NDT/FFS Projects Delivered",
+      "year": "2023-2025",
+      "description": "Proven track record in industry solutions"
+    }
+  ],
+  "skills": {
+    "domainKnowledge": {
+      "ndtMethods": ["UT", "RT", "MT", "PT", "VT", "PAUT", "TOFD", "ET", "AE", "IR", "PMI"],
+      "ffsExpertise": ["API 579 calculations", "Remaining life assessment", "Corrosion management", "CML tracking"],
+      "codes": ["API 579", "ASME B31.3", "ASME Section VIII", "API 510", "API 570", "API 653", "AWS D1.1"],
+      "workflows": ["Risk-based inspection", "Asset integrity management", "Inspection planning", "Data trending"]
+    },
+    "programming": {
+      "expert": ["Python", "TypeScript", "JavaScript", "SQL"],
+      "advanced": ["Rust", "C++", "C#"]
+    },
+    "frameworks": {
+      "frontend": ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
+      "backend": ["FastAPI", "Flask", "SQLAlchemy"],
+      "desktop": ["Tauri", "Electron"],
+      "mobile": ["React Native", "Flutter"],
+      "databases": ["PostgreSQL", "MySQL", "SQLite", "Redis"]
+    },
+    "aiml": {
+      "frameworks": ["TensorFlow", "Keras", "PyTorch", "Scikit-learn"],
+      "libraries": ["Pandas", "NumPy", "OpenCV"],
+      "applications": ["Defect detection", "Corrosion segmentation", "Predictive maintenance", "Trend forecasting"]
+    },
+    "specialized": {
+      "reporting": ["ReportLab", "python-docx", "openpyxl", "Jinja2"],
+      "calculations": ["NumPy", "SciPy", "Engineering calculations"],
+      "integration": ["REST APIs", "Equipment APIs", "Database connectivity"]
+    },
+    "soft": [
+      "Requirements gathering",
+      "Technical communication",
+      "Project management",
+      "Change management",
+      "Training & documentation",
+      "Problem solving",
+      "Adaptability",
+      "Attention to detail"
+    ]
+  },
+  "testimonials": [
+    {
+      "quote": "Ahmed transformed our entire inspection reporting process. What used to take our team 2-3 days now takes 2 hours. The ROI was immediate and substantial.",
+      "author": "[Client Name]",
+      "title": "[Title]",
+      "company": "[Inspection Company]",
+      "industry": "Oil & Gas"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How much does a custom NDT reporting solution cost?",
+      "answer": "It varies significantly based on scope. Simple single-report automation might be $3-5K. Complex multi-method platforms with mobile apps and cloud integration could be $20-50K+. I provide detailed quotes after understanding your requirements."
+    },
+    {
+      "question": "How long does implementation typically take?",
+      "answer": "Most projects are 4-8 weeks from kickoff to deployment. Simple report automation can be faster (2-3 weeks), while enterprise platforms may take 12-16 weeks."
+    },
+    {
+      "question": "Do you work with international clients?",
+      "answer": "Absolutely! I've worked with clients across different countries and time zones. Communication is via email, WhatsApp, and video calls - very flexible scheduling."
+    },
+    {
+      "question": "What if our requirements change during development?",
+      "answer": "I use an agile approach with regular check-ins. Minor adjustments are normal and expected. Major scope changes are discussed and may adjust timeline/pricing."
+    },
+    {
+      "question": "Do you provide ongoing support and updates?",
+      "answer": "Yes! I offer support packages for bug fixes, updates to codes/standards, feature enhancements, and technical assistance. Details discussed during project scoping."
+    },
+    {
+      "question": "Can you integrate with our existing systems?",
+      "answer": "Most likely, yes. I've integrated with ERP, CMMS, databases, and inspection equipment. Share your system details and we'll determine the best approach."
+    },
+    {
+      "question": "Do we own the source code?",
+      "answer": "Yes, for custom development projects, you own the code. For platform licenses (like MASSA), you license the software but don't own the underlying code."
+    }
   ],
   "cv": {
-    "objective": "Software Engineer & Data Scientist building applied AI and engineering software. Focused on productizing ML, modern desktop applications, and cloud-ready solutions.",
+    "objective": "NDT & FFS Software Specialist building digital transformation solutions for the inspection industry. Focused on automating manual workflows, ensuring code compliance, and delivering measurable ROI through intelligent software platforms.",
     "highlights": [
-      "Developed Vessel Guard, a desktop application for FFS assessments (ASME B31.3 & VIII)",
-      "Built data analytics and automation tooling for enhanced decision-making",
-      "Combined software engineering expertise with AI/ML and domain knowledge",
-      "Delivered complete software solutions from concept to deployment"
+      "Developed MASSA NDT Intelligence Platform - Enterprise digital ecosystem for inspection companies",
+      "Built Vessel Guard, a desktop application for FFS assessments (ASME B31.3 & VIII)",
+      "Delivered 18+ custom NDT report automation solutions for various inspection companies",
+      "Created AI-powered corrosion detection system for visual inspection automation",
+      "Combined deep domain knowledge with modern software engineering practices"
     ]
   }
 }

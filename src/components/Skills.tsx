@@ -48,11 +48,11 @@ const Skills = () => {
                 {category.title}
               </h3>
               <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
+                {category.skills?.map((skill) => (
                   <Badge key={skill} variant={category.variant}>
                     {skill}
                   </Badge>
-                ))}
+                )) || <p className="text-sm text-slate-500 dark:text-slate-400">No skills available</p>}
               </div>
             </div>
           ))}
