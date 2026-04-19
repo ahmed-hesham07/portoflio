@@ -17,7 +17,7 @@ export default function About() {
   });
 
   return (
-    <section id="about" className="py-24 md:py-32" aria-label="About Ahmed Hesham">
+    <section id="about" className="py-24 md:py-32" aria-label="About Ahmed Seddik">
       <div className="mx-auto max-w-[1100px] px-6">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 items-start">
           {/* Left: Text */}

@@ -40,7 +40,7 @@ export interface SkillGroup {
 // ─── Personal Info ───────────────────────────────────────────────────────────
 
 export const personalInfo = {
-  name: 'Ahmed Hesham',
+  name: 'Ahmed Seddik',
   initials: 'AH',
   title: 'AI/ML Engineer & Full-Stack Developer',
   location: 'Alexandria, Egypt',

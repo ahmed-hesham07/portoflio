@@ -50,9 +50,9 @@ export default function Navbar() {
           href="#hero"
           onClick={(e) => handleNavClick(e, '#hero')}
           className="font-autography text-3xl text-accent hover:text-blue-700 transition-colors duration-200 leading-none"
-          aria-label="Ahmed Hesham — back to top"
+          aria-label="Ahmed Seddik — back to top"
         >
-          Ah
+          A.Seddik
         </Link>
    
 

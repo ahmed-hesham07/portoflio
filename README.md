@@ -1,4 +1,4 @@
-# Ahmed Hesham - Portfolio Website
+# Ahmed Seddik - Portfolio Website
 
 ![Portfolio Preview](./public/portfolio-preview.png)
 

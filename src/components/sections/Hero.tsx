@@ -62,7 +62,7 @@ export default function Hero() {
           {...slideUp(0.2)}
           className="font-autography text-[56px] leading-none text-primary sm:text-7xl md:text-[96px]"
         >
-          {personalInfo.name}
+          Ahmed Seddik
         </m.h1>
 
         {/* Animated role */}

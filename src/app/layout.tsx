@@ -31,9 +31,9 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Ahmed Hesham — AI/ML Engineer & Full-Stack Developer',
+  title: 'Ahmed Seddik — AI/ML Engineer & Full-Stack Developer',
   description:
-    'Portfolio of Ahmed Hesham — building production AI systems, full-stack platforms, and offline-first applications. Based in Alexandria, Egypt. Open to remote roles.',
+    'Portfolio of Ahmed Seddik — building production AI systems, full-stack platforms, and offline-first applications. Based in Alexandria, Egypt. Open to remote roles.',
   keywords: [
     'AI engineer',
     'ML engineer',
@@ -44,18 +44,18 @@ export const metadata: Metadata = {
     'Alexandria Egypt',
     'remote developer',
   ],
-  authors: [{ name: 'Ahmed Hesham', url: 'https://ahmedseddik.dev' }],
+  authors: [{ name: 'Ahmed Seddik', url: 'https://ahmedseddik.dev' }],
   openGraph: {
-    title: 'Ahmed Hesham — AI/ML Engineer & Full-Stack Developer',
+    title: 'Ahmed Seddik — AI/ML Engineer & Full-Stack Developer',
     description:
       'Building production AI systems, full-stack platforms, and offline-first applications.',
     url: 'https://ahmedseddik.dev',
-    siteName: 'Ahmed Hesham Portfolio',
+    siteName: 'Ahmed Seddik Portfolio',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ahmed Hesham — AI/ML Engineer & Full-Stack Developer',
+    title: 'Ahmed Seddik — AI/ML Engineer & Full-Stack Developer',
   },
 };
 
