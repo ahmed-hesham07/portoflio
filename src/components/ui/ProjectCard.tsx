@@ -2,6 +2,7 @@
 
 import { m, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Github, ExternalLink } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Project } from '@/lib/content';
 import { cn } from '@/lib/utils';
@@ -107,31 +108,43 @@ export default function ProjectCard({ project, featured = false, index = 0 }: Pr
         </div>
       </div>
 
-      {/* Featured visual placeholder */}
+      {/* Featured visual */}
       {featured && (
         <div className="md:w-72 md:shrink-0 mt-6 md:mt-0">
           <div
-            className="h-48 md:h-full min-h-[180px] rounded-xl flex items-center justify-center relative overflow-hidden"
-            style={{ backgroundColor: `${project.color}10` }}
+            className="h-48 md:h-full min-h-[200px] rounded-xl flex items-center justify-center relative overflow-hidden"
+            style={{ backgroundColor: `${project.color}08` }}
           >
-            <div
-              className="absolute inset-0 opacity-30"
-              style={{
-                backgroundImage: `linear-gradient(${project.color}40 1px, transparent 1px), linear-gradient(90deg, ${project.color}40 1px, transparent 1px)`,
-                backgroundSize: '32px 32px',
-              }}
-            />
-            <div className="relative z-10 flex flex-col items-center gap-2 text-center p-4">
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center text-white text-xl font-bold font-display"
-                style={{ backgroundColor: project.color }}
-              >
-                {project.name.charAt(0)}
-              </div>
-              <p className="text-xs font-medium font-body" style={{ color: project.color }}>
-                {project.badge}
-              </p>
-            </div>
+            {project.image ? (
+              <Image
+                src={project.image}
+                alt={`${project.name} logo`}
+                fill
+                className="object-contain p-6"
+                sizes="(max-width: 768px) 100vw, 288px"
+              />
+            ) : (
+              <>
+                <div
+                  className="absolute inset-0 opacity-20"
+                  style={{
+                    backgroundImage: `linear-gradient(${project.color}40 1px, transparent 1px), linear-gradient(90deg, ${project.color}40 1px, transparent 1px)`,
+                    backgroundSize: '32px 32px',
+                  }}
+                />
+                <div className="relative z-10 flex flex-col items-center gap-2 text-center p-4">
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center text-white text-xl font-bold font-display"
+                    style={{ backgroundColor: project.color }}
+                  >
+                    {project.name.charAt(0)}
+                  </div>
+                  <p className="text-xs font-medium font-body" style={{ color: project.color }}>
+                    {project.badge}
+                  </p>
+                </div>
+              </>
+            )}
           </div>
         </div>
       )}
