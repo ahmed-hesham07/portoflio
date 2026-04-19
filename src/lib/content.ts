@@ -193,7 +193,7 @@ export const projects: Project[] = [
       'npm workspaces monorepo (shared types), React SPA → Nginx, Express REST API, PostgreSQL 16, Docker Compose',
     github: 'https://github.com/ahmed-hesham07/dukkan',
     liveUrl: null,
-    image: null,
+    image: '/assets/dukkan2.png',
     color: '#2563EB',
     whatILearned:
       "Building offline-first taught me that sync is a distributed systems problem disguised as a UX problem. The hard part wasn't IndexedDB — it was idempotency, dead-letter handling, and making sure a shop owner never sees a duplicate order because the network dropped at exactly the wrong moment.",
