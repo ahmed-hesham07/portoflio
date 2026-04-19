@@ -17,6 +17,7 @@
   --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
   --font-body: var(--font-inter), "Inter", system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), "JetBrains Mono", "Fira Code", monospace;
+  --font-autography: var(--font-autography), "Autography", cursive;
 
   /* Animations */
   --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;

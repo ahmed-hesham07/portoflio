@@ -54,7 +54,7 @@ export default function Hero() {
           initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="font-display text-[42px] font-bold leading-tight text-primary sm:text-5xl md:text-[64px]"
+          className="font-autography text-[56px] leading-none text-primary sm:text-7xl md:text-[96px]"
         >
           {personalInfo.name}
         </motion.h1>

@@ -53,7 +53,7 @@ export default function Navbar() {
         <Link
           href="#hero"
           onClick={(e) => handleNavClick(e, '#hero')}
-          className="font-display text-xl font-bold text-accent hover:text-blue-700 transition-colors duration-200"
+          className="font-autography text-3xl text-accent hover:text-blue-700 transition-colors duration-200 leading-none"
           aria-label="Ahmed Hesham — back to top"
         >
           {personalInfo.initials}

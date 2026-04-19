@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           {/* Row 1: Name + socials */}
           <div className="flex items-center justify-between sm:justify-start gap-6">
-            <span className="font-display text-base font-semibold text-primary">
+            <span className="font-autography text-2xl text-primary leading-none">
               {personalInfo.name}
             </span>
             <div className="flex items-center gap-3">
