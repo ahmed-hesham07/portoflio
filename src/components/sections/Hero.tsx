@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { m, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Github, Linkedin, Mail, ChevronDown, Download } from 'lucide-react';
 import { personalInfo } from '@/lib/content';
 
@@ -22,24 +22,32 @@ export default function Hero() {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const skip = prefersReducedMotion;
+  const fadeIn = (delay = 0) => ({
+    initial: skip ? false : ({ opacity: 0 } as const),
+    animate: { opacity: 1 } as const,
+    transition: { duration: 0.5, delay },
+  });
+  const slideUp = (delay = 0) => ({
+    initial: skip ? false : ({ opacity: 0, y: 16 } as const),
+    animate: { opacity: 1, y: 0 } as const,
+    transition: { duration: 0.5, delay },
+  });
+
   return (
     <section
       id="hero"
       className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden dot-grid"
       aria-label="Hero"
     >
-      {/* Page entry fade */}
-      <motion.div
-        initial={prefersReducedMotion ? false : { opacity: 0 }}
-        animate={{ opacity: 1 }}
+      <m.div
+        {...fadeIn()}
         transition={{ duration: 0.3 }}
         className="relative z-10 flex flex-col items-center gap-6 px-6 text-center"
       >
         {/* Availability badge */}
-        <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+        <m.div
+          {...slideUp(0.1)}
           className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/5 px-4 py-2 text-xs font-medium text-accent"
         >
           <span className="relative flex h-2 w-2">
@@ -47,66 +55,56 @@ export default function Hero() {
             <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
           </span>
           Available for work · Remote
-        </motion.div>
+        </m.div>
 
         {/* Name */}
-        <motion.h1
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+        <m.h1
+          {...slideUp(0.2)}
           className="font-autography text-[56px] leading-none text-primary sm:text-7xl md:text-[96px]"
         >
           {personalInfo.name}
-        </motion.h1>
+        </m.h1>
 
         {/* Animated role */}
-        <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+        <m.div
+          {...slideUp(0.3)}
           className="h-8 overflow-hidden"
           aria-live="polite"
           aria-label="Current role"
         >
           <AnimatePresence mode="wait">
-            <motion.p
+            <m.p
               key={roleIndex}
-              initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+              initial={skip ? false : ({ opacity: 0, y: 12 } as const)}
               animate={{ opacity: 1, y: 0 }}
-              exit={prefersReducedMotion ? {} : { opacity: 0, y: -12 }}
-              transition={{ duration: 0.3, ease: [0, 0, 0.2, 1] }}
+              exit={skip ? undefined : ({ opacity: 0, y: -12 } as const)}
+              transition={{ duration: 0.3 }}
               className="font-body text-lg font-medium text-accent md:text-xl"
             >
               {personalInfo.roles[roleIndex]}
-            </motion.p>
+            </m.p>
           </AnimatePresence>
-        </motion.div>
+        </m.div>
 
         {/* Tagline */}
-        <motion.p
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+        <m.p
+          {...slideUp(0.4)}
           className="max-w-lg font-body text-base text-secondary md:text-lg leading-relaxed"
         >
           {personalInfo.tagline}
-        </motion.p>
+        </m.p>
 
         {/* Sub-headline */}
-        <motion.p
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.45 }}
+        <m.p
+          {...slideUp(0.45)}
           className="max-w-xl font-body text-sm text-muted leading-relaxed"
         >
           {personalInfo.heroShort}
-        </motion.p>
+        </m.p>
 
         {/* CTAs */}
-        <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.55 }}
+        <m.div
+          {...slideUp(0.55)}
           className="flex flex-col sm:flex-row items-center gap-3"
         >
           <a
@@ -125,13 +123,11 @@ export default function Hero() {
             <Download size={15} />
             Download CV
           </a>
-        </motion.div>
+        </m.div>
 
         {/* Social links */}
-        <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.65 }}
+        <m.div
+          {...slideUp(0.65)}
           className="flex items-center gap-4"
           aria-label="Social links"
         >
@@ -160,13 +156,12 @@ export default function Hero() {
           >
             <Mail size={20} />
           </a>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
 
       {/* Scroll indicator */}
-      <motion.div
-        initial={prefersReducedMotion ? false : { opacity: 0 }}
-        animate={{ opacity: 1 }}
+      <m.div
+        {...fadeIn(1)}
         transition={{ duration: 0.5, delay: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
         aria-hidden="true"
@@ -176,7 +171,7 @@ export default function Hero() {
           className="text-muted animate-bounce"
           style={{ animationDuration: '2s' }}
         />
-      </motion.div>
+      </m.div>
     </section>
   );
 }

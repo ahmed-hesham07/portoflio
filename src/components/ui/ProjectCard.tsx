@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Github, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { Project } from '@/lib/content';
@@ -16,10 +16,10 @@ export default function ProjectCard({ project, featured = false, index = 0 }: Pr
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <motion.article
-      initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
+    <m.article
+      initial={prefersReducedMotion ? false : ({ opacity: 0, y: 24 } as const)}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: [0, 0, 0.2, 1], delay: index * 0.1 }}
+      transition={{ duration: 0.5, ease: [0, 0, 0.2, 1] as const, delay: index * 0.1 }}
       viewport={{ once: true }}
       whileHover={prefersReducedMotion ? {} : { y: -4, transition: { duration: 0.2 } }}
       className={cn(
@@ -35,7 +35,6 @@ export default function ProjectCard({ project, featured = false, index = 0 }: Pr
 
       {/* Content */}
       <div className={cn('flex flex-col gap-4', featured && 'md:flex-1')}>
-        {/* Badge */}
         <span
           className="w-fit rounded-full border px-3 py-1 text-xs font-medium tracking-wide"
           style={{
@@ -47,20 +46,16 @@ export default function ProjectCard({ project, featured = false, index = 0 }: Pr
           {project.badge}
         </span>
 
-        {/* Name */}
         <h3 className="font-body text-xl font-semibold text-primary">{project.name}</h3>
 
-        {/* Business impact — headline for both audiences */}
         <p className="font-body text-base font-medium text-primary leading-relaxed">
           {project.businessImpact}
         </p>
 
-        {/* Description (featured only) */}
         {featured && (
           <p className="font-body text-sm text-secondary leading-relaxed">{project.description}</p>
         )}
 
-        {/* Stack tags */}
         <div className="flex flex-wrap gap-2 mt-auto pt-2">
           {project.stack.slice(0, featured ? project.stack.length : 5).map((tech) => (
             <span
@@ -77,17 +72,13 @@ export default function ProjectCard({ project, featured = false, index = 0 }: Pr
           )}
         </div>
 
-        {/* Links */}
         <div className="flex items-center gap-4 pt-2">
           <Link
             href={`/projects/${project.slug}`}
             className="group/link inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-blue-700 transition-colors duration-200"
           >
             View Case Study
-            <ArrowRight
-              size={14}
-              className="transition-transform duration-200 group-hover/link:translate-x-1"
-            />
+            <ArrowRight size={14} className="transition-transform duration-200 group-hover/link:translate-x-1" />
           </Link>
 
           {project.github && (
@@ -123,7 +114,6 @@ export default function ProjectCard({ project, featured = false, index = 0 }: Pr
             className="h-48 md:h-full min-h-[180px] rounded-xl flex items-center justify-center relative overflow-hidden"
             style={{ backgroundColor: `${project.color}10` }}
           >
-            {/* Abstract grid pattern placeholder */}
             <div
               className="absolute inset-0 opacity-30"
               style={{
@@ -138,16 +128,13 @@ export default function ProjectCard({ project, featured = false, index = 0 }: Pr
               >
                 {project.name.charAt(0)}
               </div>
-              <p
-                className="text-xs font-medium font-body"
-                style={{ color: project.color }}
-              >
+              <p className="text-xs font-medium font-body" style={{ color: project.color }}>
                 {project.badge}
               </p>
             </div>
           </div>
         </div>
       )}
-    </motion.article>
+    </m.article>
   );
 }

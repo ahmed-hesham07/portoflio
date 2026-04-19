@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, Download } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { personalInfo } from '@/lib/content';
 
@@ -29,10 +29,7 @@ export default function Navbar() {
     if (href.startsWith('#')) {
       e.preventDefault();
       setMobileOpen(false);
-      const el = document.getElementById(href.slice(1));
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
+      document.getElementById(href.slice(1))?.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -49,7 +46,6 @@ export default function Navbar() {
         className="mx-auto flex max-w-[1100px] items-center justify-between px-6 py-4"
         aria-label="Main navigation"
       >
-        {/* Monogram */}
         <Link
           href="#hero"
           onClick={(e) => handleNavClick(e, '#hero')}
@@ -59,7 +55,6 @@ export default function Navbar() {
           {personalInfo.initials}
         </Link>
 
-        {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-6" role="list">
           {navLinks.map((link) => (
             <li key={link.href}>
@@ -74,7 +69,6 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Desktop CTA */}
         <a
           href={personalInfo.cv}
           target="_blank"
@@ -85,7 +79,6 @@ export default function Navbar() {
           CV
         </a>
 
-        {/* Mobile hamburger */}
         <button
           className="md:hidden text-secondary hover:text-primary transition-colors duration-200 p-1"
           onClick={() => setMobileOpen((v) => !v)}
@@ -96,13 +89,12 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
+          <m.div
+            initial={{ opacity: 0, height: 0 } as const}
             animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
+            exit={{ opacity: 0, height: 0 } as const}
             transition={{ duration: 0.2 }}
             className="md:hidden overflow-hidden border-b border-border bg-background/95 backdrop-blur-md"
           >
@@ -130,7 +122,7 @@ export default function Navbar() {
                 </a>
               </li>
             </ul>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </header>

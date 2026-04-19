@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import { ArrowLeft, Github, ExternalLink, ArrowRight } from 'lucide-react';
 import { Project } from '@/lib/content';
 import Navbar from '@/components/layout/Navbar';
@@ -21,23 +21,18 @@ export default function ProjectPageClient({ project, nextProject }: Props) {
     <>
       <Navbar />
       <main className="pt-24">
-        {/* Back link */}
         <div className="mx-auto max-w-[1100px] px-6 pt-8">
           <Link
             href="/#projects"
             className="inline-flex items-center gap-2 font-body text-sm text-muted hover:text-accent transition-colors duration-200 group"
           >
-            <ArrowLeft
-              size={14}
-              className="transition-transform duration-200 group-hover:-translate-x-1"
-            />
+            <ArrowLeft size={14} className="transition-transform duration-200 group-hover:-translate-x-1" />
             All Projects
           </Link>
         </div>
 
-        {/* Header */}
-        <motion.header
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
+        <m.header
+          initial={prefersReducedMotion ? false : ({ opacity: 0, y: 24 } as const)}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE }}
           className="mx-auto max-w-[1100px] px-6 py-12"
@@ -60,27 +55,22 @@ export default function ProjectPageClient({ project, nextProject }: Props) {
           <p className="max-w-2xl font-display text-xl text-secondary leading-relaxed md:text-2xl">
             {project.businessImpact}
           </p>
-        </motion.header>
+        </m.header>
 
-        {/* Accent bar */}
         <div className="h-1 w-full" style={{ backgroundColor: project.color }} aria-hidden="true" />
 
-        {/* Main content */}
         <section className="py-16 bg-surface">
           <div className="mx-auto max-w-[1100px] px-6">
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
-              {/* Left: main content */}
-              <motion.div
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
+              <m.div
+                initial={prefersReducedMotion ? false : ({ opacity: 0, y: 24 } as const)}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: EASE, delay: 0.1 }}
                 className="lg:col-span-2 flex flex-col gap-10"
               >
                 <div>
                   <h2 className="font-body text-lg font-semibold text-primary mb-3">Overview</h2>
-                  <p className="font-body text-base text-secondary leading-[1.8]">
-                    {project.description}
-                  </p>
+                  <p className="font-body text-base text-secondary leading-[1.8]">{project.description}</p>
                 </div>
 
                 <div>
@@ -93,9 +83,7 @@ export default function ProjectPageClient({ project, nextProject }: Props) {
                           style={{ backgroundColor: project.color }}
                           aria-hidden="true"
                         />
-                        <span className="font-body text-base text-secondary leading-relaxed">
-                          {highlight}
-                        </span>
+                        <span className="font-body text-base text-secondary leading-relaxed">{highlight}</span>
                       </li>
                     ))}
                   </ul>
@@ -104,9 +92,7 @@ export default function ProjectPageClient({ project, nextProject }: Props) {
                 <div>
                   <h2 className="font-body text-lg font-semibold text-primary mb-3">Architecture</h2>
                   <div className="rounded-xl border border-border bg-background px-5 py-4">
-                    <p className="font-mono text-sm text-secondary leading-relaxed">
-                      {project.architecture}
-                    </p>
+                    <p className="font-mono text-sm text-secondary leading-relaxed">{project.architecture}</p>
                   </div>
                 </div>
 
@@ -121,11 +107,10 @@ export default function ProjectPageClient({ project, nextProject }: Props) {
                     &ldquo;{project.whatILearned}&rdquo;
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
 
-              {/* Right: sidebar */}
-              <motion.aside
-                initial={prefersReducedMotion ? false : { opacity: 0, x: 16 }}
+              <m.aside
+                initial={prefersReducedMotion ? false : ({ opacity: 0, x: 16 } as const)}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, ease: EASE, delay: 0.2 }}
                 className="flex flex-col gap-6 lg:sticky lg:top-28 lg:self-start"
@@ -160,10 +145,7 @@ export default function ProjectPageClient({ project, nextProject }: Props) {
                     >
                       <Github size={15} />
                       View on GitHub
-                      <ArrowRight
-                        size={13}
-                        className="transition-transform duration-200 group-hover:translate-x-1"
-                      />
+                      <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-1" />
                     </a>
                   )}
 
@@ -176,44 +158,30 @@ export default function ProjectPageClient({ project, nextProject }: Props) {
                     >
                       <ExternalLink size={15} />
                       Live Demo
-                      <ArrowRight
-                        size={13}
-                        className="transition-transform duration-200 group-hover:translate-x-1"
-                      />
+                      <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-1" />
                     </a>
                   )}
 
                   {!project.github && !project.liveUrl && (
-                    <p className="font-body text-xs text-muted">
-                      No public links available for this project.
-                    </p>
+                    <p className="font-body text-xs text-muted">No public links available.</p>
                   )}
                 </div>
-              </motion.aside>
+              </m.aside>
             </div>
           </div>
         </section>
 
-        {/* Next project */}
         <section className="py-16 border-t border-border">
           <div className="mx-auto max-w-[1100px] px-6 text-center">
             <p className="font-body text-xs font-semibold tracking-[0.15em] uppercase text-muted mb-4">
               Next Project
             </p>
-            <Link
-              href={`/projects/${nextProject.slug}`}
-              className="group inline-flex flex-col items-center gap-2"
-            >
+            <Link href={`/projects/${nextProject.slug}`} className="group inline-flex flex-col items-center gap-2">
               <h3 className="font-display text-2xl font-semibold text-primary group-hover:text-accent transition-colors duration-200 md:text-3xl">
                 {nextProject.name}
               </h3>
-              <span className="font-body text-sm text-muted text-center max-w-md">
-                {nextProject.businessImpact}
-              </span>
-              <ArrowRight
-                size={18}
-                className="text-accent mt-1 transition-transform duration-200 group-hover:translate-x-2"
-              />
+              <span className="font-body text-sm text-muted text-center max-w-md">{nextProject.businessImpact}</span>
+              <ArrowRight size={18} className="text-accent mt-1 transition-transform duration-200 group-hover:translate-x-2" />
             </Link>
           </div>
         </section>

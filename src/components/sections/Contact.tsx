@@ -1,26 +1,23 @@
 'use client';
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import { Github, Linkedin, Download, Mail, ArrowRight } from 'lucide-react';
 import SectionLabel from '@/components/ui/SectionLabel';
 import { personalInfo, contactCopy } from '@/lib/content';
 
 export default function Contact() {
   const prefersReducedMotion = useReducedMotion();
+  const vp = { once: true };
+  const ease = [0, 0, 0.2, 1] as const;
 
   return (
-    <section
-      id="contact"
-      className="py-24 md:py-32"
-      aria-label="Contact"
-    >
+    <section id="contact" className="py-24 md:py-32" aria-label="Contact">
       <div className="mx-auto max-w-[1100px] px-6">
-        {/* Header */}
-        <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
+        <m.div
+          initial={prefersReducedMotion ? false : ({ opacity: 0, y: 24 } as const)}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0, 0, 0.2, 1] }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease }}
+          viewport={vp}
           className="mb-14 flex flex-col items-center gap-4 text-center"
         >
           <SectionLabel>Contact</SectionLabel>
@@ -30,14 +27,13 @@ export default function Contact() {
           <p className="max-w-xl font-body text-base text-secondary leading-relaxed">
             {contactCopy.subCopy}
           </p>
-        </motion.div>
+        </m.div>
 
-        {/* Two column CTAs */}
-        <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
+        <m.div
+          initial={prefersReducedMotion ? false : ({ opacity: 0, y: 24 } as const)}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0, 0, 0.2, 1], delay: 0.1 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease, delay: 0.1 }}
+          viewport={vp}
           className="flex flex-col gap-8 md:flex-row md:items-stretch md:gap-0"
         >
           {/* Left: Recruiter */}
@@ -59,7 +55,6 @@ export default function Contact() {
                 <Download size={15} />
                 Download CV
               </a>
-
               <a
                 href={personalInfo.github}
                 target="_blank"
@@ -68,10 +63,7 @@ export default function Contact() {
               >
                 <Github size={15} />
                 View GitHub
-                <ArrowRight
-                  size={13}
-                  className="transition-transform duration-200 group-hover:translate-x-1"
-                />
+                <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-1" />
               </a>
             </div>
 
@@ -81,7 +73,7 @@ export default function Contact() {
           {/* Divider */}
           <div className="flex items-center justify-center md:flex-col md:px-8">
             <div className="h-px flex-1 bg-border md:h-full md:w-px" />
-            <span className="px-4 py-4 font-body text-xs text-muted md:px-4 md:py-4">or</span>
+            <span className="px-4 py-4 font-body text-xs text-muted">or</span>
             <div className="h-px flex-1 bg-border md:h-full md:w-px" />
           </div>
 
@@ -102,7 +94,6 @@ export default function Contact() {
                 <Mail size={15} />
                 Send me a message
               </a>
-
               <a
                 href={personalInfo.linkedin}
                 target="_blank"
@@ -111,16 +102,13 @@ export default function Contact() {
               >
                 <Linkedin size={15} />
                 Connect on LinkedIn
-                <ArrowRight
-                  size={13}
-                  className="transition-transform duration-200 group-hover:translate-x-1"
-                />
+                <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-1" />
               </a>
             </div>
 
             <p className="font-body text-xs text-muted mt-auto">{contactCopy.clientFootprint}</p>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

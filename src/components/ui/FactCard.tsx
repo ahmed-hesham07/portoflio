@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 
 interface FactCardProps {
   emoji: string;
@@ -13,10 +13,10 @@ export default function FactCard({ emoji, title, subtitle, index = 0 }: FactCard
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <motion.div
-      initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+    <m.div
+      initial={prefersReducedMotion ? false : ({ opacity: 0, y: 20 } as const)}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: [0, 0, 0.2, 1], delay: index * 0.1 }}
+      transition={{ duration: 0.5, ease: [0, 0, 0.2, 1] as const, delay: index * 0.1 }}
       viewport={{ once: true }}
       whileHover={prefersReducedMotion ? {} : { y: -4, transition: { duration: 0.2 } }}
       className="flex flex-col gap-2 rounded-xl border border-border bg-surface p-5 shadow-sm hover:shadow-md transition-shadow duration-200"
@@ -26,6 +26,6 @@ export default function FactCard({ emoji, title, subtitle, index = 0 }: FactCard
       </span>
       <p className="font-body text-sm font-semibold text-primary leading-snug">{title}</p>
       <p className="font-body text-xs text-muted">{subtitle}</p>
-    </motion.div>
+    </m.div>
   );
 }
