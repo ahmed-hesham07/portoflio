@@ -1,109 +1,66 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Inter, Playfair_Display, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
 });
 
-const jetBrainsMono = JetBrains_Mono({
+const playfair = Playfair_Display({
   subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
+  variable: '--font-playfair',
+  display: 'swap',
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains',
+  display: 'swap',
+  weight: ['400', '500'],
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: 'Ahmed Seddik - NDT & FFS Digital Transformation Specialist',
-    template: '%s | Ahmed Seddik - NDT & FFS Software Specialist'
-  },
-  description: 'Digitalize your NDT & Fitness-for-Service operations. Complete inspection management platform transforming manual workflows into intelligent, automated digital processes. Custom solutions for API 579, ASME, AWS compliance.',
+  title: 'Ahmed Hesham — AI/ML Engineer & Full-Stack Developer',
+  description:
+    'Portfolio of Ahmed Hesham — building production AI systems, full-stack platforms, and offline-first applications. Based in Alexandria, Egypt. Open to remote roles.',
   keywords: [
-    'NDT software',
-    'FFS software',
-    'Fitness-for-Service',
-    'Non-Destructive Testing',
-    'Inspection automation',
-    'API 579',
-    'ASME B31.3',
-    'ASME Section VIII',
-    'Inspection reporting',
-    'NDT digital transformation',
-    'Inspection management platform',
-    'Corrosion management',
-    'Asset integrity software',
-    'Oil & gas inspection',
-    'Petrochemical inspection',
-    'Ahmed Seddik',
-    'NDT software developer',
-    'Alexandria, Egypt'
+    'AI engineer',
+    'ML engineer',
+    'full-stack developer',
+    'Next.js',
+    'FastAPI',
+    'computer vision',
+    'Alexandria Egypt',
+    'remote developer',
   ],
-  authors: [{ name: 'Ahmed Hesham Ismail Seddik' }],
-  creator: 'Ahmed Hesham Ismail Seddik',
-  publisher: 'Ahmed Hesham Ismail Seddik',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL('https://ahmedseddik.tech'),
-  alternates: {
-    canonical: '/',
-  },
+  authors: [{ name: 'Ahmed Hesham', url: 'https://ahmedseddik.dev' }],
   openGraph: {
+    title: 'Ahmed Hesham — AI/ML Engineer & Full-Stack Developer',
+    description:
+      'Building production AI systems, full-stack platforms, and offline-first applications.',
+    url: 'https://ahmedseddik.dev',
+    siteName: 'Ahmed Hesham Portfolio',
     type: 'website',
-    locale: 'en_US',
-    url: 'https://ahmedseddik.tech',
-    title: 'Ahmed Seddik - NDT & FFS Digital Transformation Specialist',
-    description: 'Digitalize your NDT & Fitness-for-Service operations. Complete inspection management platform transforming manual workflows into intelligent, automated digital processes.',
-    siteName: 'Ahmed Seddik - NDT & FFS Software Specialist',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Ahmed Seddik - NDT & FFS Digital Transformation Specialist',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ahmed Seddik - NDT & FFS Digital Transformation Specialist',
-    description: 'Digitalize your NDT & Fitness-for-Service operations. Complete inspection management platform transforming manual workflows.',
-    images: ['/og-image.jpg'],
-    creator: '@ahmedhesham07',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+    title: 'Ahmed Hesham — AI/ML Engineer & Full-Stack Developer',
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${inter.variable} ${jetBrainsMono.variable} font-sans antialiased`}
-      >
-        <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-white transition-colors">
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </div>
-      </body>
+    <html
+      lang="en"
+      className={`${inter.variable} ${playfair.variable} ${jetbrains.variable}`}
+    >
+      <body className="bg-background text-primary antialiased">{children}</body>
     </html>
   );
 }

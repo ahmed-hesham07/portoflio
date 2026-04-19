@@ -1,43 +1,45 @@
-import { cn } from '@/utils/cn';
-import { ButtonHTMLAttributes, forwardRef, ReactNode } from 'react';
-import { Slot } from '@radix-ui/react-slot';
+'use client';
+
+import { cn } from '@/lib/utils';
+import { ButtonHTMLAttributes, forwardRef } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   asChild?: boolean;
-  children: ReactNode;
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'primary', size = 'md', asChild = false, children, ...props }, ref) => {
-    const baseStyles = 'inline-flex items-center justify-center rounded-lg font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50';
-    
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ variant = 'primary', size = 'md', className, children, ...props }, ref) => {
+    const base =
+      'inline-flex items-center justify-center gap-2 rounded-lg font-body font-medium transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+
     const variants = {
-      primary: 'bg-slate-900 text-white hover:bg-slate-800 shadow-sm [&_a]:text-white [&_a]:no-underline dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white',
-      secondary: 'bg-sky-500 text-white hover:bg-sky-600 shadow-sm [&_a]:text-white [&_a]:no-underline',
-      outline: 'border border-slate-300 bg-transparent text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800 [&_a]:text-inherit [&_a]:no-underline',
-      ghost: 'text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 [&_a]:text-inherit [&_a]:no-underline'
+      primary:
+        'bg-accent text-white hover:bg-blue-700 active:scale-[0.98]',
+      secondary:
+        'border border-accent text-accent bg-transparent hover:bg-accent hover:text-white active:scale-[0.98]',
+      ghost:
+        'text-secondary hover:text-primary hover:bg-surface active:scale-[0.98]',
     };
 
     const sizes = {
-      sm: 'h-9 px-3 text-sm',
-      md: 'h-10 px-4 py-2',
-      lg: 'h-11 px-8 text-lg'
+      sm: 'px-4 py-2 text-sm',
+      md: 'px-6 py-3 text-sm',
+      lg: 'px-8 py-4 text-base',
     };
 
-    const Comp = asChild ? Slot : 'button';
-
     return (
-      <Comp
-        className={cn(baseStyles, variants[variant], sizes[size], className)}
+      <button
         ref={ref}
+        className={cn(base, variants[variant], sizes[size], className)}
         {...props}
       >
         {children}
-      </Comp>
+      </button>
     );
   }
 );
 
 Button.displayName = 'Button';
+export default Button;
