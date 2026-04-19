@@ -52,7 +52,7 @@ export default function Navbar() {
           className="font-autography text-3xl text-accent hover:text-blue-700 transition-colors duration-200 leading-none"
           aria-label="Ahmed Hesham — back to top"
         >
-          {personalInfo.initials}
+          Ah
         </Link>
 
         <ul className="hidden md:flex items-center gap-6" role="list">
