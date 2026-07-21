@@ -87,9 +87,11 @@ export default function Experience() {
                 <p className="font-body text-sm text-secondary leading-relaxed">{education.school}</p>
                 <p className="font-body text-xs text-muted">{education.location}</p>
               </div>
-              <span className="font-body text-xs text-muted whitespace-nowrap pt-1 shrink-0">
-                {education.period}
-              </span>
+              {education.period ? (
+                <span className="font-body text-xs text-muted whitespace-nowrap pt-1 shrink-0">
+                  {education.period}
+                </span>
+              ) : null}
             </div>
           </m.div>
         </div>

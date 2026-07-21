@@ -42,7 +42,7 @@ export interface Industry {
   sectors: string[];
 }
 
-export interface NDTMethod {
+export interface DomainMethod {
   code: string;
   name: string;
   description: string;
@@ -61,7 +61,7 @@ export interface CodeStandardCategory {
 
 export interface Skills {
   domainKnowledge?: {
-    ndtMethods: string[];
+    domainMethods: string[];
     ffsExpertise: string[];
     codes: string[];
     workflows: string[];
@@ -180,7 +180,7 @@ export interface PortfolioData {
   stats?: Stats;
   valuePropositions?: ValueProposition[];
   industries?: Industry[];
-  ndtMethods?: NDTMethod[];
+  domainMethods?: DomainMethod[];
   codesStandards?: CodeStandardCategory[];
   skills: Skills;
   projects: Project[];

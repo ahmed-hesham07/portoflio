@@ -52,7 +52,7 @@ export const personalInfo = {
   cv: '/ahmed-hesham-cv.pdf',
   tagline: "I don't wait for problems — I solve the silent back pain.",
   heroShort:
-    'Systems & software architect building B2B SaaS across backend, frontend, desktop, and mobile — with applied ML where it creates real leverage. Building production systems since April 2024.',
+    'Full-stack software engineer building production B2B platforms across web, desktop, and mobile — with applied ML where it adds real leverage. I ship software that works in the field, not just the demo. Open to remote roles and freelance client projects worldwide.',
   roles: [
     'Systems & Software Architect',
     'B2B SaaS Platforms',
@@ -65,7 +65,7 @@ export const personalInfo = {
 // ─── About ───────────────────────────────────────────────────────────────────
 
 export const aboutParagraphs = [
-  "I'm a systems & software architect based in Alexandria, Egypt. Since April 2024 I've been building B2B SaaS and production software that actually gets used — engineering platforms replacing spreadsheets at oil & gas inspection firms, corrosion detection pipelines on industrial image datasets, and full-stack systems spanning backend, frontend, desktop, and mobile. I care about the gap between 'it works in the demo' and 'it works in the field.'",
+  "I'm a systems & software architect based in Alexandria, Egypt. Since April 2024 I've been building B2B platforms and production software that actually gets used — replacing manual spreadsheet workflows for industrial clients, computer-vision pipelines over large image datasets, and full-stack systems spanning backend, frontend, desktop, and mobile. I care about the gap between 'it works in the demo' and 'it works in the field.'",
   "My work sits at the intersection of platform architecture and applied ML. I'm comfortable training a U-Net segmentation model in the morning and wiring up a PostgreSQL sync queue in the afternoon. I don't believe in over-specialising early — I'd rather understand a problem fully and then build whatever it takes to solve it.",
   'Outside of code: Computer Engineering student at AASTMT, gym trainer (5-day hypertrophy split, yes I track everything), and the oldest son in a family that taught me early what it means to be reliable. I work with clients in Egypt and the GCC region and I\'m open to remote roles with international teams.',
 ];
@@ -84,7 +84,7 @@ export const factCards = [
   {
     emoji: '🧠',
     title: '5,000+ images',
-    subtitle: 'trained corrosion model on',
+    subtitle: 'trained a computer-vision model on',
   },
   {
     emoji: '🌍',
@@ -168,16 +168,41 @@ export const skillGroups: SkillGroup[] = [
 
 export const projects: Project[] = [
   {
-    slug: 'vessel-guard',
+    slug: 'nucleus',
     featured: true,
+    name: 'Nucleus',
+    badge: 'Full-Stack B2B Platform · Web + Desktop',
+    businessImpact:
+      'Replaced manual, spreadsheet-driven operational workflows for paying industrial clients with a single web + desktop platform.',
+    description:
+      'A production web-and-desktop platform built for paying industrial clients. A React/TypeScript web portal backed by FastAPI and PostgreSQL, paired with Electron and WPF desktop companion apps for offline-capable field data capture that syncs to a central database.',
+    highlights: [
+      'Role-based access with multi-tenant team isolation across separate dashboards',
+      'Offline-first desktop capture with background sync to a central PostgreSQL database',
+      'Structured multi-step workflow assignments and system-generated credentials',
+      'Automated DOCX/PDF report generation pipeline',
+      'Hardened with 130+ unit tests and a full end-to-end stabilization pass',
+    ],
+    stack: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL', 'Electron', 'C# / WPF', 'Docker'],
+    architecture:
+      'React/TypeScript web portal + FastAPI backend + PostgreSQL, with Electron and WPF desktop companion apps syncing to a central database',
+    github: null,
+    liveUrl: null,
+    image: null,
+    color: '#6366F1',
+    whatILearned:
+      "Building for offline-first field use forced me to treat sync, conflict handling, and data integrity as first-class problems — the hard part wasn't the features, it was guaranteeing no data loss across unreliable connections while keeping web and desktop in agreement.",
+  },
+  {
+    slug: 'vessel-guard',
+    featured: false,
     name: 'Vessel Guard',
     badge: 'Full-Stack · Engineering SaaS',
     businessImpact:
-      'Replaced manual spreadsheet workflows for pressure vessel integrity analysis at oil & gas inspection firms.',
+      'Replaced error-prone spreadsheet workflows for engineering integrity calculations with a full-stack SaaS platform.',
     description:
-      'Full-stack engineering SaaS platform implementing ASME B31.3, ASME VIII, and API 579 fitness-for-service calculations. Built for asset integrity managers and inspection engineers in the GCC region.',
+      'Full-stack engineering SaaS with domain calculation engines, real-time collaboration, report generation, and role-based access, built for industrial engineering teams.',
     highlights: [
-      'ASME B31.3/VIII and API 579 FFS calculation engines — replaces error-prone Excel models',
       'Real-time collaboration, PDF report generation, JWT/RBAC auth',
       'Redis caching, Celery async tasks, Alembic migrations',
       'Deployable to AWS ECS/Fargate or Azure Container Apps',
@@ -195,12 +220,12 @@ export const projects: Project[] = [
     ],
     architecture:
       'Turborepo monorepo — Next.js 14 frontend + FastAPI backend + PostgreSQL + Redis, containerised',
-    github: 'https://github.com/ahmed-hesham07/Vessel-Guard',
+    github: null,
     liveUrl: null,
     image: '/assets/vessel-guard.jpg',
     color: '#059669',
     whatILearned:
-      "Engineering domain software forced me to think about correctness differently. A wrong ASME calculation doesn't throw an error — it just produces a number that could get someone hurt. That changes how you think about validation, testing, and what 'done' means.",
+      "Engineering domain software forced me to think about correctness differently — a wrong calculation doesn't throw an error, it produces a number that could get someone hurt. That changes how you think about validation and what 'done' means.",
   },
   {
     slug: 'corrosion-annotator',
@@ -299,14 +324,14 @@ export const experience: ExperienceItem[] = [
     ],
   },
   {
-    role: 'Freelance Developer & NDT Software Consultant',
+    role: 'Freelance Software Developer & Consultant',
     company: 'Self-employed',
     type: 'Alexandria, Egypt & GCC',
     period: 'Apr 2024 – Present',
     bullets: [
-      'Founded ETCH (Enterprise Tracking & Control Hub) — an NDT digital management platform deployed at MASSA Consulting Ltd.',
-      'Built and shipped a full web portal (Inspection Hub) and desktop app (FieldPro) covering all 13 NDT methods.',
-      'Engaged by ENPPI for SUMED facility inspection planning — scope, timeline, and pricing advisory.',
+      'Built and delivered an end-to-end web + desktop software platform for paying industrial clients — architecture, delivery, and on-site rollout.',
+      'Shipped a multi-role web portal plus offline-capable desktop companion apps with automated report generation, backed by 130+ unit tests.',
+      'Provided scope, timeline, and pricing advisory to an industrial client for a facility planning engagement.',
     ],
   },
 ];
@@ -315,7 +340,7 @@ export const education: EducationItem = {
   degree: 'B.Eng., Computer Engineering',
   school: 'Arab Academy for Science, Technology & Maritime Transport (AASTMT)',
   location: 'Alexandria, Egypt',
-  period: '2023 – 2027 (Expected)',
+  period: '',
 };
 
 // ─── Contact ─────────────────────────────────────────────────────────────────
