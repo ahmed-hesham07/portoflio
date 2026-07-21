@@ -92,9 +92,9 @@ export const factCards = [
     subtitle: 'client footprint',
   },
   {
-    emoji: '💪',
-    title: 'Gym trainer',
-    subtitle: 'who ships TypeScript at 2am',
+    emoji: '⚙️',
+    title: '130+ unit tests',
+    subtitle: 'hardening client platforms',
   },
 ];
 
