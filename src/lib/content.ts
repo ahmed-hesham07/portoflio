@@ -71,7 +71,7 @@ export const aboutParagraphs = [
 ];
 
 export const aboutStats = [
-  { label: 'Building production systems', value: 'Since Apr 2024' },
+  { label: 'Building production systems', value: '+3 yrs' },
   { label: 'Client footprint', value: 'Egypt & GCC' },
 ];
 
