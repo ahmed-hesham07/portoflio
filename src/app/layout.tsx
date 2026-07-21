@@ -31,13 +31,12 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Ahmed Seddik — Systems & Software Architect | B2B SaaS | Applied ML',
+  title: 'Ahmed Seddik — Software Engineer | B2B Platforms | Applied ML',
   description:
-    'Portfolio of Ahmed Seddik — systems & software architect building B2B SaaS platforms across backend, frontend, desktop, and mobile, with applied ML. Based in Alexandria, Egypt. Building since April 2024.',
+    'Portfolio of Ahmed Seddik — software engineer building B2B platforms across backend, frontend, desktop, and mobile, with applied ML. Based in Alexandria, Egypt. Building since April 2024.',
   keywords: [
-    'systems architect',
-    'software architect',
-    'B2B SaaS',
+    'software engineer',
+    'B2B platforms',
     'applied ML',
     'full-stack developer',
     'Next.js',
@@ -48,16 +47,16 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Ahmed Seddik', url: 'https://ahmedseddik.dev' }],
   openGraph: {
-    title: 'Ahmed Seddik — Systems & Software Architect | B2B SaaS | Applied ML',
+    title: 'Ahmed Seddik — Software Engineer | B2B Platforms | Applied ML',
     description:
-      'Building B2B SaaS platforms across backend, frontend, desktop, and mobile — with applied ML. Since April 2024.',
+      'Building B2B platforms across backend, frontend, desktop, and mobile — with applied ML. Since April 2024.',
     url: 'https://ahmedseddik.dev',
     siteName: 'Ahmed Seddik Portfolio',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ahmed Seddik — Systems & Software Architect | B2B SaaS | Applied ML',
+    title: 'Ahmed Seddik — Software Engineer | B2B Platforms | Applied ML',
   },
 };
 

@@ -42,7 +42,7 @@ export interface SkillGroup {
 export const personalInfo = {
   name: 'Ahmed Seddik',
   initials: 'AH',
-  title: 'Systems & Software Architect | B2B SaaS Platforms | Applied ML',
+  title: 'Software Engineer | B2B Platforms | Applied ML',
   location: 'Alexandria, Egypt',
   email: 'hello@ahmedseddik.dev',
   phone: '+20 103 312 0762',
@@ -50,12 +50,12 @@ export const personalInfo = {
   github: 'https://github.com/ahmed-hesham07',
   linkedin: 'https://www.linkedin.com/in/ahmedseddik1/',
   cv: '/ahmed-hesham-cv.pdf',
-  tagline: "I don't wait for problems — I solve the silent back pain.",
+  tagline: 'I turn hard problems into software that ships.',
   heroShort:
     'Full-stack software engineer building production B2B platforms across web, desktop, and mobile — with applied ML where it adds real leverage. I ship software that works in the field, not just the demo. Open to remote roles and freelance client projects worldwide.',
   roles: [
-    'Systems & Software Architect',
-    'B2B SaaS Platforms',
+    'Software Engineer',
+    'B2B Platforms',
     'Backend · Frontend · Desktop · Mobile',
     'Applied ML',
   ],
@@ -65,9 +65,9 @@ export const personalInfo = {
 // ─── About ───────────────────────────────────────────────────────────────────
 
 export const aboutParagraphs = [
-  "I'm a systems & software architect based in Alexandria, Egypt. Since April 2024 I've been building B2B platforms and production software that actually gets used — replacing manual spreadsheet workflows for industrial clients, computer-vision pipelines over large image datasets, and full-stack systems spanning backend, frontend, desktop, and mobile. I care about the gap between 'it works in the demo' and 'it works in the field.'",
-  "My work sits at the intersection of platform architecture and applied ML. I'm comfortable training a U-Net segmentation model in the morning and wiring up a PostgreSQL sync queue in the afternoon. I don't believe in over-specialising early — I'd rather understand a problem fully and then build whatever it takes to solve it.",
-  'Outside of code: Computer Engineering student at AASTMT, gym trainer (5-day hypertrophy split, yes I track everything), and the oldest son in a family that taught me early what it means to be reliable. I work with clients in Egypt and the GCC region and I\'m open to remote roles with international teams.',
+  'I\'m a software engineer based in Alexandria, Egypt. Since April 2024 I\'ve been building B2B platforms and production software that actually gets used — replacing manual spreadsheet workflows for industrial clients, computer-vision pipelines over large image datasets, and full-stack systems across backend, frontend, desktop, and mobile. I care about the gap between "it works in the demo" and "it works in the field."',
+  "My work sits at the intersection of platform architecture and applied ML. I'm comfortable training a U-Net segmentation model in the morning and wiring up a PostgreSQL sync queue in the afternoon. I don't over-specialise early — I'd rather understand a problem fully, then build whatever it takes to solve it.",
+  "Outside of code: Computer Engineering student at AASTMT. I work with clients across Egypt and the GCC and I'm open to remote roles with international teams.",
 ];
 
 export const aboutStats = [
