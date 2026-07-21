@@ -42,31 +42,36 @@ export interface SkillGroup {
 export const personalInfo = {
   name: 'Ahmed Seddik',
   initials: 'AH',
-  title: 'AI/ML Engineer & Full-Stack Developer',
+  title: 'Systems & Software Architect | B2B SaaS Platforms | Applied ML',
   location: 'Alexandria, Egypt',
   email: 'hello@ahmedseddik.dev',
   phone: '+20 103 312 0762',
   website: 'ahmedseddik.dev',
   github: 'https://github.com/ahmed-hesham07',
-  linkedin: 'https://linkedin.com/in/ahmedhesham612006',
+  linkedin: 'https://www.linkedin.com/in/ahmedseddik1/',
   cv: '/ahmed-hesham-cv.pdf',
   tagline: 'I turn hard problems into software that works.',
   heroShort:
-    'Computer Engineering student at AASTMT Alexandria — building production AI systems, full-stack platforms, and offline-first apps that solve real problems in real conditions.',
-  roles: ['AI/ML Engineer', 'Full-Stack Developer', 'Problem Solver'],
+    'Systems & software architect building B2B SaaS across backend, frontend, desktop, and mobile — with applied ML where it creates real leverage. Building production systems since April 2024.',
+  roles: [
+    'Systems & Software Architect',
+    'B2B SaaS Platforms',
+    'Backend · Frontend · Desktop · Mobile',
+    'Applied ML',
+  ],
   availableForWork: true,
 };
 
 // ─── About ───────────────────────────────────────────────────────────────────
 
 export const aboutParagraphs = [
-  "I'm a 20-year-old software developer and AI engineer based in Alexandria, Egypt. I build things that actually get used — a POS system running in Egyptian shops with no internet, an engineering SaaS replacing spreadsheets at oil & gas inspection firms, a corrosion detection pipeline running on industrial image datasets. I care about the gap between 'it works in the demo' and 'it works in the field.'",
-  "My work sits at the intersection of AI/ML and full-stack engineering. I'm comfortable training a U-Net segmentation model in the morning and wiring up a PostgreSQL sync queue in the afternoon. I don't believe in over-specialising early — I'd rather understand a problem fully and then build whatever it takes to solve it.",
+  "I'm a systems & software architect based in Alexandria, Egypt. Since April 2024 I've been building B2B SaaS and production software that actually gets used — engineering platforms replacing spreadsheets at oil & gas inspection firms, corrosion detection pipelines on industrial image datasets, and full-stack systems spanning backend, frontend, desktop, and mobile. I care about the gap between 'it works in the demo' and 'it works in the field.'",
+  "My work sits at the intersection of platform architecture and applied ML. I'm comfortable training a U-Net segmentation model in the morning and wiring up a PostgreSQL sync queue in the afternoon. I don't believe in over-specialising early — I'd rather understand a problem fully and then build whatever it takes to solve it.",
   'Outside of code: Computer Engineering student at AASTMT, gym trainer (5-day hypertrophy split, yes I track everything), and the oldest son in a family that taught me early what it means to be reliable. I work with clients in Egypt and the GCC region and I\'m open to remote roles with international teams.',
 ];
 
 export const aboutStats = [
-  { label: 'Building production systems', value: '2+ years' },
+  { label: 'Building production systems', value: 'Since Apr 2024' },
   { label: 'Client footprint', value: 'Egypt & GCC' },
 ];
 
@@ -163,44 +168,8 @@ export const skillGroups: SkillGroup[] = [
 
 export const projects: Project[] = [
   {
-    slug: 'dukkan',
-    featured: true,
-    name: 'Dukkan — دكان',
-    badge: 'Full-Stack · Offline-First · PWA',
-    businessImpact:
-      'A production POS system that keeps Egyptian shops running during power cuts and internet outages.',
-    description:
-      'Multi-tenant point-of-sale and business operations platform built for small shops in Egypt and emerging markets. Runs fully offline on cheap Android tablets — every transaction hits IndexedDB instantly, then syncs to PostgreSQL in the background via an exponential-backoff queue with dead-letter handling and idempotent client UUIDs.',
-    highlights: [
-      'Zero data loss on flaky connections — offline-first with full sync conflict resolution',
-      'Orders, inventory with profit-margin tracking, customer credit ledger, returns & refunds, printable invoices, KPI dashboard',
-      'Full Arabic RTL + English i18n via i18next — language switch without page reload',
-      'Installable as a PWA — works on any Android device',
-      'Multi-tenant with JWT auth — one deployment serves multiple businesses',
-    ],
-    stack: [
-      'React',
-      'TypeScript',
-      'Node.js',
-      'Express',
-      'PostgreSQL',
-      'Dexie.js',
-      'Docker',
-      'Nginx',
-      'i18next',
-    ],
-    architecture:
-      'npm workspaces monorepo (shared types), React SPA → Nginx, Express REST API, PostgreSQL 16, Docker Compose',
-    github: 'https://github.com/ahmed-hesham07/dukkan',
-    liveUrl: null,
-    image: '/assets/dukkan2.png',
-    color: '#2563EB',
-    whatILearned:
-      "Building offline-first taught me that sync is a distributed systems problem disguised as a UX problem. The hard part wasn't IndexedDB — it was idempotency, dead-letter handling, and making sure a shop owner never sees a duplicate order because the network dropped at exactly the wrong moment.",
-  },
-  {
     slug: 'vessel-guard',
-    featured: false,
+    featured: true,
     name: 'Vessel Guard',
     badge: 'Full-Stack · Engineering SaaS',
     businessImpact:
@@ -228,7 +197,7 @@ export const projects: Project[] = [
       'Turborepo monorepo — Next.js 14 frontend + FastAPI backend + PostgreSQL + Redis, containerised',
     github: 'https://github.com/ahmed-hesham07/Vessel-Guard',
     liveUrl: null,
-    image: null,
+    image: '/assets/vessel-guard.jpg',
     color: '#059669',
     whatILearned:
       "Engineering domain software forced me to think about correctness differently. A wrong ASME calculation doesn't throw an error — it just produces a number that could get someone hurt. That changes how you think about validation, testing, and what 'done' means.",
@@ -333,7 +302,7 @@ export const experience: ExperienceItem[] = [
     role: 'Freelance Developer & NDT Software Consultant',
     company: 'Self-employed',
     type: 'Alexandria, Egypt & GCC',
-    period: '2024 – Present',
+    period: 'Apr 2024 – Present',
     bullets: [
       'Founded ETCH (Enterprise Tracking & Control Hub) — an NDT digital management platform deployed at MASSA Consulting Ltd.',
       'Built and shipped a full web portal (Inspection Hub) and desktop app (FieldPro) covering all 13 NDT methods.',

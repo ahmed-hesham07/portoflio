@@ -31,12 +31,14 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Ahmed Seddik — AI/ML Engineer & Full-Stack Developer',
+  title: 'Ahmed Seddik — Systems & Software Architect | B2B SaaS | Applied ML',
   description:
-    'Portfolio of Ahmed Seddik — building production AI systems, full-stack platforms, and offline-first applications. Based in Alexandria, Egypt. Open to remote roles.',
+    'Portfolio of Ahmed Seddik — systems & software architect building B2B SaaS platforms across backend, frontend, desktop, and mobile, with applied ML. Based in Alexandria, Egypt. Building since April 2024.',
   keywords: [
-    'AI engineer',
-    'ML engineer',
+    'systems architect',
+    'software architect',
+    'B2B SaaS',
+    'applied ML',
     'full-stack developer',
     'Next.js',
     'FastAPI',
@@ -46,16 +48,16 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Ahmed Seddik', url: 'https://ahmedseddik.dev' }],
   openGraph: {
-    title: 'Ahmed Seddik — AI/ML Engineer & Full-Stack Developer',
+    title: 'Ahmed Seddik — Systems & Software Architect | B2B SaaS | Applied ML',
     description:
-      'Building production AI systems, full-stack platforms, and offline-first applications.',
+      'Building B2B SaaS platforms across backend, frontend, desktop, and mobile — with applied ML. Since April 2024.',
     url: 'https://ahmedseddik.dev',
     siteName: 'Ahmed Seddik Portfolio',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ahmed Seddik — AI/ML Engineer & Full-Stack Developer',
+    title: 'Ahmed Seddik — Systems & Software Architect | B2B SaaS | Applied ML',
   },
 };
 
