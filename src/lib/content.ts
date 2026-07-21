@@ -50,7 +50,7 @@ export const personalInfo = {
   github: 'https://github.com/ahmed-hesham07',
   linkedin: 'https://www.linkedin.com/in/ahmedseddik1/',
   cv: '/ahmed-hesham-cv.pdf',
-  tagline: 'I turn hard problems into software that works.',
+  tagline: "I don't wait for problems — I solve the silent back pain.",
   heroShort:
     'Systems & software architect building B2B SaaS across backend, frontend, desktop, and mobile — with applied ML where it creates real leverage. Building production systems since April 2024.',
   roles: [
