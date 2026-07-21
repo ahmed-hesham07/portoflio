@@ -325,7 +325,7 @@ export const contactCopy = {
   subCopy:
     "Whether you're a company looking for an engineer who ships, or a business that needs a digital solution built properly — I'm open to conversations. No fluff, just work.",
   recruiterLabel: 'For companies & recruiters',
-  recruiterAvailability: 'Available for remote roles · Open to relocation',
+  recruiterAvailability: 'Available for remote & onsite roles · Open to relocation',
   clientLabel: 'For clients & projects',
   clientFootprint: 'Egypt · GCC · Remote · Worldwide',
 };

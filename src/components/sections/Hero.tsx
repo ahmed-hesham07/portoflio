@@ -54,7 +54,7 @@ export default function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
           </span>
-          Available for work · Remote
+          Available for work · Remote · Onsite
         </m.div>
 
         {/* Name */}
