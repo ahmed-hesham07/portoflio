@@ -41,10 +41,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Row 2: Build info + copyright */}
+          {/* Row 2: copyright */}
           <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-4 text-xs text-muted">
-            <span>Built with Next.js + Tailwind · Deployed on Vercel</span>
-            <span className="hidden sm:inline text-border">·</span>
             <span>© {new Date().getFullYear()}</span>
           </div>
         </div>
