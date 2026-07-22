@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Playfair_Display, JetBrains_Mono } from 'next/font/google';
 import localFont from 'next/font/local';
 import MotionProvider from '@/components/providers/MotionProvider';
+import AnimatedBackground from '@/components/ui/AnimatedBackground';
 import './globals.css';
 
 const autography = localFont({
@@ -70,7 +71,8 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${playfair.variable} ${jetbrains.variable} ${autography.variable}`}
     >
-      <body className="bg-background text-primary antialiased">
+      <body className="text-primary antialiased">
+        <AnimatedBackground />
         <MotionProvider>{children}</MotionProvider>
       </body>
     </html>

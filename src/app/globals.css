@@ -37,10 +37,11 @@
 /* Base */
 html {
   scroll-behavior: smooth;
+  background-color: #FAFAF8;
 }
 
 body {
-  background-color: #FAFAF8;
+  background-color: transparent;
   color: #1A1A18;
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
@@ -51,6 +52,80 @@ body {
 .dot-grid {
   background-image: radial-gradient(circle, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
   background-size: 24px 24px;
+}
+
+/* =========================================
+   Animated site background
+   ========================================= */
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.42;
+  will-change: transform;
+  mix-blend-mode: multiply;
+}
+
+.aurora-1 { animation: aurora-1 20s ease-in-out infinite; }
+.aurora-2 { animation: aurora-2 26s ease-in-out infinite; }
+.aurora-3 { animation: aurora-3 32s ease-in-out infinite; }
+
+@keyframes aurora-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(6vw, -4vh) scale(1.15); }
+  66%      { transform: translate(-4vw, 5vh) scale(0.92); }
+}
+@keyframes aurora-2 {
+  0%, 100% { transform: translate(0, 0) scale(1.05); }
+  33%      { transform: translate(-7vw, 5vh) scale(0.9); }
+  66%      { transform: translate(5vw, -6vh) scale(1.2); }
+}
+@keyframes aurora-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(5vw, 6vh) scale(1.12); }
+}
+
+/* Slowly panning dot grid */
+.animated-grid {
+  position: absolute;
+  inset: -24px;
+  background-image: radial-gradient(circle, rgba(26, 26, 24, 0.06) 1px, transparent 1px);
+  background-size: 26px 26px;
+  animation: grid-pan 6s linear infinite;
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 30%, transparent 78%);
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 30%, transparent 78%);
+}
+
+@keyframes grid-pan {
+  from { background-position: 0 0; }
+  to   { background-position: 26px 26px; }
+}
+
+/* Interactive cursor spotlight (position fed via --mx / --my) */
+.cursor-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    520px circle at var(--mx, 50%) var(--my, 30%),
+    rgba(37, 99, 235, 0.10),
+    rgba(37, 99, 235, 0.04) 30%,
+    transparent 60%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-1, .aurora-2, .aurora-3, .animated-grid {
+    animation: none;
+  }
+  .cursor-glow { display: none; }
 }
 
 /* Selection */

@@ -37,7 +37,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden dot-grid"
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden"
       aria-label="Hero"
     >
       <m.div
