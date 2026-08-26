@@ -203,6 +203,32 @@ export const projects: Project[] = [
     whatILearned:
       "This was the first system I built where the happy path was the easy part — most of the real engineering went into what happens when a tablet drops offline mid-inspection, two people edit the same record, or an AI-generated sentence risks contradicting the actual test data. Building for a regulated, safety-adjacent domain forced me to treat data integrity and failure handling as core features from day one, not edge cases bolted on later.",
   },
+  {
+    slug: 'orbit',
+    featured: false,
+    name: 'Orbit',
+    badge: 'Full-Stack SaaS · Multi-Portal Community Platform',
+    businessImpact:
+      "Replaces fragmented WhatsApp groups, spreadsheets, and manual gate logs for gated resort communities with one platform covering resident billing, gate security, maintenance, and on-site commerce.",
+    description:
+      "A multi-portal operations platform built for gated resort and residential communities on Egypt's North Coast. Separate subdomain portals serve residents, on-site administrative staff, and a sports/booking club, each with its own tailored authentication flow and an Arabic-first, elderly-accessible resident experience. Underneath, it ties together dues billing and payment collection, gate security, maintenance requests, and on-site commerce into one system, backed by a growing back-office accounting and compliance layer.",
+    highlights: [
+      'Three separate subdomain portals — resident, admin operations, and a sports/booking club — each with role-appropriate authentication and a fully Arabic, elderly-accessible resident experience',
+      'Real Egyptian payment gateway integrations (cards, mobile wallets, national payment rails) with automated dues tracking and instant unlock of restricted amenities the moment a payment clears',
+      'A departmental access control system spanning finance, security, facilities, and sports/commercial staff, with role-specific dashboards and hardware-integrated gate scanning',
+      'An interactive court-booking flow with real-time availability, flexible multi-hour selection, and equipment rentals',
+      'A back-office accounting and compliance module layered on top of the operational platform, still evolving toward full financial sign-off',
+    ],
+    stack: ['Next.js 14', 'TypeScript', 'PostgreSQL', 'Prisma', 'Docker', 'Nginx'],
+    architecture:
+      'Next.js 14 App Router with subdomain-based routing across resident, admin, and sports portals, a PostgreSQL/Prisma backend, edge middleware for auth and access boundaries, and integrated Egyptian payment gateways',
+    github: null,
+    liveUrl: null,
+    image: null,
+    color: '#0D9488',
+    whatILearned:
+      'Building for three very different audiences — elderly residents, on-site operations staff, and outside visitors — on one shared backend taught me how much authentication and access design has to bend around who the user actually is, not just what data they need. The hardest part was never a single feature; it was keeping the access boundaries between those audiences airtight while still sharing one system underneath.',
+  },
 ];
 
 // ─── Experience ──────────────────────────────────────────────────────────────
