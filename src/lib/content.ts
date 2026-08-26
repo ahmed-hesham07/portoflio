@@ -229,6 +229,32 @@ export const projects: Project[] = [
     whatILearned:
       'Building for three very different audiences — elderly residents, on-site operations staff, and outside visitors — on one shared backend taught me how much authentication and access design has to bend around who the user actually is, not just what data they need. The hardest part was never a single feature; it was keeping the access boundaries between those audiences airtight while still sharing one system underneath.',
   },
+  {
+    slug: 'inspection-digitizer',
+    featured: false,
+    name: 'Inspection Digitizer',
+    badge: 'AI · Document Automation · Internal Tooling',
+    businessImpact:
+      'Replaced manual, hours-per-report digitization of complex industrial inspection PDFs into structured Excel deliverables with an AI-driven pipeline, cutting turnaround from hours to minutes per report.',
+    description:
+      'An internal tool built for an industrial inspection company to automatically extract and digitize complex, multi-page PDF inspection reports into the company\'s standard Excel deliverable format — replacing manual data entry with an AI-driven document pipeline that still gets independently checked before anything is trusted.',
+    highlights: [
+      'Single-report and large-batch processing modes, including bulk AI processing at reduced cost for hundreds of reports in one run',
+      'A second, independent AI pass that cross-verifies every extraction against domain rules before it is accepted',
+      'Checkpointed extraction pipeline that resumes cleanly after an interruption without re-running expensive AI processing',
+      'Automatic sanitization of AI-extracted data to guarantee clean, spreadsheet-compatible output every time',
+      'Local encrypted credential storage so the tool never requires exposing API keys in plaintext',
+    ],
+    stack: ['Python', 'Anthropic Claude API', 'openpyxl', 'SQLite'],
+    architecture:
+      'CLI-driven Python pipeline: AI-based PDF extraction, checkpointed intermediate storage, an independent AI cross-verification pass, and automated Excel deliverable generation',
+    github: null,
+    liveUrl: null,
+    image: null,
+    color: '#EA580C',
+    whatILearned:
+      "Working with LLMs on messy real-world PDFs taught me that the model call is the easy part — most of the engineering is defensive: catching truncated output, stripping invisible characters that silently corrupt a spreadsheet, and building a verification pass that doesn't just trust the first answer it gets.",
+  },
 ];
 
 // ─── Experience ──────────────────────────────────────────────────────────────
