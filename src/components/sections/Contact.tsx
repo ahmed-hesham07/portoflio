@@ -1,7 +1,7 @@
 'use client';
 
 import { m, useReducedMotion } from 'framer-motion';
-import { Github, Linkedin, Download, Mail, ArrowRight } from 'lucide-react';
+import { Github, Linkedin, Download, Mail, ArrowRight, MessageCircle } from 'lucide-react';
 import SectionLabel from '@/components/ui/SectionLabel';
 import { personalInfo, contactCopy } from '@/lib/content';
 
@@ -102,6 +102,16 @@ export default function Contact() {
               >
                 <Linkedin size={15} />
                 Connect on LinkedIn
+                <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-1" />
+              </a>
+              <a
+                href={personalInfo.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 font-body text-sm font-medium text-accent hover:text-blue-700 transition-colors duration-200"
+              >
+                <MessageCircle size={15} />
+                Message on WhatsApp
                 <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-1" />
               </a>
             </div>
