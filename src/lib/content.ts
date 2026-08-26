@@ -198,7 +198,7 @@ export const projects: Project[] = [
       'React web portal + FastAPI/PostgreSQL backend, with Electron desktop and Android (Expo) field apps syncing offline-captured inspection data to a central server, plus an async pipeline for AI-assisted report generation',
     github: null,
     liveUrl: null,
-    image: null,
+    image: '/assets/thenucleus.png',
     color: '#1E3A5F',
     whatILearned:
       "This was the first system I built where the happy path was the easy part — most of the real engineering went into what happens when a tablet drops offline mid-inspection, two people edit the same record, or an AI-generated sentence risks contradicting the actual test data. Building for a regulated, safety-adjacent domain forced me to treat data integrity and failure handling as core features from day one, not edge cases bolted on later.",
