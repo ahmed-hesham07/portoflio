@@ -43,7 +43,9 @@ export default function Footer() {
 
           {/* Row 2: copyright */}
           <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-4 text-xs text-muted">
-            <span>© {new Date().getFullYear()}</span>
+            <span>
+              © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
+            </span>
           </div>
         </div>
       </div>
