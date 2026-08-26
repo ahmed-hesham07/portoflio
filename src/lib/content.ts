@@ -166,7 +166,44 @@ export const skillGroups: SkillGroup[] = [
 
 // ─── Projects ────────────────────────────────────────────────────────────────
 
-export const projects: Project[] = [];
+export const projects: Project[] = [
+  {
+    slug: 'the-nucleus',
+    featured: true,
+    name: 'The Nucleus',
+    badge: 'Full-Stack B2B Platform · Web + Desktop + Mobile',
+    businessImpact:
+      'Replaces manual, paper- and spreadsheet-based inspection workflows for industrial Non-Destructive Testing (NDT) service providers with one auditable platform spanning field data capture, review, reporting, and client delivery.',
+    description:
+      'A production inspection-management platform built for industrial NDT companies — teams running ultrasonic, radiographic, and visual inspections on pressure vessels, pipelines, and storage tanks. It covers the full inspection lifecycle across six role-specific portals (admin, manager, reviewer, inspector, client, IT), with a web app, a Windows desktop app, and an Android tablet app so inspectors can capture data in the field, online or offline, while everyone else works from a single source of truth.',
+    highlights: [
+      'Offline-first field data capture on desktop and Android tablet apps, with encrypted local storage and automatic background sync back to a central server',
+      'AI-assisted inspection report generation, gated behind data-completeness checks and automated fact-checking so generated narrative can never contradict the recorded data',
+      'Interactive 3D asset visualization with real-time thickness/corrosion heatmaps and automated asset health scoring',
+      'Full role-based workflow: job assignment, review, correction requests, approval, and client sign-off, with a tamper-evident audit log across every action',
+      'White-labelled, multi-deployment architecture so the same platform can be branded and rolled out to different clients independently',
+    ],
+    stack: [
+      'React',
+      'TypeScript',
+      'FastAPI',
+      'PostgreSQL',
+      'Electron',
+      'React Native / Expo',
+      'Three.js',
+      'Redis',
+      'Docker',
+    ],
+    architecture:
+      'React web portal + FastAPI/PostgreSQL backend, with Electron desktop and Android (Expo) field apps syncing offline-captured inspection data to a central server, plus an async pipeline for AI-assisted report generation',
+    github: null,
+    liveUrl: null,
+    image: null,
+    color: '#1E3A5F',
+    whatILearned:
+      "This was the first system I built where the happy path was the easy part — most of the real engineering went into what happens when a tablet drops offline mid-inspection, two people edit the same record, or an AI-generated sentence risks contradicting the actual test data. Building for a regulated, safety-adjacent domain forced me to treat data integrity and failure handling as core features from day one, not edge cases bolted on later.",
+  },
+];
 
 // ─── Experience ──────────────────────────────────────────────────────────────
 
