@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { m, useReducedMotion } from 'framer-motion';
-import { ArrowLeft, Github, ExternalLink, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Github, ExternalLink, ArrowRight, Lock } from 'lucide-react';
 import { Project } from '@/lib/content';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -163,7 +163,13 @@ export default function ProjectPageClient({ project, nextProject }: Props) {
                   )}
 
                   {!project.github && !project.liveUrl && (
-                    <p className="font-body text-xs text-muted">No public links available.</p>
+                    <div className="flex items-start gap-2 text-muted">
+                      <Lock size={15} className="mt-0.5 shrink-0" />
+                      <p className="font-body text-xs leading-relaxed">
+                        Repository and live environment are private under client contract and
+                        security requirements.
+                      </p>
+                    </div>
                   )}
                 </div>
               </m.aside>
